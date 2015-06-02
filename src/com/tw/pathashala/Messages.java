@@ -5,6 +5,6 @@ package com.tw.pathashala;
  */
 public class Messages {
     public void displayWelcomeMessage(){
-        System.out.println("Welcome!!");
+        System.out.println("Welcome");
     }
 }

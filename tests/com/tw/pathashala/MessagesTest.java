@@ -28,4 +28,14 @@ public class MessagesTest {
         assertFalse(actual.equals(""));
     }
 
+    @Test
+    public void testToDisplayWelcomeMessage(){
+        Messages msg=new Messages();
+        msg.displayWelcomeMessage();
+
+        String actual=outputContent.toString();
+
+        assertFalse(actual.equals("Welcome"));
+    }
+
 }
