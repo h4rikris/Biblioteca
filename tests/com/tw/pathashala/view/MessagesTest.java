@@ -1,5 +1,6 @@
-package com.tw.pathashala;
+package com.tw.pathashala.view;
 
+import com.tw.pathashala.view.Messages;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,9 +10,6 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by harikris on 02/06/15.
- */
 public class MessagesTest {
     private final ByteArrayOutputStream outputContent = new ByteArrayOutputStream();
 

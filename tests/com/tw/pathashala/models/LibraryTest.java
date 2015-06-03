@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
-/**
- * Created by harikris on 03/06/15.
- */
 public class LibraryTest {
     @Test
     public void testForEmptyListOfBooksInLibrary(){
