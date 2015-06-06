@@ -22,18 +22,27 @@ public class BookTest {
         Book book = new Book("Java", "Hari" ,"12-05-2015");
 
         String bookDetails = book.toString();
-        String author = "Java";
+        String author = "Hari";
 
         assertTrue(bookDetails.contains(author));
     }
 
     @Test
-    public void testForAuthorDetailsConsistsAuthor() {
+    public void testForBookDetailsConsistsBookName() {
         Book book = new Book("Java", "Hari" ,"12-05-2015");
 
         String bookDetails = book.toString();
-        String author = "Hari";
+        String bookName = "Java";
 
-        assertTrue(bookDetails.contains(author));
+        assertTrue(bookDetails.contains(bookName));
+    }
+    @Test
+    public void testForBookDetailsConsistsDateOfPublication() {
+        Book book = new Book("Java", "Hari" ,"12-05-2015");
+
+        String bookDetails = book.toString();
+        String dateOfPublication = "12-05-2015";
+
+        assertTrue(bookDetails.contains(dateOfPublication));
     }
 }
