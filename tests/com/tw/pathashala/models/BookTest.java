@@ -17,4 +17,13 @@ public class BookTest {
         assertEquals(expectedBookDetails, bookDetails);
     }
 
+    @Test
+    public void testForBookDetailsConsistsAuthor() {
+        Book book = new Book("Java", "Hari" ,"12-05-2015");
+
+        String bookDetails = book.toString();
+        String author = "Hari";
+
+        assertTrue(bookDetails.contains(author));
+    }
 }
