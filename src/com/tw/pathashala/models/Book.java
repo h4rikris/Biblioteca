@@ -15,10 +15,10 @@ public class Book {
 
     @Override
     public String toString() {
-        return name + ' ' + author + ' ' + yearOfPublication;
+        return String.format("%-20s | %-15s | %-5s", name, author, yearOfPublication);
     }
 
-    public boolean isPublicationYearInFuture(){
+    public boolean isPublicationYearInFuture() {
         Integer year = Calendar.getInstance().get(Calendar.YEAR);
         return year < yearOfPublication;
     }

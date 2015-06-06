@@ -22,13 +22,13 @@ public class BooksTest {
     }
 
     @Test
-    public void testForBooksReturningAllBookDetails() {
+    public void testForBooksReturningBookDetails() {
         Books books = new Books(listOfBooks);
 
         String booksDetails = books.toString();
-        String expectedBooksDetails = "University Rajat 2015\n" +
-                "Refactoring Jashwanth 2015\n" +
-                "Object Oriented Venkatesh 2014\n";
+        String expectedBooksDetails = "University           | Rajat           | 2015 \n" +
+                "Refactoring          | Jashwanth       | 2015 \n" +
+                "Object Oriented      | Venkatesh       | 2014 \n";
         assertThat(booksDetails, is(expectedBooksDetails));
     }
 
@@ -43,14 +43,15 @@ public class BooksTest {
     }
 
     @Test
-    public void testForNotToDisplayBookDetailsHavingFutureYearOfPublication(){
+    public void testForNotToDisplayBookDetailsHavingFutureYearOfPublication() {
         Books books = new Books(listOfBooks);
 
         String booksDetails = books.toString();
-        String expectedBooksDetails = "University Rajat 2015\n" +
-                "Refactoring Jashwanth 2015\n" +
-                "Object Oriented Venkatesh 2014\n";
+        String expectedBooksDetails = "University           | Rajat           | 2015 \n" +
+                "Refactoring          | Jashwanth       | 2015 \n" +
+                "Object Oriented      | Venkatesh       | 2014 \n";
 
         assertThat(booksDetails, is(expectedBooksDetails));
     }
+    
 }

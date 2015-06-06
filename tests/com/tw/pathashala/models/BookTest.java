@@ -9,7 +9,7 @@ public class BookTest {
 
     @Test
     public void testForBookReturningBookDetails() {
-        Book book = new Book("Java", "Hari" ,2015);
+        Book book = new Book("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         String expectedBookDetails = "Java Hari 2015";
@@ -19,7 +19,7 @@ public class BookTest {
 
     @Test
     public void testForBookDetailsConsistsAuthor() {
-        Book book = new Book("Java", "Hari" ,2015);
+        Book book = new Book("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         String author = "Hari";
@@ -29,16 +29,17 @@ public class BookTest {
 
     @Test
     public void testForBookDetailsConsistsBookName() {
-        Book book = new Book("Java", "Hari" ,2015);
+        Book book = new Book("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         String bookName = "Java";
 
         assertTrue(bookDetails.contains(bookName));
     }
+
     @Test
     public void testForBookDetailsConsistsDateOfPublication() {
-        Book book = new Book("Java", "Hari" ,2015);
+        Book book = new Book("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         Integer dateOfPublication = 2015;
