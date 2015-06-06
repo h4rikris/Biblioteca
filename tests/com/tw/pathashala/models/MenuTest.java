@@ -13,7 +13,7 @@ public class MenuTest {
         Menu m = new Menu();
 
         Integer menuSizeBeforeEntry = m.getMenuList().size();
-        m.addItem("Checkout");
+        m.addOption("Checkout");
         Integer menuSizeAfterEntry = m.getMenuList().size();
 
         assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));
@@ -23,7 +23,7 @@ public class MenuTest {
     public void testForMenuOptionToExistsInMenuList() {
         Menu m = new Menu();
 
-        boolean actual = m.isValidItem("List Books");
+        boolean actual = m.isValidOption("List Books");
 
         assertEquals(true, actual);
     }
@@ -32,7 +32,7 @@ public class MenuTest {
     public void testForMenuOptionToDoesNotExistsInMenuList() {
         Menu m = new Menu();
 
-        boolean actual = m.isValidItem("CheckOut");
+        boolean actual = m.isValidOption("CheckOut");
 
         assertEquals(false, actual);
     }

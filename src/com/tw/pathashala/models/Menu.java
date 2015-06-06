@@ -10,9 +10,9 @@ public class Menu {
         menuList.add("Quit");
     }
 
-    public void addItem(String menuItem) {
+    public void addOption(String menuOption) {
         menuList.remove(menuList.size()-1);
-        menuList.add(menuItem);
+        menuList.add(menuOption);
         menuList.add("Quit");
     }
 
@@ -20,7 +20,7 @@ public class Menu {
         return menuList;
     }
 
-    public boolean isValidItem(String menuItem) {
-        return menuList.contains(menuItem);
+    public boolean isValidOption(String menuOption) {
+        return menuList.contains(menuOption);
     }
 }
