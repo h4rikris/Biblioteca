@@ -9,14 +9,23 @@ import static org.junit.Assert.*;
 public class MenuTest {
 
     @Test
-    public void testForMenuAddItemEntry(){
-        Menu m= new Menu();
+    public void testForMenuAddItemEntry() {
+        Menu m = new Menu();
 
         Integer menuSizeBeforeEntry = m.getMenuList().size();
         m.addItem("Checkout");
         Integer menuSizeAfterEntry = m.getMenuList().size();
 
-        assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry+1)));
+        assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));
+    }
+
+    @Test
+    public void testForMenuOptionToExistsInMenuList() {
+        Menu m = new Menu();
+
+        boolean actual = m.isValidItem("List Books");
+
+        assertEquals(true, actual);
     }
 
 }

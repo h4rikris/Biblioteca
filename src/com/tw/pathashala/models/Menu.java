@@ -19,4 +19,8 @@ public class Menu {
     public ArrayList<String> getMenuList() {
         return menuList;
     }
+
+    public boolean isValidItem(String menuItem) {
+        return menuList.contains(menuItem);
+    }
 }
