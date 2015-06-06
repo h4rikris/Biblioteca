@@ -12,8 +12,10 @@ public class Books {
     @Override
     public String toString() {
         String booksDetails = "";
-        for(Book book : books){
-            booksDetails = booksDetails.concat(book.toString() + "\n");
+        for (Book book : books) {
+            if (!book.isPublicationYearInFuture()) {
+                booksDetails = booksDetails.concat(book.toString() + "\n");
+            }
         }
         return booksDetails;
     }
