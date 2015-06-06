@@ -22,6 +22,16 @@ public class BookTest {
         Book book = new Book("Java", "Hari" ,"12-05-2015");
 
         String bookDetails = book.toString();
+        String author = "Java";
+
+        assertTrue(bookDetails.contains(author));
+    }
+
+    @Test
+    public void testForAuthorDetailsConsistsAuthor() {
+        Book book = new Book("Java", "Hari" ,"12-05-2015");
+
+        String bookDetails = book.toString();
         String author = "Hari";
 
         assertTrue(bookDetails.contains(author));
