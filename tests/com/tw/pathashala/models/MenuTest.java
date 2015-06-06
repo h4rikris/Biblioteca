@@ -28,4 +28,12 @@ public class MenuTest {
         assertEquals(true, actual);
     }
 
+    @Test
+    public void testForMenuOptionToDoesNotExistsInMenuList() {
+        Menu m = new Menu();
+
+        boolean actual = m.isValidItem("CheckOut");
+
+        assertEquals(false, actual);
+    }
 }
