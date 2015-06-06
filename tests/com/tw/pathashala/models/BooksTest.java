@@ -32,4 +32,14 @@ public class BooksTest {
         assertThat(booksDetails, is(expectedBooksDetails));
     }
 
+    @Test
+    public void testForEmptyListOfBooks() {
+        Books books = new Books(new ArrayList<Book>(0));
+
+        String booksDetails = books.toString();
+        String expectedBooksDetails = "";
+
+        assertEquals(booksDetails, expectedBooksDetails);
+    }
+
 }
