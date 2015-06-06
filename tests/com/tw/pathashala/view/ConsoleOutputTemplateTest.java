@@ -12,7 +12,7 @@ public class ConsoleOutputTemplateTest {
         ConsoleOutputTemplate template = new ConsoleOutputTemplate();
         String divider = template.divider(100);
         String expectdDivider = "------------------------------------------------------------------------------------" +
-                "----------------";
+                "----------------\n";
 
         assertThat(divider, is(expectdDivider));
     }

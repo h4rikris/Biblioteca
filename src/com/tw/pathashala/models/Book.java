@@ -15,7 +15,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return String.format("%-20s | %-15s | %-5s", name, author, yearOfPublication);
+        return String.format("| %-41s | %-41s | %-8s |", name, author, yearOfPublication);
     }
 
     public boolean isPublicationYearInFuture() {

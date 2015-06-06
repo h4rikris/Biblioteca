@@ -26,9 +26,10 @@ public class BooksTest {
         Books books = new Books(listOfBooks);
 
         String booksDetails = books.toString();
-        String expectedBooksDetails = "University           | Rajat           | 2015 \n" +
-                "Refactoring          | Jashwanth       | 2015 \n" +
-                "Object Oriented      | Venkatesh       | 2014 \n";
+        String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
+                String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
+                String.format("| %-41s | %-41s | %-8s |", "Object Oriented", "Venkatesh", "2014") + "\n";
+
         assertThat(booksDetails, is(expectedBooksDetails));
     }
 
@@ -47,9 +48,9 @@ public class BooksTest {
         Books books = new Books(listOfBooks);
 
         String booksDetails = books.toString();
-        String expectedBooksDetails = "University           | Rajat           | 2015 \n" +
-                "Refactoring          | Jashwanth       | 2015 \n" +
-                "Object Oriented      | Venkatesh       | 2014 \n";
+        String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
+                String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
+                String.format("| %-41s | %-41s | %-8s |", "Object Oriented", "Venkatesh", "2014") + "\n";
 
         assertThat(booksDetails, is(expectedBooksDetails));
     }

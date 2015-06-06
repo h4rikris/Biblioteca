@@ -5,9 +5,9 @@ public class ConsoleOutputTemplate {
 
     public String divider(Integer length) {
         String output = "";
-        for(int i=0;i<length; i++){
+        for (int i = 0; i < length; i++) {
             output = output.concat("-");
         }
-        return output;
+        return output + "\n";
     }
 }
