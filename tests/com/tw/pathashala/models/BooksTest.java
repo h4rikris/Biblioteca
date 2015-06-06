@@ -14,10 +14,10 @@ public class BooksTest {
 
     @Before
     public void setup() {
-        listOfBooks.add(new Book("Pathashala", "Saurav", "12-05-2014"));
-        listOfBooks.add(new Book("University", "Rajat", "12-07-2015"));
-        listOfBooks.add(new Book("Refactoring", "Jashwanth", "13-06-2015"));
-        listOfBooks.add(new Book("Object Oriented", "Venkatesh", "11-05-2014"));
+        listOfBooks.add(new Book("Pathashala", "Saurav", 2014));
+        listOfBooks.add(new Book("University", "Rajat", 2015));
+        listOfBooks.add(new Book("Refactoring", "Jashwanth", 2015));
+        listOfBooks.add(new Book("Object Oriented", "Venkatesh", 2014));
     }
 
     @Test
@@ -25,10 +25,10 @@ public class BooksTest {
         Books books = new Books(listOfBooks);
 
         String booksDetails = books.toString();
-        String expectedBooksDetails = "Pathashala Saurav 12-05-2014\n" +
-                "University Rajat 12-07-2015\n" +
-                "Refactoring Jashwanth 13-06-2015\n" +
-                "Object Oriented Venkatesh 11-05-2014\n";
+        String expectedBooksDetails = "Pathashala Saurav 2014\n" +
+                "University Rajat 2015\n" +
+                "Refactoring Jashwanth 2015\n" +
+                "Object Oriented Venkatesh 2014\n";
         assertThat(booksDetails, is(expectedBooksDetails));
     }
 
@@ -41,5 +41,4 @@ public class BooksTest {
 
         assertEquals(booksDetails, expectedBooksDetails);
     }
-
 }

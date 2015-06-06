@@ -1,18 +1,25 @@
 package com.tw.pathashala.models;
 
+import java.util.Calendar;
+
 public class Book {
     private String name;
     private String author;
-    private String dateOfPublication;
+    private Integer yearOfPublication;
 
-    public Book(String name, String author, String dateOfPublication) {
+    public Book(String name, String author, Integer yearOfPublication) {
         this.name = name;
         this.author = author;
-        this.dateOfPublication = dateOfPublication;
+        this.yearOfPublication = yearOfPublication;
     }
 
     @Override
     public String toString() {
-        return name + ' ' + author + ' ' + dateOfPublication;
+        return name + ' ' + author + ' ' + yearOfPublication;
+    }
+
+    public boolean isPublicationYearInFuture(){
+        Integer year = Calendar.getInstance().get(Calendar.YEAR);
+        return year < yearOfPublication;
     }
 }
