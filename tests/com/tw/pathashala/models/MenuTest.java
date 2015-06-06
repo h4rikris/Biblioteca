@@ -36,4 +36,16 @@ public class MenuTest {
 
         assertEquals(false, actual);
     }
+
+    @Test
+    public void testForQuitOptionAtEndOfMenuList(){
+        Menu m = new Menu();
+
+        m.addOption("Checkout");
+        m.addOption("CheckIn");
+        Integer indexOfQuit = m.getMenuList().indexOf("Quit");
+        Integer expectedIndex = m.getMenuList().size()-1;
+
+        assertThat(indexOfQuit, is(expectedIndex));
+    }
 }
