@@ -53,5 +53,5 @@ public class BooksTest {
 
         assertThat(booksDetails, is(expectedBooksDetails));
     }
-    
+
 }
