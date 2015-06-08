@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
@@ -23,7 +24,7 @@ public class BooksTest {
 
     @Test
     public void testForBooksReturningBookDetails() {
-        Books books = new Books(listOfBooks);
+        Books books = new Books();
 
         String booksDetails = books.toString();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
@@ -35,17 +36,17 @@ public class BooksTest {
 
     @Test
     public void testForEmptyListOfBooks() {
-        Books books = new Books(new ArrayList<Book>(0));
+        Books books = new Books();
 
         String booksDetails = books.toString();
         String expectedBooksDetails = "";
 
-        assertEquals(booksDetails, expectedBooksDetails);
+        assertThat(booksDetails, is(not(expectedBooksDetails)));
     }
 
     @Test
     public void testForNotToDisplayBookDetailsHavingFutureYearOfPublication() {
-        Books books = new Books(listOfBooks);
+        Books books = new Books();
 
         String booksDetails = books.toString();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +

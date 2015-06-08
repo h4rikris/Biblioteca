@@ -5,8 +5,11 @@ import java.util.ArrayList;
 public class Books {
     private ArrayList<Book> books = new ArrayList<Book>();
 
-    public Books(ArrayList<Book> books) {
-        this.books = books;
+    public Books() {
+        books.add(new Book("Pathashala", "Saurav", 2016));
+        books.add(new Book("University", "Rajat", 2015));
+        books.add(new Book("Refactoring", "Jashwanth", 2015));
+        books.add(new Book("Object Oriented", "Venkatesh", 2014));
     }
 
     @Override

@@ -23,10 +23,8 @@ public class BooksListTest {
 
     @Test
     public void canReturnListOfBooksWithDetailsInString() {
-        Books books = new Books(listOfBooks);
         BooksList booklist = new BooksList();
 
-        booklist.setBooks(books);
         String booksDetails = booklist.display();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
