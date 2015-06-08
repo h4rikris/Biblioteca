@@ -1,26 +1,29 @@
 package com.tw.pathashala.models;
 
-import java.util.ArrayList;
+import com.tw.pathashala.menu.BooksList;
+import com.tw.pathashala.menu.MenuAction;
+import com.tw.pathashala.menu.Quit;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Menu {
-    private ArrayList<String> menuList = new ArrayList<String>();
+    private Map<String, MenuAction> menuList = new HashMap<String, MenuAction>();
 
     public Menu() {
-        menuList.add("List Books");
-        menuList.add("Quit");
+        menuList.put("List Books", new BooksList());
+        menuList.put("Quit", new Quit());
     }
 
-    public void addOption(String menuOption) {
-        menuList.remove(menuList.size()-1);
-        menuList.add(menuOption);
-        menuList.add("Quit");
+    public void addOption(String menuOption, MenuAction action) {
+        menuList.put(menuOption, action);
     }
 
-    public ArrayList<String> menuList() {
+    public Map<String, MenuAction> menuList() {
         return menuList;
     }
 
-    public boolean isValidOption(String menuOption) {
-        return menuList.contains(menuOption);
+    public MenuAction chooseOption(String menuOption) {
+        return menuList.get(menuOption);
     }
 }

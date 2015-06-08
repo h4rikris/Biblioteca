@@ -1,5 +1,7 @@
 package com.tw.pathashala.models;
 
+import com.tw.pathashala.menu.BooksList;
+import com.tw.pathashala.menu.MenuAction;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -13,39 +15,19 @@ public class MenuTest {
         Menu m = new Menu();
 
         Integer menuSizeBeforeEntry = m.menuList().size();
-        m.addOption("Checkout");
+        m.addOption("Checkout", new BooksList());
         Integer menuSizeAfterEntry = m.menuList().size();
 
         assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));
     }
 
     @Test
-    public void testForMenuOptionToExistsInMenuList() {
+    public void testForMenuOptionToReturnMenuAction() {
         Menu m = new Menu();
 
-        boolean actual = m.isValidOption("List Books");
+        MenuAction actual = m.chooseOption("List Books");
 
-        assertEquals(true, actual);
+        assertEquals(new BooksList(), actual);
     }
 
-    @Test
-    public void testForMenuOptionToDoesNotExistsInMenuList() {
-        Menu m = new Menu();
-
-        boolean actual = m.isValidOption("CheckOut");
-
-        assertEquals(false, actual);
-    }
-
-    @Test
-    public void testForQuitOptionAtEndOfMenuList(){
-        Menu m = new Menu();
-
-        m.addOption("Checkout");
-        m.addOption("CheckIn");
-        Integer indexOfQuit = m.menuList().indexOf("Quit");
-        Integer expectedIndex = 3;
-
-        assertThat(indexOfQuit, is(expectedIndex));
-    }
 }
