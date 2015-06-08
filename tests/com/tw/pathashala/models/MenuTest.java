@@ -12,9 +12,9 @@ public class MenuTest {
     public void testForMenuAddItemEntry() {
         Menu m = new Menu();
 
-        Integer menuSizeBeforeEntry = m.getMenuList().size();
+        Integer menuSizeBeforeEntry = m.menuList().size();
         m.addOption("Checkout");
-        Integer menuSizeAfterEntry = m.getMenuList().size();
+        Integer menuSizeAfterEntry = m.menuList().size();
 
         assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));
     }
@@ -43,8 +43,8 @@ public class MenuTest {
 
         m.addOption("Checkout");
         m.addOption("CheckIn");
-        Integer indexOfQuit = m.getMenuList().indexOf("Quit");
-        Integer expectedIndex = m.getMenuList().size()-1;
+        Integer indexOfQuit = m.menuList().indexOf("Quit");
+        Integer expectedIndex = 3;
 
         assertThat(indexOfQuit, is(expectedIndex));
     }

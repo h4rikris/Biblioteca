@@ -12,7 +12,7 @@ public class BookTest {
         Book book = new Book("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
-        String expectedBookDetails = "Java Hari 2015";
+        String expectedBookDetails = "| Java                                      | Hari                                      | 2015     |";
 
         assertEquals(expectedBookDetails, bookDetails);
     }

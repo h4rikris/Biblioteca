@@ -16,7 +16,7 @@ public class Menu {
         menuList.add("Quit");
     }
 
-    public ArrayList<String> getMenuList() {
+    public ArrayList<String> menuList() {
         return menuList;
     }
 
