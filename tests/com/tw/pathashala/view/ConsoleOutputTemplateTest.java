@@ -40,6 +40,18 @@ public class ConsoleOutputTemplateTest {
         assertTrue(actual.contains("Welcome"));
     }
 
+
+    @Test
+    public void testForTemplateToIncludeFooterMessageOrNot() {
+        ConsoleOutputTemplate template = new ConsoleOutputTemplate();
+
+        template.addToFooter("Menu");
+        template.renderOutput();
+        String actual = outputContent.toString();
+
+        assertTrue(actual.contains("Menu"));
+    }
+
     @After
     public void cleanUp() {
         System.setOut(null);

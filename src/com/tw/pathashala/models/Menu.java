@@ -26,4 +26,15 @@ public class Menu {
     public MenuAction chooseOption(String menuOption) {
         return menuList.get(menuOption);
     }
+
+    @Override
+    public String toString() {
+        String output = "";
+        int serial = 1;
+        for(String menu:menuList.keySet()){
+            output = output + "\n" + serial + ") " + menu;
+            serial++;
+        }
+        return output;
+    }
 }
