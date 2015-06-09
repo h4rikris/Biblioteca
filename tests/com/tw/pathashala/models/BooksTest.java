@@ -56,4 +56,16 @@ public class BooksTest {
         assertThat(booksDetails, is(expectedBooksDetails));
     }
 
+    @Test
+    public void testForNotToDisplayCheckedOutBookDetails() {
+        Books books = new Books();
+
+        String booksDetails = books.toString();
+        String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
+                String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
+                String.format("| %-41s | %-41s | %-8s |", "Object Oriented", "Venkatesh", "2014") + "\n";
+
+        assertThat(booksDetails, is(expectedBooksDetails));
+    }
+
 }

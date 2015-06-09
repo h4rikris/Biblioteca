@@ -20,6 +20,10 @@ public class Book {
         return String.format("| %-41s | %-41s | %-8s |", name, author, yearOfPublication);
     }
 
+    public boolean isCheckedOut() {
+        return checkedOut;
+    }
+
     public boolean isPublicationYearInFuture() {
         Integer year = Calendar.getInstance().get(Calendar.YEAR);
         return year < yearOfPublication;
