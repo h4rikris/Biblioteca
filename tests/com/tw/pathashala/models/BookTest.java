@@ -69,4 +69,15 @@ public class BookTest {
         assertEquals(expectedResult, bookYearInFuture);
     }
 
+    @Test
+    public void testForBookCheckOutToBeTrueAfterCheckedOut() {
+        Book book = new Book("Java", "Hari", 2016);
+
+        boolean checkout = book.checkOut();
+
+        assertEquals(true, checkout);
+    }
+
+    
+
 }

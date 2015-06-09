@@ -21,6 +21,10 @@ public class Menu {
         menuList.put(menuOption, action);
     }
 
+    public Map<String, MenuAction> menuList() {
+        return menuList;
+    }
+
     public MenuAction chooseOption(String menuOption) {
         return menuList.get(menuOption);
     }

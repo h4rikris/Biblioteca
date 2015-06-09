@@ -39,7 +39,7 @@ public class BooksTest {
         Books books = new Books();
 
         String booksDetails = books.toString();
-        String expectedBooksDetails = "";
+        String expectedBooksDetails = "No Books details are Found";
 
         assertThat(booksDetails, is(not(expectedBooksDetails)));
     }

@@ -24,6 +24,9 @@ public class ConsoleOutputTemplate {
     }
 
     public void renderOutput() {
+
         System.out.print(String.format(template, header, body, divider(width), footer));
+        body = "";
+        footer = "";
     }
 }

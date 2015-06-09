@@ -9,19 +9,18 @@ import java.util.Scanner;
 
 public class Biblioteca {
     public static void main (String args[]){
-        ConsoleOutputTemplate out = new ConsoleOutputTemplate();
+        ConsoleOutputTemplate template = new ConsoleOutputTemplate();
 
         Books books = new Books();
         Menu menu = new Menu(books);
-        out.addToBody("Welcome!");
-        out.addToFooter(menu.toString());
-        out.renderOutput();
+        template.addToBody("Welcome!");
+        template.addToFooter(menu.toString());
+        template.renderOutput();
 
         Scanner sc = new Scanner(System.in);
         String option = sc.nextLine();
         MenuAction action = menu.chooseOption(option);
         while(action.display() != null) {
-            ConsoleOutputTemplate template = new ConsoleOutputTemplate();
             template.addToBody(action.display());
             template.addToFooter(menu.toString());
             template.renderOutput();

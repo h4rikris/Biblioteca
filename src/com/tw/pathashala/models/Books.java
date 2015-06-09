@@ -20,6 +20,9 @@ public class Books {
                 booksDetails = booksDetails.concat(book.toString() + "\n");
             }
         }
+        if(booksDetails.equals("")){
+            return "No Books details are Found";
+        }
         return booksDetails;
     }
 }
