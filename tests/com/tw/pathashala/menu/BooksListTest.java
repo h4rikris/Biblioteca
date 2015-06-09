@@ -12,18 +12,15 @@ import static org.junit.Assert.*;
 public class BooksListTest {
 
     ArrayList<Book> listOfBooks = new ArrayList<Book>();
-
+    Books books;
     @Before
     public void setup() {
-        listOfBooks.add(new Book("Pathashala", "Saurav", 2016));
-        listOfBooks.add(new Book("University", "Rajat", 2015));
-        listOfBooks.add(new Book("Refactoring", "Jashwanth", 2015));
-        listOfBooks.add(new Book("Object Oriented", "Venkatesh", 2014));
+        books = new Books();
     }
 
     @Test
     public void canReturnListOfBooksWithDetailsInString() {
-        BooksList booklist = new BooksList();
+        BooksList booklist = new BooksList(books);
 
         String booksDetails = booklist.display();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +

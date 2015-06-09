@@ -4,13 +4,15 @@ import com.tw.pathashala.models.Books;
 
 public class BooksList implements MenuAction {
 
-    @Override
-    public String display() {
-        return new Books().toString();
+    private Books books;
+
+    public BooksList(Books books) {
+        this.books = books;
     }
 
     @Override
-    public String toString() {
-        return "BooksList{}";
+    public String display() {
+        return books.toString();
     }
+
 }

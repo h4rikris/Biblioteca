@@ -9,18 +9,16 @@ import java.util.Map;
 
 public class Menu {
     private Map<String, MenuAction> menuList = new HashMap<String, MenuAction>();
+    private Books books;
 
-    public Menu() {
-        menuList.put("List Books", new BooksList());
+    public Menu(Books books) {
+        this.books = books;
+        menuList.put("List Books", new BooksList(books));
         menuList.put("Quit", new Quit());
     }
 
     public void addOption(String menuOption, MenuAction action) {
         menuList.put(menuOption, action);
-    }
-
-    public Map<String, MenuAction> menuList() {
-        return menuList;
     }
 
     public MenuAction chooseOption(String menuOption) {
@@ -31,7 +29,7 @@ public class Menu {
     public String toString() {
         String output = "";
         int serial = 1;
-        for(String menu:menuList.keySet()){
+        for (String menu : menuList.keySet()) {
             output = output + "\n" + serial + ") " + menu;
             serial++;
         }

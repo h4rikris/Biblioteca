@@ -1,7 +1,7 @@
 package com.tw.pathashala.view;
 
 public class ConsoleOutputTemplate {
-    private String template = "%s%s%s%s";
+    private String template = "%s%s%s%s\nChoose Option:";
     private Integer width = 100;
     private String header = String.format("%s| %-97s|\n%s", divider(width), "Biblioteca", divider(width));
     private String body = "";

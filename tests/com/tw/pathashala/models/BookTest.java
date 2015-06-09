@@ -2,7 +2,9 @@ package com.tw.pathashala.models;
 
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class BookTest {
@@ -66,4 +68,5 @@ public class BookTest {
 
         assertEquals(expectedResult, bookYearInFuture);
     }
+
 }
