@@ -1,7 +1,7 @@
 package com.tw.pathashala.models;
 
 import com.tw.pathashala.menu.BooksList;
-import com.tw.pathashala.menu.MenuAction;
+import com.tw.pathashala.menu.Quit;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,22 +19,13 @@ public class MenuTest {
 
     @Test
     public void testForMenuAddItemEntry() {
-        Menu m = new Menu(books);
+        Menu m = new Menu(books, new BooksList(books), new Quit());
 
         Integer menuSizeBeforeEntry = m.menuList().size();
         m.addOption("Checkout", new BooksList(books));
         Integer menuSizeAfterEntry = m.menuList().size();
 
         assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));
-    }
-
-    @Test
-    public void testForMenuOptionToReturnMenuAction() {
-        Menu m = new Menu(books);
-
-        MenuAction actual = m.chooseOption("List Books");
-
-        //assertEquals(new BooksList().toString(), actual);
     }
 
 }

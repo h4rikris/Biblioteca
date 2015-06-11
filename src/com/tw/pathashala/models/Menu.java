@@ -11,10 +11,10 @@ public class Menu {
     private Map<String, MenuAction> menuList = new HashMap<String, MenuAction>();
     private Books books;
 
-    public Menu(Books books) {
+    public Menu(Books books, BooksList bookList, Quit quit) {
         this.books = books;
-        menuList.put("List Books", new BooksList(books));
-        menuList.put("Quit", new Quit());
+        menuList.put("List Books", bookList);
+        menuList.put("Quit", quit);
     }
 
     public void addOption(String menuOption, MenuAction action) {
