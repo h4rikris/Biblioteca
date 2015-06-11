@@ -1,18 +1,18 @@
 package com.tw.pathashala.menu;
 
-import com.tw.pathashala.models.Books;
+import com.tw.pathashala.models.Library;
 
 public class BooksList implements MenuAction {
 
-    private Books books;
+    private Library library;
 
-    public BooksList(Books books) {
-        this.books = books;
+    public BooksList(Library library) {
+        this.library = library;
     }
 
     @Override
     public String display() {
-        return books.toString();
+        return library.toString();
     }
 
 }

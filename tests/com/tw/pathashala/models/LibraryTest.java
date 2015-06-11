@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-public class BooksTest {
+public class LibraryTest {
 
     ArrayList<Book> listOfBooks = new ArrayList<Book>();
 
@@ -24,9 +24,9 @@ public class BooksTest {
 
     @Test
     public void testForBooksReturningBookDetails() {
-        Books books = new Books();
+        Library library = new Library(listOfBooks);
 
-        String booksDetails = books.toString();
+        String booksDetails = library.toString();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Object Oriented", "Venkatesh", "2014") + "\n";
@@ -36,19 +36,19 @@ public class BooksTest {
 
     @Test
     public void testForEmptyListOfBooks() {
-        Books books = new Books();
+        Library library = new Library(listOfBooks);
 
-        String booksDetails = books.toString();
-        String expectedBooksDetails = "No Books details are Found";
+        String booksDetails = library.toString();
+        String expectedBooksDetails = "No Library details are Found";
 
         assertThat(booksDetails, is(not(expectedBooksDetails)));
     }
 
     @Test
     public void testForNotToDisplayBookDetailsHavingFutureYearOfPublication() {
-        Books books = new Books();
+        Library library = new Library(listOfBooks);
 
-        String booksDetails = books.toString();
+        String booksDetails = library.toString();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Object Oriented", "Venkatesh", "2014") + "\n";
@@ -58,9 +58,9 @@ public class BooksTest {
 
     @Test
     public void testForNotToDisplayCheckedOutBookDetails() {
-        Books books = new Books();
+        Library library = new Library(listOfBooks);
 
-        String booksDetails = books.toString();
+        String booksDetails = library.toString();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Object Oriented", "Venkatesh", "2014") + "\n";

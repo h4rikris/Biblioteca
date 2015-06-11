@@ -9,11 +9,11 @@ import java.util.Map;
 
 public class Menu {
     private Map<String, MenuAction> menuList = new HashMap<String, MenuAction>();
-    private Books books;
+    private Library library;
 
-    public Menu(Books books, BooksList bookList, Quit quit) {
-        this.books = books;
-        menuList.put("List Books", bookList);
+    public Menu(Library library, BooksList bookList, Quit quit) {
+        this.library = library;
+        menuList.put("List Library", bookList);
         menuList.put("Quit", quit);
     }
 
