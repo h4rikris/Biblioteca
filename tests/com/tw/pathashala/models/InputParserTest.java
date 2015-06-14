@@ -1,17 +1,20 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.menu.BooksList;
-import com.tw.pathashala.menu.InvalidOption;
-import com.tw.pathashala.menu.Quit;
+import com.tw.pathashala.menu.*;
+import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class InputParserTest {
     Library library;
@@ -31,13 +34,17 @@ public class InputParserTest {
         library = new Library(listOfBooks);
     }
 
+    @Mock
+    ConsoleInput consoleInput;
+
     @Test
     public void testForMenuAddItemEntry() {
-        ConsoleOutputTemplate outputTemplate =  new ConsoleOutputTemplate();
-        InputParser m = new InputParser(library, new BooksList(library,outputTemplate), new Quit(), new InvalidOption(outputTemplate));
+        ConsoleOutputTemplate outputTemplate = new ConsoleOutputTemplate();
+        InputParser m = new InputParser(library, new BooksList(library, outputTemplate), new Quit(), new InvalidOption(outputTemplate),
+                new CheckOut(outputTemplate, consoleInput, library));
 
         Integer menuSizeBeforeEntry = m.menuList().size();
-        m.addOption(3, new BooksList(library,new ConsoleOutputTemplate()));
+        m.addOption(4, new BooksList(library, new ConsoleOutputTemplate()));
         Integer menuSizeAfterEntry = m.menuList().size();
 
         assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));

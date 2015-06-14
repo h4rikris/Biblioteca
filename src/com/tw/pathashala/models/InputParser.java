@@ -1,26 +1,22 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.constants.Constants;
-import com.tw.pathashala.menu.BooksList;
-import com.tw.pathashala.menu.InvalidOption;
-import com.tw.pathashala.menu.MenuAction;
-import com.tw.pathashala.menu.Quit;
+import com.tw.pathashala.menu.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.tw.pathashala.constants.Constants.LIST_BOOKS_OPTION;
-import static com.tw.pathashala.constants.Constants.QUIT_OPTION;
+import static com.tw.pathashala.constants.Constants.*;
 
 public class InputParser {
     private Map<Integer, MenuAction> menuList = new HashMap<Integer, MenuAction>();
     private Library library;
     private MenuAction invalidOption;
 
-    public InputParser(Library library, BooksList bookList, Quit quit, InvalidOption invalidOption) {
+    public InputParser(Library library, BooksList bookList, Quit quit, InvalidOption invalidOption, CheckOut checkOut) {
         this.library = library;
         this.invalidOption = invalidOption;
         menuList.put(LIST_BOOKS_OPTION, bookList);
+        menuList.put(CHECKOUT_OPTION, checkOut);
         menuList.put(QUIT_OPTION, quit);
     }
 
@@ -33,9 +29,14 @@ public class InputParser {
     }
 
     public MenuAction chooseOption(String menuOption) {
-        Integer option = convertToInteger(menuOption);
-        if(menuList.containsKey(option))
-            return menuList.get(option);
+        try {
+            Integer option = convertToInteger(menuOption);
+            if (menuList.containsKey(option))
+                return menuList.get(option);
+        }
+        catch (Exception e){
+            return invalidOption;
+        }
         return invalidOption;
     }
 

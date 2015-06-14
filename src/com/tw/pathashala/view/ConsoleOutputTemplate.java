@@ -24,9 +24,19 @@ public class ConsoleOutputTemplate {
     }
 
     public void renderOutput() {
-
+        centrifyBody();
         System.out.print(String.format(template, header, body, divider(width), footer));
         body = "";
         footer = "";
+    }
+
+    private void centrifyBody() {
+        String spaces = "";
+        for(int i=0; i<3; i++){
+            spaces = spaces.concat(String.format("| %-97s|\n"," "));
+        }
+        String newBody = spaces.concat(body);
+        newBody = newBody.concat(spaces);
+        body = newBody;
     }
 }
