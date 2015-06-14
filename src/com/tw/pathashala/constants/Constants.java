@@ -2,6 +2,8 @@ package com.tw.pathashala.constants;
 
 public interface Constants {
     public static final String WELCOME_MESSAGE = "Welcome to BiBlioteca";
+    public static final String INVALID_OPTION_MESSAGE = "Select a Valid Option";
+
     public static final String STOP = "STOP";
     public static final String CONTINUE = "CONTINUE";
     public static final boolean CHECKEDOUT = true;

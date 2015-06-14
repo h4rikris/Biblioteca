@@ -1,6 +1,7 @@
 package com.tw.pathashala.models;
 
 import com.tw.pathashala.menu.BooksList;
+import com.tw.pathashala.menu.InvalidOption;
 import com.tw.pathashala.menu.Quit;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 import org.junit.Before;
@@ -32,7 +33,8 @@ public class InputParserTest {
 
     @Test
     public void testForMenuAddItemEntry() {
-        InputParser m = new InputParser(library, new BooksList(library,new ConsoleOutputTemplate()), new Quit());
+        ConsoleOutputTemplate outputTemplate =  new ConsoleOutputTemplate();
+        InputParser m = new InputParser(library, new BooksList(library,outputTemplate), new Quit(), new InvalidOption(outputTemplate));
 
         Integer menuSizeBeforeEntry = m.menuList().size();
         m.addOption("Checkout", new BooksList(library,new ConsoleOutputTemplate()));

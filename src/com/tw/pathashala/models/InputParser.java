@@ -1,6 +1,7 @@
 package com.tw.pathashala.models;
 
 import com.tw.pathashala.menu.BooksList;
+import com.tw.pathashala.menu.InvalidOption;
 import com.tw.pathashala.menu.MenuAction;
 import com.tw.pathashala.menu.Quit;
 
@@ -10,9 +11,11 @@ import java.util.Map;
 public class InputParser {
     private Map<String, MenuAction> menuList = new HashMap<String, MenuAction>();
     private Library library;
+    private MenuAction invalidOption;
 
-    public InputParser(Library library, BooksList bookList, Quit quit) {
+    public InputParser(Library library, BooksList bookList, Quit quit, InvalidOption invalidOption) {
         this.library = library;
+        this.invalidOption = invalidOption;
         menuList.put("List Books", bookList);
         menuList.put("Quit", quit);
     }
@@ -26,7 +29,9 @@ public class InputParser {
     }
 
     public MenuAction chooseOption(String menuOption) {
-        return menuList.get(menuOption);
+        if(menuList.containsKey(menuOption))
+            return menuList.get(menuOption);
+        return invalidOption;
     }
 
     @Override

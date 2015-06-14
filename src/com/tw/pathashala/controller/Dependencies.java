@@ -1,6 +1,7 @@
 package com.tw.pathashala.controller;
 
 import com.tw.pathashala.menu.BooksList;
+import com.tw.pathashala.menu.InvalidOption;
 import com.tw.pathashala.menu.Quit;
 import com.tw.pathashala.models.Book;
 import com.tw.pathashala.models.InputParser;
@@ -22,7 +23,7 @@ public class Dependencies {
         library = new Library(bookDetails());
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
-        inputParser = new InputParser(library, new BooksList(library, consoleOutputTemplate), new Quit());
+        inputParser = new InputParser(library, new BooksList(library, consoleOutputTemplate), new Quit(), new InvalidOption(consoleOutputTemplate));
 
     }
 
