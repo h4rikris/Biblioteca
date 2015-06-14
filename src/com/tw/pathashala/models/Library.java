@@ -1,12 +1,8 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.constants.Constants;
-
 import java.util.ArrayList;
 
-import static com.tw.pathashala.constants.Constants.FAILED;
-import static com.tw.pathashala.constants.Constants.NO_BOOK_DETAILS_ARE_FOUND;
-import static com.tw.pathashala.constants.Constants.NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND;
+import static com.tw.pathashala.constants.Constants.*;
 
 public class Library {
     private ArrayList<Book> books = new ArrayList<Book>();
@@ -22,7 +18,7 @@ public class Library {
                 booksDetails = booksDetails.concat(book.toString() + "\n");
             }
         }
-        if(booksDetails.equals("")){
+        if (booksDetails.equals("")) {
             return NO_BOOK_DETAILS_ARE_FOUND;
         }
         return booksDetails;
@@ -30,15 +26,15 @@ public class Library {
 
     public Boolean checkOut(String bookName) {
         Book book = getBookByName(bookName);
-        if(book == null){
+        if (book == null) {
             return FAILED;
         }
         return book.checkOut();
     }
 
     private Book getBookByName(String bookName) {
-        Book dummyBook = new Book(bookName, "",0);
-        if(books.contains(dummyBook)){
+        Book dummyBook = new Book(bookName, "", 0);
+        if (books.contains(dummyBook)) {
             return books.get(books.indexOf(dummyBook));
         }
         return null;
@@ -51,7 +47,7 @@ public class Library {
                 booksDetails = booksDetails.concat(book.toString() + "\n");
             }
         }
-        if(booksDetails.equals("")){
+        if (booksDetails.equals("")) {
             return NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND;
         }
         return booksDetails;
@@ -59,10 +55,9 @@ public class Library {
 
     public Boolean returnBook(String bookName) {
         Book book = getBookByName(bookName);
-        if(book == null){
+        if (book == null) {
             return FAILED;
-        }
-        else{
+        } else {
             return book.returnBook();
         }
 

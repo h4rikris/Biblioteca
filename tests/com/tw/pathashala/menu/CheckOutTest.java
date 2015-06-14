@@ -1,6 +1,5 @@
 package com.tw.pathashala.menu;
 
-import com.tw.pathashala.models.Book;
 import com.tw.pathashala.models.Library;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
@@ -26,8 +25,6 @@ public class CheckOutTest {
     @Mock
     ConsoleInput consoleInput;
 
-    @Mock
-    Book book;
     @Test
     public void shouldReturnContinueOnExecuteMethod() {
         CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);

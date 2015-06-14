@@ -6,11 +6,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static com.tw.pathashala.constants.Constants.CONTINUE;
-import static com.tw.pathashala.constants.Constants.INVALID_OPTION_MESSAGE;
-import static com.tw.pathashala.constants.Constants.MAIN_MENU;
-import static org.junit.Assert.*;
-import static org.mockito.Matchers.anyString;
+import static com.tw.pathashala.constants.Constants.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)

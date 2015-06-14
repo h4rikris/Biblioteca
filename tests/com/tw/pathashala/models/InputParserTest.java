@@ -1,16 +1,16 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.menu.*;
+import com.tw.pathashala.menu.BooksList;
+import com.tw.pathashala.menu.CheckOut;
+import com.tw.pathashala.menu.InvalidOption;
+import com.tw.pathashala.menu.Quit;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;

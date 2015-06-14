@@ -1,19 +1,13 @@
 package com.tw.pathashala.menu;
 
-import com.tw.pathashala.constants.Constants;
-import com.tw.pathashala.models.Book;
 import com.tw.pathashala.models.Library;
-import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-
-import static com.tw.pathashala.constants.Constants.*;
+import static com.tw.pathashala.constants.Constants.CONTINUE;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;

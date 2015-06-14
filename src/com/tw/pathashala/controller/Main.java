@@ -6,7 +6,7 @@ import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
 public class Main {
-    public static void main(String args[]){
+    public static void main(String args[]) {
         Dependencies dependencies = new Dependencies();
         ConsoleOutputTemplate outputTemplate = dependencies.getConsoleOutputInstance();
         ConsoleInput consoleInput = dependencies.getConsoleInputInstance();

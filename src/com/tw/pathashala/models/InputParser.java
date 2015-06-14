@@ -33,8 +33,7 @@ public class InputParser {
             Integer option = convertToInteger(menuOption);
             if (menuList.containsKey(option))
                 return menuList.get(option);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return invalidOption;
         }
         return invalidOption;

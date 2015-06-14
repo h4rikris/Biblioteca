@@ -35,19 +35,17 @@ public class Book {
         if (!checkedOut) {
             checkedOut = CHECKEDOUT;
             return SUCCESS;
-        }
-        else{
+        } else {
             return FAILED;
         }
 
     }
 
     public boolean returnBook() {
-        if (checkedOut){
+        if (checkedOut) {
             checkedOut = CHECKEDIN;
             return SUCCESS;
-        }
-        else{
+        } else {
             return FAILED;
         }
     }

@@ -24,7 +24,7 @@ public class Dependencies {
         library = new Library(bookDetails());
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
-        inputParser = new InputParser(library, new BooksList(library, consoleOutputTemplate), new Quit(), new InvalidOption(consoleOutputTemplate), new CheckOut(consoleOutputTemplate,consoleInput,library));
+        inputParser = new InputParser(library, new BooksList(library, consoleOutputTemplate), new Quit(), new InvalidOption(consoleOutputTemplate), new CheckOut(consoleOutputTemplate, consoleInput, library));
 
     }
 

@@ -32,7 +32,7 @@ public class BibliotecaApp {
         String option;
         MenuAction action;
         String result;
-        do{
+        do {
             option = input.getUserInput();
             action = inputParser.chooseOption(option);
             result = action.execute();
