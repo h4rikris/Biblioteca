@@ -43,5 +43,13 @@ public class CheckOutTest {
 
         verify(library).availableBooks();
     }
-    
+
+    @Test
+    public void shouldAskForBookName() {
+        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+
+        checkOut.execute();
+
+        verify(consoleInput).getUserInput();
+    }
 }
