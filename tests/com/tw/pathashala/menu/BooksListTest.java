@@ -13,6 +13,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -31,6 +32,33 @@ public class BooksListTest {
 
         verify(library).availableBooks();
 
+    }
+
+    @Test
+    public void shouldAddListOfBooksToTemplateBody() {
+        BooksList booksList = new BooksList(library, outputTemplate);
+
+        booksList.execute();
+
+        verify(outputTemplate).addToBody(anyString());
+    }
+
+    @Test
+    public void shouldAddMenuToTemplateFooter() {
+        BooksList booksList = new BooksList(library, outputTemplate);
+
+        booksList.execute();
+
+        verify(outputTemplate).addToFooter(anyString());
+    }
+
+    @Test
+    public void shouldCallRenderToPrintOnConsole() {
+        BooksList booksList = new BooksList(library, outputTemplate);
+
+        booksList.execute();
+
+        verify(outputTemplate).renderOutput();
     }
 
 }
