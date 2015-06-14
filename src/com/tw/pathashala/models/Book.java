@@ -42,6 +42,13 @@ public class Book {
 
     }
 
+    public boolean returnBook() {
+        if (checkedOut){
+            checkedOut = CHECKEDIN;
+        }
+        return !checkedOut;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
