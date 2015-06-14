@@ -17,7 +17,7 @@ public class Library {
             }
         }
         if(booksDetails.equals("")){
-            return "No Library details are Found";
+            return "No Book details are Found";
         }
         return booksDetails;
     }
@@ -29,5 +29,18 @@ public class Library {
             result = books.get(books.indexOf(dummyBook)).checkOut();
         }
         return result;
+    }
+
+    public String checkedOutBooks() {
+        String booksDetails = "";
+        for (Book book : books) {
+            if (book.isCheckedOut()) {
+                booksDetails = booksDetails.concat(book.toString() + "\n");
+            }
+        }
+        if(booksDetails.equals("")){
+            return "No Checkedout Book details are Found";
+        }
+        return booksDetails;
     }
 }

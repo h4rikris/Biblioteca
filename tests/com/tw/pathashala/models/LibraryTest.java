@@ -39,7 +39,7 @@ public class LibraryTest {
         Library library = new Library(listOfBooks);
 
         String booksDetails = library.availableBooks();
-        String expectedBooksDetails = "No Library details are Found";
+        String expectedBooksDetails = "No Book details are Found";
 
         assertThat(booksDetails, is(not(expectedBooksDetails)));
     }
@@ -81,9 +81,18 @@ public class LibraryTest {
     public void testForCheckOutBookWhichIsNotAvailable() {
         Library library = new Library(listOfBooks);
 
-        Boolean actualResult = library.checkOut("This Book Not Exist");
+        Boolean actualResult = library.checkOut("This Book does Not Exist");
 
         assertEquals(false, actualResult);
     }
 
+    @Test
+    public void shouldDisplayCheckedOutBooksIfPresent() {
+        Library library = new Library(listOfBooks);
+
+        library.checkOut("Refactoring");
+        String checkedOutBooks = String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n";
+
+        assertEquals(checkedOutBooks, library.checkedOutBooks());
+    }
 }
