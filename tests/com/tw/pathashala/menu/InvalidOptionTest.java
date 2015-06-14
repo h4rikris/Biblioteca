@@ -8,6 +8,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static com.tw.pathashala.constants.Constants.CONTINUE;
 import static com.tw.pathashala.constants.Constants.INVALID_OPTION_MESSAGE;
+import static com.tw.pathashala.constants.Constants.MAIN_MENU;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
@@ -27,6 +28,16 @@ public class InvalidOptionTest {
         verify(outputTemplate).addToBody(INVALID_OPTION_MESSAGE);
     }
 
+    @Test
+    public void shouldAddMenuToTemplateFooter() {
+        InvalidOption invalidOption = new InvalidOption(outputTemplate);
+
+        invalidOption.execute();
+
+        verify(outputTemplate).addToFooter(MAIN_MENU);
+    }
+
+   
 
 
 }
