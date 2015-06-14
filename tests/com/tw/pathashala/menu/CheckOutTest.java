@@ -12,6 +12,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static com.tw.pathashala.constants.Constants.CHECKOUT_MESSAGE;
 import static com.tw.pathashala.constants.Constants.CONTINUE;
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -61,5 +62,14 @@ public class CheckOutTest {
         checkOut.execute();
 
         verify(outputTemplate).addToFooter(CHECKOUT_MESSAGE);
+    }
+
+    @Test
+    public void shouldAbleToCheckOutTheBook() {
+        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+
+        checkOut.execute();
+
+        verify(library).checkOut(anyString());
     }
 }
