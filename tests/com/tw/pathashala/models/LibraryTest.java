@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
@@ -36,12 +35,12 @@ public class LibraryTest {
 
     @Test
     public void testForEmptyListOfBooks() {
-        Library library = new Library(listOfBooks);
+        Library library = new Library(new ArrayList<Book>());
 
         String booksDetails = library.availableBooks();
         String expectedBooksDetails = "No Book details are Found";
 
-        assertThat(booksDetails, is(not(expectedBooksDetails)));
+        assertThat(booksDetails, is(expectedBooksDetails));
     }
 
     @Test
@@ -94,5 +93,15 @@ public class LibraryTest {
         String checkedOutBooks = String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n";
 
         assertEquals(checkedOutBooks, library.checkedOutBooks());
+    }
+
+    @Test
+    public void shouldDisplayMessageWhenCheckedOutBooksAreEmpty() {
+        Library library = new Library(listOfBooks);
+
+        String booksDetails = library.checkedOutBooks();
+        String expectedBooksDetails = "No Checkedout Book details are Found";
+
+        assertThat(booksDetails, is(expectedBooksDetails));
     }
 }

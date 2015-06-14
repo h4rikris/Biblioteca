@@ -1,6 +1,11 @@
 package com.tw.pathashala.models;
 
+import com.tw.pathashala.constants.Constants;
+
 import java.util.ArrayList;
+
+import static com.tw.pathashala.constants.Constants.NO_BOOK_DETAILS_ARE_FOUND;
+import static com.tw.pathashala.constants.Constants.NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND;
 
 public class Library {
     private ArrayList<Book> books = new ArrayList<Book>();
@@ -17,7 +22,7 @@ public class Library {
             }
         }
         if(booksDetails.equals("")){
-            return "No Book details are Found";
+            return NO_BOOK_DETAILS_ARE_FOUND;
         }
         return booksDetails;
     }
@@ -39,7 +44,7 @@ public class Library {
             }
         }
         if(booksDetails.equals("")){
-            return "No Checkedout Book details are Found";
+            return NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND;
         }
         return booksDetails;
     }

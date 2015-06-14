@@ -18,4 +18,6 @@ public interface Constants {
     public static final String CHECKOUT_MESSAGE = "Enter Book Name";
     public static final String CHECKOUT_INVALID_MESSAGE = "That Book is not available.";
     public static final String CHECKOUT_SUCCESS_MESSAGE = "Thank you! Enjoy the Book.";
+    public static final String NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND = "No Checkedout Book details are Found";
+    public static final String NO_BOOK_DETAILS_ARE_FOUND = "No Book details are Found";
 }
