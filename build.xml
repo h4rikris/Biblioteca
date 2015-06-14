@@ -45,8 +45,14 @@
         </jar>
     </target>
 
-    <target name="run">
+    <target name="runjar">
         <java jar="out/jar/Biblioteca.jar" fork="true"/>
+    </target>
+
+    <target name="run" depends="compile" description="run the project">
+
+        <java classpath="out/src/classes/" classname="com.tw.pathashala.controller.Main"></java>
+
     </target>
 
 </project>

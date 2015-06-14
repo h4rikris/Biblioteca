@@ -68,4 +68,13 @@ public class LibraryTest {
         assertThat(booksDetails, is(expectedBooksDetails));
     }
 
+    @Test
+    public void testForCheckOutBookFromListOfBooks() {
+        Library library = new Library(listOfBooks);
+
+        Boolean actualResult = library.checkOut("Refactoring");
+
+        assertEquals(true, actualResult);
+    }
+
 }

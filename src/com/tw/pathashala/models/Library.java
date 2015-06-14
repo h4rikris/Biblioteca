@@ -21,4 +21,13 @@ public class Library {
         }
         return booksDetails;
     }
+
+    public Boolean checkOut(String bookName) {
+        Book dummyBook = new Book(bookName, "",0);
+        boolean result = false;
+        if(books.contains(dummyBook)){
+            result = books.get(books.indexOf(dummyBook)).checkOut();
+        }
+        return result;
+    }
 }
