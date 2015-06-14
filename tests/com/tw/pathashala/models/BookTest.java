@@ -98,4 +98,13 @@ public class BookTest {
         assertEquals(true, checkout);
     }
 
+    @Test
+    public void testForReturnBookThatIsNotCheckedOut() {
+        Book book = new Book("Java", "Hari", 2016);
+
+        boolean checkout = book.returnBook();
+
+        assertEquals(true, checkout);
+    }
+
 }

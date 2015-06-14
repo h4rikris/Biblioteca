@@ -45,8 +45,11 @@ public class Book {
     public boolean returnBook() {
         if (checkedOut){
             checkedOut = CHECKEDIN;
+            return !checkedOut;
         }
-        return !checkedOut;
+        else{
+            return !checkedOut;
+        }
     }
 
     @Override
