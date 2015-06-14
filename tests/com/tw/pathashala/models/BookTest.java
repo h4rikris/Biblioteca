@@ -102,7 +102,7 @@ public class BookTest {
 
         boolean checkout = book.returnBook();
 
-        assertEquals(true, checkout);
+        assertEquals(false, checkout);
     }
 
 }

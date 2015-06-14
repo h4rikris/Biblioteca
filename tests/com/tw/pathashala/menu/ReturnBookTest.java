@@ -54,7 +54,7 @@ public class ReturnBookTest {
     }
 
     @Test
-    public void shouldAddCheckOutFooterMessageToPrompt() {
+    public void shouldAddReturnFooterMessageToPrompt() {
         ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
 
         returnBook.execute();
@@ -63,12 +63,40 @@ public class ReturnBookTest {
     }
 
     @Test
-    public void shouldAbleToCheckOutTheBook() {
+    public void shouldAbleToReturnTheBook() {
         ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
 
         returnBook.execute();
 
-        verify(library).checkOut(anyString());
+        verify(library).returnBook(anyString());
     }
-    
+
+    @Test
+    public void shouldDisplayErrorMessageOnInvalidBookEntry() {
+        ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
+        when(library.returnBook(anyString())).thenReturn(false);
+
+        returnBook.execute();
+
+        verify(outputTemplate, times(1)).addToBody(RETURN_FAIL_MESSAGE);
+    }
+
+    @Test
+    public void shouldDisplaySuccessMessageValidBookEntry() {
+        ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
+        when(library.returnBook(anyString())).thenReturn(true);
+
+        returnBook.execute();
+
+        verify(outputTemplate, times(1)).addToBody(RETURN_SUCCESS_MESSAGE);
+    }
+
+    @Test
+    public void shouldDisplayToConsoleForBookEntryAndResultMessage() {
+        ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
+
+        returnBook.execute();
+
+        verify(outputTemplate, times(2)).renderOutput();
+    }
 }
