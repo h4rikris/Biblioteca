@@ -37,7 +37,13 @@ public class InvalidOptionTest {
         verify(outputTemplate).addToFooter(MAIN_MENU);
     }
 
-   
+    @Test
+    public void shouldCallRenderToPrintOnConsole() {
+        InvalidOption invalidOption = new InvalidOption(outputTemplate);
 
+        invalidOption.execute();
+
+        verify(outputTemplate).renderOutput();
+    }
 
 }
