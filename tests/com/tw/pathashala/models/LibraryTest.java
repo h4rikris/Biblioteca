@@ -113,4 +113,14 @@ public class LibraryTest {
 
         assertThat(false, is(actualResult));
     }
+
+    @Test
+    public void testToReturnBookFromCheckedOutBooks() {
+        Library library = new Library(listOfBooks);
+
+        library.checkOut("Refactoring");
+        Boolean actualResult = library.returnBook("Refactoring");
+
+        assertThat(true, is(actualResult));
+    }
 }
