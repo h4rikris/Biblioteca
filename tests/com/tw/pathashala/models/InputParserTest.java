@@ -37,7 +37,7 @@ public class InputParserTest {
         InputParser m = new InputParser(library, new BooksList(library,outputTemplate), new Quit(), new InvalidOption(outputTemplate));
 
         Integer menuSizeBeforeEntry = m.menuList().size();
-        m.addOption("Checkout", new BooksList(library,new ConsoleOutputTemplate()));
+        m.addOption(3, new BooksList(library,new ConsoleOutputTemplate()));
         Integer menuSizeAfterEntry = m.menuList().size();
 
         assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));

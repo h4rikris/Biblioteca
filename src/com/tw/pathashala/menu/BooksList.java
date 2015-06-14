@@ -3,8 +3,8 @@ package com.tw.pathashala.menu;
 import com.tw.pathashala.models.Library;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
-import static com.tw.pathashala.constants.Constants.CHECKOUT_MENU;
 import static com.tw.pathashala.constants.Constants.CONTINUE;
+import static com.tw.pathashala.constants.Constants.MAIN_MENU;
 
 public class BooksList implements MenuAction {
 
@@ -19,7 +19,7 @@ public class BooksList implements MenuAction {
     @Override
     public String execute() {
         outputTemplate.addToBody(library.availableBooks());
-        outputTemplate.addToFooter(CHECKOUT_MENU);
+        outputTemplate.addToFooter(MAIN_MENU);
         outputTemplate.renderOutput();
         return CONTINUE;
     }

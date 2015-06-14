@@ -20,7 +20,7 @@ public class ConsoleOutputTemplate {
     }
 
     public void addToFooter(String footerItem) {
-        footer = footer.concat(footerItem + "\n");
+        footer = footer.concat(footerItem);
     }
 
     public void renderOutput() {
