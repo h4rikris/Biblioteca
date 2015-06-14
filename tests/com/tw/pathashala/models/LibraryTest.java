@@ -77,4 +77,13 @@ public class LibraryTest {
         assertEquals(true, actualResult);
     }
 
+    @Test
+    public void testForCheckOutBookWhichIsNotAvailable() {
+        Library library = new Library(listOfBooks);
+
+        Boolean actualResult = library.checkOut("This Book Not Exist");
+
+        assertEquals(false, actualResult);
+    }
+
 }
