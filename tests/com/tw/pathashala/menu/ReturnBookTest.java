@@ -10,6 +10,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static com.tw.pathashala.constants.Constants.CONTINUE;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ReturnBookTest {
@@ -29,5 +30,14 @@ public class ReturnBookTest {
         String actualResult = returnBook.execute();
 
         assertEquals(CONTINUE, actualResult);
+    }
+
+    @Test
+    public void shouldDisplayListOfBooks() {
+        ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
+
+        returnBook.execute();
+
+        verify(library).checkedOutBooks();
     }
 }
