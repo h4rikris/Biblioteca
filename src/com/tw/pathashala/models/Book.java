@@ -34,10 +34,10 @@ public class Book {
     public boolean checkOut() {
         if (!checkedOut) {
             checkedOut = CHECKEDOUT;
-            return CHECKEDOUT;
+            return SUCCESS;
         }
         else{
-            return CHECKEDIN;
+            return FAILED;
         }
 
     }
@@ -45,10 +45,10 @@ public class Book {
     public boolean returnBook() {
         if (checkedOut){
             checkedOut = CHECKEDIN;
-            return !checkedOut;
+            return SUCCESS;
         }
         else{
-            return !checkedOut;
+            return FAILED;
         }
     }
 

@@ -104,4 +104,13 @@ public class LibraryTest {
 
         assertThat(booksDetails, is(expectedBooksDetails));
     }
+
+    @Test
+    public void testToReturnBookFromAvailableBooks() {
+        Library library = new Library(listOfBooks);
+
+        Boolean actualResult = library.returnBook("Refactoring");
+
+        assertThat(false, is(actualResult));
+    }
 }

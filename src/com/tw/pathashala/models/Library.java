@@ -4,6 +4,7 @@ import com.tw.pathashala.constants.Constants;
 
 import java.util.ArrayList;
 
+import static com.tw.pathashala.constants.Constants.FAILED;
 import static com.tw.pathashala.constants.Constants.NO_BOOK_DETAILS_ARE_FOUND;
 import static com.tw.pathashala.constants.Constants.NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND;
 
@@ -28,12 +29,19 @@ public class Library {
     }
 
     public Boolean checkOut(String bookName) {
-        Book dummyBook = new Book(bookName, "",0);
-        boolean result = false;
-        if(books.contains(dummyBook)){
-            result = books.get(books.indexOf(dummyBook)).checkOut();
+        Book book = getBookByName(bookName);
+        if(book == null){
+            return FAILED;
         }
-        return result;
+        return book.checkOut();
+    }
+
+    private Book getBookByName(String bookName) {
+        Book dummyBook = new Book(bookName, "",0);
+        if(books.contains(dummyBook)){
+            return books.get(books.indexOf(dummyBook));
+        }
+        return null;
     }
 
     public String checkedOutBooks() {
@@ -47,5 +55,16 @@ public class Library {
             return NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND;
         }
         return booksDetails;
+    }
+
+    public Boolean returnBook(String bookName) {
+        Book book = getBookByName(bookName);
+        if(book == null){
+            return FAILED;
+        }
+        else{
+            return book.returnBook();
+        }
+
     }
 }

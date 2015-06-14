@@ -8,6 +8,8 @@ public interface Constants {
     public static final String CONTINUE = "CONTINUE";
     public static final boolean CHECKEDOUT = true;
     public static final boolean CHECKEDIN = false;
+    public static final boolean SUCCESS = true;
+    public static final boolean FAILED = false;
 
     public static final String FORMAT = "| %-41s | %-41s | %-8s |";
 
