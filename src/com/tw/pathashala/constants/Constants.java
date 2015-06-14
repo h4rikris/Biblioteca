@@ -14,5 +14,6 @@ public interface Constants {
     public static final String MAIN_MENU = "1) List Books\n2) Quit\nEnter Your Option:";
     public static final Integer LIST_BOOKS_OPTION = 1;
     public static final Integer QUIT_OPTION = 2;
+    public static final String CHECKOUT_MESSAGE = "Enter Book Name";
 
 }
