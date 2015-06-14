@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static com.tw.pathashala.constants.Constants.CHECKOUT_MESSAGE;
 import static com.tw.pathashala.constants.Constants.CONTINUE;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
@@ -51,5 +52,14 @@ public class CheckOutTest {
         checkOut.execute();
 
         verify(consoleInput).getUserInput();
+    }
+
+    @Test
+    public void shouldAddCheckOutFooterMessageToPrompt() {
+        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+
+        checkOut.execute();
+
+        verify(outputTemplate).addToFooter(CHECKOUT_MESSAGE);
     }
 }
