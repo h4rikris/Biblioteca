@@ -4,8 +4,7 @@ import com.tw.pathashala.models.Library;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
-import static com.tw.pathashala.constants.Constants.CHECKOUT_MESSAGE;
-import static com.tw.pathashala.constants.Constants.CONTINUE;
+import static com.tw.pathashala.constants.Constants.*;
 
 public class CheckOut implements MenuAction {
     ConsoleOutputTemplate outputTemplate;
@@ -21,7 +20,13 @@ public class CheckOut implements MenuAction {
     @Override
     public String execute() {
         String bookName = askForBookName();
-        library.checkOut(bookName);
+        Boolean result = library.checkOut(bookName);
+        if(result){
+            outputTemplate.addToBody(CHECKOUT_SUCCESS_MESSAGE);
+        }
+        else{
+            outputTemplate.addToBody(CHECKOUT_INVALID_MESSAGE);
+        }
         return CONTINUE;
     }
 

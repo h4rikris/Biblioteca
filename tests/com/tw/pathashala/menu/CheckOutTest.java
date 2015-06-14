@@ -9,12 +9,12 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static com.tw.pathashala.constants.Constants.CHECKOUT_INVALID_MESSAGE;
 import static com.tw.pathashala.constants.Constants.CHECKOUT_MESSAGE;
 import static com.tw.pathashala.constants.Constants.CONTINUE;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CheckOutTest {
@@ -71,5 +71,14 @@ public class CheckOutTest {
         checkOut.execute();
 
         verify(library).checkOut(anyString());
+    }
+
+    @Test
+    public void shouldDisplayErrorMessageOnInvalidBookEntry() {
+        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+        when(library.checkOut("some")).thenReturn(false);
+        checkOut.execute();
+
+        verify(outputTemplate).addToBody(CHECKOUT_INVALID_MESSAGE);
     }
 }
