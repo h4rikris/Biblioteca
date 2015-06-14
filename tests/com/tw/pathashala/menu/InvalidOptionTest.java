@@ -46,4 +46,12 @@ public class InvalidOptionTest {
         verify(outputTemplate).renderOutput();
     }
 
+    @Test
+    public void shouldReturnContinueWhenExecuteInvoked() {
+        InvalidOption invalidOption = new InvalidOption(outputTemplate);
+
+        String actual = invalidOption.execute();
+
+        assertEquals(CONTINUE, actual);
+    }
 }
