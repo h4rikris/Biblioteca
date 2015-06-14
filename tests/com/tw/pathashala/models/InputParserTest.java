@@ -2,6 +2,7 @@ package com.tw.pathashala.models;
 
 import com.tw.pathashala.menu.BooksList;
 import com.tw.pathashala.menu.Quit;
+import com.tw.pathashala.view.ConsoleOutputTemplate;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
-public class MenuTest {
+public class InputParserTest {
     Library library;
 
     ArrayList<Book> listOfBooks = new ArrayList<Book>();
@@ -31,10 +32,10 @@ public class MenuTest {
 
     @Test
     public void testForMenuAddItemEntry() {
-        Menu m = new Menu(library, new BooksList(library), new Quit());
+        InputParser m = new InputParser(library, new BooksList(library,new ConsoleOutputTemplate()), new Quit());
 
         Integer menuSizeBeforeEntry = m.menuList().size();
-        m.addOption("Checkout", new BooksList(library));
+        m.addOption("Checkout", new BooksList(library,new ConsoleOutputTemplate()));
         Integer menuSizeAfterEntry = m.menuList().size();
 
         assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));

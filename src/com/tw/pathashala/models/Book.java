@@ -2,6 +2,8 @@ package com.tw.pathashala.models;
 
 import java.util.Calendar;
 
+import static com.tw.pathashala.constants.Constants.*;
+
 public class Book {
     private String name;
     private String author;
@@ -12,12 +14,12 @@ public class Book {
         this.name = name;
         this.author = author;
         this.yearOfPublication = yearOfPublication;
-        this.checkedOut = false;
+        this.checkedOut = CHECKEDIN;
     }
 
     @Override
     public String toString() {
-        return String.format("| %-41s | %-41s | %-8s |", name, author, yearOfPublication);
+        return String.format(FORMAT, name, author, yearOfPublication);
     }
 
     public boolean isCheckedOut() {
@@ -31,11 +33,11 @@ public class Book {
 
     public boolean checkOut() {
         if (!checkedOut) {
-            checkedOut = true;
-            return true;
+            checkedOut = CHECKEDOUT;
+            return CHECKEDOUT;
         }
         else{
-            return false;
+            return CHECKEDIN;
         }
     }
 }

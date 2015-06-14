@@ -7,13 +7,13 @@ import com.tw.pathashala.menu.Quit;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Menu {
+public class InputParser {
     private Map<String, MenuAction> menuList = new HashMap<String, MenuAction>();
     private Library library;
 
-    public Menu(Library library, BooksList bookList, Quit quit) {
+    public InputParser(Library library, BooksList bookList, Quit quit) {
         this.library = library;
-        menuList.put("List Library", bookList);
+        menuList.put("List Books", bookList);
         menuList.put("Quit", quit);
     }
 

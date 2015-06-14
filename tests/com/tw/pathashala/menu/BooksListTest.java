@@ -1,0 +1,36 @@
+package com.tw.pathashala.menu;
+
+import com.tw.pathashala.models.Book;
+import com.tw.pathashala.models.Library;
+import com.tw.pathashala.view.ConsoleInput;
+import com.tw.pathashala.view.ConsoleOutputTemplate;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
+
+@RunWith(MockitoJUnitRunner.class)
+public class BooksListTest {
+    @Mock
+    Library library;
+
+    @Mock
+    ConsoleOutputTemplate outputTemplate;
+
+    @Test
+    public void shouldCallListOfAvailableBooksInLibrary() {
+        BooksList booklist = new BooksList(library, outputTemplate);
+
+        booklist.execute();
+
+        verify(library).availableBooks();
+
+    }
+
+}

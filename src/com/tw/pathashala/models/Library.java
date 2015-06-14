@@ -7,11 +7,9 @@ public class Library {
 
     public Library(ArrayList<Book> books) {
         this.books = books;
-        /**/
     }
 
-    @Override
-    public String toString() {
+    public String availableBooks() {
         String booksDetails = "";
         for (Book book : books) {
             if (!(book.isPublicationYearInFuture() || book.isCheckedOut())) {

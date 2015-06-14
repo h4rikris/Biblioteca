@@ -45,11 +45,11 @@ public class ConsoleOutputTemplateTest {
     public void testForTemplateToIncludeFooterMessageOrNot() {
         ConsoleOutputTemplate template = new ConsoleOutputTemplate();
 
-        template.addToFooter("Menu");
+        template.addToFooter("InputParser");
         template.renderOutput();
         String actual = outputContent.toString();
 
-        assertTrue(actual.contains("Menu"));
+        assertTrue(actual.contains("InputParser"));
     }
 
     @After

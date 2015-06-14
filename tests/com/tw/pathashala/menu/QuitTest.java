@@ -9,9 +9,9 @@ public class QuitTest {
     public void testForQuitDisplayShouldGiveNull() {
         Quit quit = new Quit();
 
-        String actual = quit.display();
+        String actual = quit.execute();
 
-        assertEquals(null, actual);
+        assertEquals("STOP", actual);
     }
 
 }

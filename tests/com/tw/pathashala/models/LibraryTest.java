@@ -26,7 +26,7 @@ public class LibraryTest {
     public void testForBooksReturningBookDetails() {
         Library library = new Library(listOfBooks);
 
-        String booksDetails = library.toString();
+        String booksDetails = library.availableBooks();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Object Oriented", "Venkatesh", "2014") + "\n";
@@ -38,7 +38,7 @@ public class LibraryTest {
     public void testForEmptyListOfBooks() {
         Library library = new Library(listOfBooks);
 
-        String booksDetails = library.toString();
+        String booksDetails = library.availableBooks();
         String expectedBooksDetails = "No Library details are Found";
 
         assertThat(booksDetails, is(not(expectedBooksDetails)));
@@ -48,7 +48,7 @@ public class LibraryTest {
     public void testForNotToDisplayBookDetailsHavingFutureYearOfPublication() {
         Library library = new Library(listOfBooks);
 
-        String booksDetails = library.toString();
+        String booksDetails = library.availableBooks();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Object Oriented", "Venkatesh", "2014") + "\n";
@@ -60,7 +60,7 @@ public class LibraryTest {
     public void testForNotToDisplayCheckedOutBookDetails() {
         Library library = new Library(listOfBooks);
 
-        String booksDetails = library.toString();
+        String booksDetails = library.availableBooks();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n" +
                 String.format("| %-41s | %-41s | %-8s |", "Object Oriented", "Venkatesh", "2014") + "\n";
