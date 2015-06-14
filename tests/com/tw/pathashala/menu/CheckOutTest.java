@@ -92,4 +92,13 @@ public class CheckOutTest {
 
         verify(outputTemplate, times(1)).addToBody(CHECKOUT_SUCCESS_MESSAGE);
     }
+
+    @Test
+    public void shouldDisplayToConsoleForBookEntryAndResultMessage() {
+        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+
+        checkOut.execute();
+
+        verify(outputTemplate, times(2)).renderOutput();
+    }
 }

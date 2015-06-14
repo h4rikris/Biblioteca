@@ -27,6 +27,8 @@ public class CheckOut implements MenuAction {
         else{
             outputTemplate.addToBody(CHECKOUT_INVALID_MESSAGE);
         }
+        outputTemplate.addToFooter(MAIN_MENU);
+        outputTemplate.renderOutput();
         return CONTINUE;
     }
 
