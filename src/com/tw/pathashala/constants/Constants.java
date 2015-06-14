@@ -13,10 +13,11 @@ public interface Constants {
 
     public static final String FORMAT = "| %-41s | %-41s | %-8s |";
 
-    public static final String MAIN_MENU = "1) List Books\n2)Checkout\n3) Quit\nEnter Your Option:";
+    public static final String MAIN_MENU = "1) List Books\n2) Checkout\n3) Return Book\n4) Quit\nEnter Your Option:";
     public static final Integer LIST_BOOKS_OPTION = 1;
     public static final Integer CHECKOUT_OPTION = 2;
-    public static final Integer QUIT_OPTION = 3;
+    public static final Integer RETURN_OPTION = 3;
+    public static final Integer QUIT_OPTION = 4;
     public static final String CHECKOUT_MESSAGE = "Enter Book Name:";
     public static final String CHECKOUT_INVALID_MESSAGE = "That Book is not available.";
     public static final String CHECKOUT_SUCCESS_MESSAGE = "Thank you! Enjoy the Book.";

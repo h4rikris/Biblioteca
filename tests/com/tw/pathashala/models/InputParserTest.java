@@ -1,9 +1,6 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.menu.BooksList;
-import com.tw.pathashala.menu.CheckOut;
-import com.tw.pathashala.menu.InvalidOption;
-import com.tw.pathashala.menu.Quit;
+import com.tw.pathashala.menu.*;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 import org.junit.Before;
@@ -37,14 +34,17 @@ public class InputParserTest {
     @Mock
     ConsoleInput consoleInput;
 
+    @Mock
+    ReturnBook returnBook;
+
     @Test
     public void testForMenuAddItemEntry() {
         ConsoleOutputTemplate outputTemplate = new ConsoleOutputTemplate();
         InputParser m = new InputParser(library, new BooksList(library, outputTemplate), new Quit(), new InvalidOption(outputTemplate),
-                new CheckOut(outputTemplate, consoleInput, library));
+                new CheckOut(outputTemplate, consoleInput, library), returnBook);
 
         Integer menuSizeBeforeEntry = m.menuList().size();
-        m.addOption(4, new BooksList(library, new ConsoleOutputTemplate()));
+        m.addOption(5, new BooksList(library, new ConsoleOutputTemplate()));
         Integer menuSizeAfterEntry = m.menuList().size();
 
         assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));
