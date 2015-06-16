@@ -46,6 +46,16 @@ public class AvailableMovieTest {
     }
 
     @Test
+    public void testForMovieDetailsConsistsMovieRating() {
+        RentableItem movie = new AvailableMovie("Inception", "Hari", 2015, 9);
+
+        String movieDetails = movie.toString();
+        Integer rating = 9;
+
+        assertTrue(movieDetails.contains(rating.toString()));
+    }
+
+    @Test
     public void testForMovieDetailsNotHavingFutureReleaseYear() {
         RentableItem movie = new AvailableMovie("Inception", "Hari", 2015, 9);
 
