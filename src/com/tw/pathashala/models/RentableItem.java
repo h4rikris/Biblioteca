@@ -2,27 +2,27 @@ package com.tw.pathashala.models;
 
 import java.util.Calendar;
 
-import static com.tw.pathashala.constants.Constants.FORMAT;
+import static com.tw.pathashala.constants.Constants.BOOK_FORMAT;
 
 public abstract class RentableItem {
     private String name;
     private String author;
-    private Integer yearOfPublication;
+    private Integer year;
 
-    public RentableItem(String name, String author, Integer yearOfPublication) {
+    public RentableItem(String name, String author, Integer year) {
         this.name = name;
         this.author = author;
-        this.yearOfPublication = yearOfPublication;
+        this.year = year;
     }
 
     @Override
     public String toString() {
-        return String.format(FORMAT, name, author, yearOfPublication);
+        return String.format(BOOK_FORMAT, name, author, year);
     }
 
-    public boolean isPublicationYearInFuture() {
+    public boolean isYearInFuture() {
         Integer year = Calendar.getInstance().get(Calendar.YEAR);
-        return year < yearOfPublication;
+        return year < this.year;
     }
 
     public abstract RentableItem checkOut();

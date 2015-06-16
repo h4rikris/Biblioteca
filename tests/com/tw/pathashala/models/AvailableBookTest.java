@@ -51,7 +51,7 @@ public class AvailableBookTest {
     public void testForBookDetailsNotHavingFutureDateOfPublication() {
         RentableItem book = new AvailableBook("Java", "Hari", 2015);
 
-        boolean bookYearInFuture = book.isPublicationYearInFuture();
+        boolean bookYearInFuture = book.isYearInFuture();
         boolean expectedResult = false;
 
         assertEquals(expectedResult, bookYearInFuture);
@@ -61,7 +61,7 @@ public class AvailableBookTest {
     public void testForBookDetailsHavingFutureDateOfPublication() {
         RentableItem book = new AvailableBook("Java", "Hari", 2016);
 
-        boolean bookYearInFuture = book.isPublicationYearInFuture();
+        boolean bookYearInFuture = book.isYearInFuture();
         boolean expectedResult = true;
 
         assertEquals(expectedResult, bookYearInFuture);

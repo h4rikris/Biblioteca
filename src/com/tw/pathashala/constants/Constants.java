@@ -11,7 +11,8 @@ public interface Constants {
     public static final boolean SUCCESS = true;
     public static final boolean FAILED = false;
 
-    public static final String FORMAT = "| %-41s | %-41s | %-8s |";
+    public static final String BOOK_FORMAT = "| %-41s | %-41s | %-8s |";
+    public static final String MOVIE_FORMAT = "| %-39s | %-39s | %-8s | %-2s |";
 
     public static final String MAIN_MENU = "1) List Books\n2) Checkout\n3) Return Book\n4) Quit\nEnter Your Option:";
     public static final Integer LIST_BOOKS_OPTION = 1;

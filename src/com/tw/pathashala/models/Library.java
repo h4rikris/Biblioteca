@@ -36,7 +36,7 @@ public class Library {
     private String displayBooks(ArrayList<RentableItem> listOfRentableItems) {
         String booksDetails = "";
         for (RentableItem book : listOfRentableItems) {
-            if (!book.isPublicationYearInFuture())
+            if (!book.isYearInFuture())
                 booksDetails = booksDetails.concat(book.toString() + "\n");
         }
         if (booksDetails.equals("")) {
