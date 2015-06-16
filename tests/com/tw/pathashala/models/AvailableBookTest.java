@@ -9,7 +9,7 @@ public class AvailableBookTest {
 
     @Test
     public void testForBookReturningBookDetails() {
-        Book book = new AvailableBook("Java", "Hari", 2015);
+        RentableItem book = new AvailableBook("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         String expectedBookDetails = "| Java                                      | Hari                                      | 2015     |";
@@ -19,7 +19,7 @@ public class AvailableBookTest {
 
     @Test
     public void testForBookDetailsConsistsAuthor() {
-        Book book = new AvailableBook("Java", "Hari", 2015);
+        RentableItem book = new AvailableBook("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         String author = "Hari";
@@ -29,7 +29,7 @@ public class AvailableBookTest {
 
     @Test
     public void testForBookDetailsConsistsBookName() {
-        Book book = new AvailableBook("Java", "Hari", 2015);
+        RentableItem book = new AvailableBook("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         String bookName = "Java";
@@ -39,7 +39,7 @@ public class AvailableBookTest {
 
     @Test
     public void testForBookDetailsConsistsDateOfPublication() {
-        Book book = new AvailableBook("Java", "Hari", 2015);
+        RentableItem book = new AvailableBook("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         Integer dateOfPublication = 2015;
@@ -49,7 +49,7 @@ public class AvailableBookTest {
 
     @Test
     public void testForBookDetailsNotHavingFutureDateOfPublication() {
-        Book book = new AvailableBook("Java", "Hari", 2015);
+        RentableItem book = new AvailableBook("Java", "Hari", 2015);
 
         boolean bookYearInFuture = book.isPublicationYearInFuture();
         boolean expectedResult = false;
@@ -59,7 +59,7 @@ public class AvailableBookTest {
 
     @Test
     public void testForBookDetailsHavingFutureDateOfPublication() {
-        Book book = new AvailableBook("Java", "Hari", 2016);
+        RentableItem book = new AvailableBook("Java", "Hari", 2016);
 
         boolean bookYearInFuture = book.isPublicationYearInFuture();
         boolean expectedResult = true;
@@ -69,9 +69,9 @@ public class AvailableBookTest {
 
     @Test
     public void testForBookCheckOutReturnCheckedOutBookAfterCheckedOut() {
-        Book book = new AvailableBook("Java", "Hari", 2016);
+        RentableItem book = new AvailableBook("Java", "Hari", 2016);
 
-        Book checkoutBook = book.checkOut();
+        RentableItem checkoutBook = book.checkOut();
         String expected = checkoutBook.getClass().getName();
 
         assertEquals("com.tw.pathashala.models.CheckedOutBook", expected);

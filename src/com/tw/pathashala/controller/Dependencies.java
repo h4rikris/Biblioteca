@@ -16,7 +16,7 @@ public class Dependencies {
     private InputParser inputParser;
 
     public Dependencies() {
-        library = new Library(availableBookDetails(), new ArrayList<Book>(), new Search());
+        library = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search());
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
         inputParser = new InputParser(library, new BooksList(library, consoleOutputTemplate), new Quit(), new InvalidOption(consoleOutputTemplate),
@@ -40,12 +40,12 @@ public class Dependencies {
         return consoleOutputTemplate;
     }
 
-    private ArrayList<Book> availableBookDetails() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new AvailableBook("Pathashala", "Saurav", 2016));
-        books.add(new AvailableBook("University", "Rajat", 2015));
-        books.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
-        books.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
-        return books;
+    private ArrayList<RentableItem> availableBookDetails() {
+        ArrayList<RentableItem> rentableItems = new ArrayList<RentableItem>();
+        rentableItems.add(new AvailableBook("Pathashala", "Saurav", 2016));
+        rentableItems.add(new AvailableBook("University", "Rajat", 2015));
+        rentableItems.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
+        rentableItems.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
+        return rentableItems;
     }
 }

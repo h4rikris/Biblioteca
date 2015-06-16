@@ -3,13 +3,13 @@ package com.tw.pathashala.models;
 import java.util.ArrayList;
 
 public class Search {
-    public ArrayList<Book> search(ArrayList<Book> bookDetails, String searchString) {
-        ArrayList<Book> books = new ArrayList<Book>();
-        for (Book book : bookDetails) {
-            if (book.isYourName(searchString)) {
-                books.add(book);
+    public ArrayList<RentableItem> search(ArrayList<RentableItem> rentableItemDetails, String searchString) {
+        ArrayList<RentableItem> rentableItems = new ArrayList<RentableItem>();
+        for (RentableItem rentableItem : rentableItemDetails) {
+            if (rentableItem.isYourName(searchString)) {
+                rentableItems.add(rentableItem);
             }
         }
-        return books;
+        return rentableItems;
     }
 }

@@ -20,8 +20,7 @@ public class ReturnBook implements MenuAction {
     @Override
     public String execute() {
         String bookName = askForBookName();
-        Boolean result = library.returnBook(bookName);
-        if (result) {
+        if (library.returnBook(bookName)) {
             outputTemplate.addToBody(RETURN_SUCCESS_MESSAGE);
         } else {
             outputTemplate.addToBody(RETURN_FAIL_MESSAGE);

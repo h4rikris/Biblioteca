@@ -1,6 +1,6 @@
 package com.tw.pathashala.models;
 
-public class CheckedOutBook extends Book{
+public class CheckedOutBook extends RentableItem {
 
     private final String name;
     private final String author;
@@ -14,12 +14,12 @@ public class CheckedOutBook extends Book{
     }
 
     @Override
-    public Book checkOut() {
+    public RentableItem checkOut() {
         return null;
     }
 
     @Override
-    public Book returnBook() {
+    public RentableItem returnItem() {
         return new AvailableBook(name, author, yearOfPublication);
     }
 }

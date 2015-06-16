@@ -9,23 +9,23 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class SearchTest {
 
-    ArrayList<Book> bookDetails = new ArrayList<Book>();
+    ArrayList<RentableItem> rentableItemDetails = new ArrayList<RentableItem>();
 
     @Before
     public void setUp() throws Exception {
-        bookDetails.add(new AvailableBook("University", "Rajat", 2015));
-        bookDetails.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
-        bookDetails.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
+        rentableItemDetails.add(new AvailableBook("University", "Rajat", 2015));
+        rentableItemDetails.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
+        rentableItemDetails.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
     }
 
     @Test
     public void shouldReturnListOfBooksBasedOnBookName() {
         Search search = new Search();
 
-        ArrayList<Book> actualBooks = search.search(bookDetails, "University");
-        ArrayList<Book> expectedBooks = new ArrayList<Book>(1);
-        expectedBooks.add(new AvailableBook("University", "Rajat", 2015));
+        ArrayList<RentableItem> actualBooks = search.search(rentableItemDetails, "University");
+        ArrayList<RentableItem> expectedRentableItems = new ArrayList<RentableItem>(1);
+        expectedRentableItems.add(new AvailableBook("University", "Rajat", 2015));
 
-        assertArrayEquals(expectedBooks.toArray(), actualBooks.toArray());
+        assertArrayEquals(expectedRentableItems.toArray(), actualBooks.toArray());
     }
 }

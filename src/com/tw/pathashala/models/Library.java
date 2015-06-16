@@ -2,42 +2,41 @@ package com.tw.pathashala.models;
 
 import java.util.ArrayList;
 
-import static com.tw.pathashala.constants.Constants.FAILED;
 import static com.tw.pathashala.constants.Constants.NO_BOOK_DETAILS_ARE_FOUND;
 
 public class Library {
     private Search searchAgent;
-    private ArrayList<Book> availableBooks = new ArrayList<Book>();
-    private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+    private ArrayList<RentableItem> availableRentableItems = new ArrayList<RentableItem>();
+    private ArrayList<RentableItem> checkedOutRentableItems = new ArrayList<RentableItem>();
 
-    public Library(ArrayList<Book> availableBooks, ArrayList<Book> checkedOutBooks, Search searchAgent) {
-        this.availableBooks = availableBooks;
-        this.checkedOutBooks = checkedOutBooks;
+    public Library(ArrayList<RentableItem> availableRentableItems, ArrayList<RentableItem> checkedOutRentableItems, Search searchAgent) {
+        this.availableRentableItems = availableRentableItems;
+        this.checkedOutRentableItems = checkedOutRentableItems;
         this.searchAgent = searchAgent;
     }
 
     public String availableBooks() {
-        return displayBooks(availableBooks);
+        return displayBooks(availableRentableItems);
     }
 
     public Boolean checkOut(String bookName) {
-        ArrayList<Book> books = searchAgent.search(availableBooks, bookName);
-        for(Book book: books) {
-            Book checkedOutBook = book.checkOut();
-            availableBooks.remove(book);
-            return checkedOutBooks.add(checkedOutBook);
+        ArrayList<RentableItem> rentableItems = searchAgent.search(availableRentableItems, bookName);
+        for (RentableItem book : rentableItems) {
+            RentableItem checkedOutRentableItem = book.checkOut();
+            availableRentableItems.remove(book);
+            return checkedOutRentableItems.add(checkedOutRentableItem);
         }
         return false;
     }
 
     public String checkedOutBooks() {
-        return displayBooks(checkedOutBooks);
+        return displayBooks(checkedOutRentableItems);
     }
 
-    private String displayBooks(ArrayList<Book> listOfBooks) {
+    private String displayBooks(ArrayList<RentableItem> listOfRentableItems) {
         String booksDetails = "";
-        for (Book book : listOfBooks) {
-            if(!book.isPublicationYearInFuture())
+        for (RentableItem book : listOfRentableItems) {
+            if (!book.isPublicationYearInFuture())
                 booksDetails = booksDetails.concat(book.toString() + "\n");
         }
         if (booksDetails.equals("")) {
@@ -47,11 +46,11 @@ public class Library {
     }
 
     public Boolean returnBook(String bookName) {
-        ArrayList<Book> books = searchAgent.search(checkedOutBooks, bookName);
-        for(Book book: books) {
-            Book returnedBook = book.returnBook();
-            checkedOutBooks.remove(book);
-            return availableBooks.add(returnedBook);
+        ArrayList<RentableItem> rentableItems = searchAgent.search(checkedOutRentableItems, bookName);
+        for (RentableItem book : rentableItems) {
+            RentableItem returnedRentableItem = book.returnItem();
+            checkedOutRentableItems.remove(book);
+            return availableRentableItems.add(returnedRentableItem);
         }
         return false;
     }

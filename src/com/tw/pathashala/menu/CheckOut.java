@@ -20,8 +20,7 @@ public class CheckOut implements MenuAction {
     @Override
     public String execute() {
         String bookName = askForBookName();
-        Boolean result = library.checkOut(bookName);
-        if (result) {
+        if (library.checkOut(bookName)) {
             outputTemplate.addToBody(CHECKOUT_SUCCESS_MESSAGE);
         } else {
             outputTemplate.addToBody(CHECKOUT_INVALID_MESSAGE);

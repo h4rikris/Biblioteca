@@ -2,14 +2,14 @@ package com.tw.pathashala.models;
 
 import java.util.Calendar;
 
-import static com.tw.pathashala.constants.Constants.*;
+import static com.tw.pathashala.constants.Constants.FORMAT;
 
-public abstract class Book {
+public abstract class RentableItem {
     private String name;
     private String author;
     private Integer yearOfPublication;
 
-    public Book(String name, String author, Integer yearOfPublication) {
+    public RentableItem(String name, String author, Integer yearOfPublication) {
         this.name = name;
         this.author = author;
         this.yearOfPublication = yearOfPublication;
@@ -25,9 +25,9 @@ public abstract class Book {
         return year < yearOfPublication;
     }
 
-    public abstract Book checkOut();
+    public abstract RentableItem checkOut();
 
-    public abstract Book returnBook();
+    public abstract RentableItem returnItem();
 
     public boolean isYourName(String name) {
         return this.name.equals(name);
@@ -38,7 +38,7 @@ public abstract class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Book book = (Book) o;
+        RentableItem book = (RentableItem) o;
 
         return !(name != null ? !name.equals(book.name) : book.name != null);
 
@@ -49,7 +49,4 @@ public abstract class Book {
         return name != null ? name.hashCode() : 0;
     }
 
-    public Boolean isNull() {
-        return false;
-    }
 }

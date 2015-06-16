@@ -9,9 +9,7 @@ import org.mockito.Mock;
 
 import java.util.ArrayList;
 
-import static com.tw.pathashala.constants.Constants.CHECKOUT_OPTION;
-import static com.tw.pathashala.constants.Constants.LIST_BOOKS_OPTION;
-import static com.tw.pathashala.constants.Constants.QUIT_OPTION;
+import static com.tw.pathashala.constants.Constants.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
@@ -20,7 +18,7 @@ import static org.junit.Assert.assertThat;
 public class InputParserTest {
     Library library;
 
-    ArrayList<Book> listOfBooks = new ArrayList<Book>();
+    ArrayList<RentableItem> listOfRentableItems = new ArrayList<RentableItem>();
 
     InputParser inputParser;
 
@@ -32,10 +30,10 @@ public class InputParserTest {
 
     @Before
     public void setup() {
-        listOfBooks.add(new AvailableBook("Pathashala", "Saurav", 2016));
-        listOfBooks.add(new AvailableBook("University", "Rajat", 2015));
-        listOfBooks.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
-        listOfBooks.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
+        listOfRentableItems.add(new AvailableBook("Pathashala", "Saurav", 2016));
+        listOfRentableItems.add(new AvailableBook("University", "Rajat", 2015));
+        listOfRentableItems.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
+        listOfRentableItems.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
         ConsoleOutputTemplate outputTemplate = new ConsoleOutputTemplate();
         inputParser = new InputParser(library, new BooksList(library, outputTemplate), new Quit(), new InvalidOption(outputTemplate),
                 new CheckOut(outputTemplate, consoleInput, library), returnBook);
@@ -43,7 +41,7 @@ public class InputParserTest {
 
     @Before
     public void setUp() throws Exception {
-        library = new Library(listOfBooks, new ArrayList<Book>(), new Search());
+        library = new Library(listOfRentableItems, new ArrayList<RentableItem>(), new Search());
     }
 
     @Test
