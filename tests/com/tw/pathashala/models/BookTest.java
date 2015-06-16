@@ -105,4 +105,13 @@ public class BookTest {
         assertEquals(false, checkout);
     }
 
+    @Test
+    public void testForCheckingNameOfBookWithItself() {
+        Book book = new Book("Java", "Hari", 2016);
+
+        boolean result = book.isYourName("Java");
+
+        assertEquals(true, result);
+    }
+
 }

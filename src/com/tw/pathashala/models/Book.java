@@ -65,4 +65,8 @@ public class Book {
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
     }
+
+    public boolean isYourName(String name) {
+        return this.name.equals(name);
+    }
 }

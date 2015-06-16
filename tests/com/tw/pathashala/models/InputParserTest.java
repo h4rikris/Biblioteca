@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class InputParserTest {
@@ -18,18 +19,7 @@ public class InputParserTest {
 
     ArrayList<Book> listOfBooks = new ArrayList<Book>();
 
-    @Before
-    public void setup() {
-        listOfBooks.add(new Book("Pathashala", "Saurav", 2016));
-        listOfBooks.add(new Book("University", "Rajat", 2015));
-        listOfBooks.add(new Book("Refactoring", "Jashwanth", 2015));
-        listOfBooks.add(new Book("Object Oriented", "Venkatesh", 2014));
-    }
-
-    @Before
-    public void setUp() throws Exception {
-        library = new Library(listOfBooks);
-    }
+    InputParser inputParser;
 
     @Mock
     ConsoleInput consoleInput;
@@ -37,17 +27,37 @@ public class InputParserTest {
     @Mock
     ReturnBook returnBook;
 
+    @Before
+    public void setup() {
+        listOfBooks.add(new Book("Pathashala", "Saurav", 2016));
+        listOfBooks.add(new Book("University", "Rajat", 2015));
+        listOfBooks.add(new Book("Refactoring", "Jashwanth", 2015));
+        listOfBooks.add(new Book("Object Oriented", "Venkatesh", 2014));
+        ConsoleOutputTemplate outputTemplate = new ConsoleOutputTemplate();
+        inputParser = new InputParser(library, new BooksList(library, outputTemplate), new Quit(), new InvalidOption(outputTemplate),
+                new CheckOut(outputTemplate, consoleInput, library), returnBook);
+    }
+
+    @Before
+    public void setUp() throws Exception {
+        library = new Library(listOfBooks);
+    }
+
     @Test
     public void testForMenuAddItemEntry() {
-        ConsoleOutputTemplate outputTemplate = new ConsoleOutputTemplate();
-        InputParser m = new InputParser(library, new BooksList(library, outputTemplate), new Quit(), new InvalidOption(outputTemplate),
-                new CheckOut(outputTemplate, consoleInput, library), returnBook);
+        Integer menuSizeBeforeEntry = inputParser.menuList().size();
 
-        Integer menuSizeBeforeEntry = m.menuList().size();
-        m.addOption(5, new BooksList(library, new ConsoleOutputTemplate()));
-        Integer menuSizeAfterEntry = m.menuList().size();
+        inputParser.addOption(5, new BooksList(library, new ConsoleOutputTemplate()));
+        Integer menuSizeAfterEntry = inputParser.menuList().size();
 
         assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));
+    }
+
+    @Test
+    public void testToReturnOnInvalidInput() {
+        String actualClassName = inputParser.chooseOption("No option").getClass().getName();
+
+        assertEquals("com.tw.pathashala.menu.InvalidOption", actualClassName);
     }
 
 }

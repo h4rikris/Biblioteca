@@ -33,9 +33,11 @@ public class Library {
     }
 
     private Book getBookByName(String bookName) {
-        Book dummyBook = new Book(bookName, "", 0);
-        if (books.contains(dummyBook)) {
-            return books.get(books.indexOf(dummyBook));
+        bookName = eliminateNewLine(bookName);
+        for(Book book: books) {
+            if (book.isYourName(bookName)) {
+                return book;
+            }
         }
         return null;
     }
@@ -60,6 +62,9 @@ public class Library {
         } else {
             return book.returnBook();
         }
+    }
 
+    private String eliminateNewLine(String name) {
+        return name.split("\\n")[0];
     }
 }
