@@ -2,7 +2,8 @@ package com.tw.pathashala.models;
 
 import java.util.ArrayList;
 
-import static com.tw.pathashala.constants.Constants.*;
+import static com.tw.pathashala.constants.Constants.NO_BOOK_DETAILS_ARE_FOUND;
+import static com.tw.pathashala.constants.Constants.NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND;
 
 public class Library {
     private ArrayList<Book> books = new ArrayList<Book>();
@@ -26,20 +27,17 @@ public class Library {
 
     public Boolean checkOut(String bookName) {
         Book book = getBookByName(bookName);
-        if (book == null) {
-            return FAILED;
-        }
         return book.checkOut();
     }
 
     private Book getBookByName(String bookName) {
         bookName = eliminateNewLine(bookName);
-        for(Book book: books) {
+        for (Book book : books) {
             if (book.isYourName(bookName)) {
                 return book;
             }
         }
-        return null;
+        return new NullBook();
     }
 
     public String checkedOutBooks() {
@@ -57,11 +55,7 @@ public class Library {
 
     public Boolean returnBook(String bookName) {
         Book book = getBookByName(bookName);
-        if (book == null) {
-            return FAILED;
-        } else {
-            return book.returnBook();
-        }
+        return book.returnBook();
     }
 
     private String eliminateNewLine(String name) {
