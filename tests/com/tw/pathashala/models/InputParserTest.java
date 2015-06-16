@@ -58,7 +58,7 @@ public class InputParserTest {
     }
 
     @Test
-    public void testToReturnOnInvalidInput() {
+    public void testToReturnInvalidInputOnUserEntersString() {
         String actualClassName = inputParser.chooseOption("No option").getClass().getName();
 
         assertEquals("com.tw.pathashala.menu.InvalidOption", actualClassName);
@@ -85,5 +85,11 @@ public class InputParserTest {
         assertEquals("com.tw.pathashala.menu.CheckOut", actualClassName);
     }
 
+    @Test
+    public void testToReturnInvalidOptionOnInvalidSelectionInMenuList() {
+        String actualClassName = inputParser.chooseOption("8").getClass().getName();
+
+        assertEquals("com.tw.pathashala.menu.InvalidOption", actualClassName);
+    }
 
 }
