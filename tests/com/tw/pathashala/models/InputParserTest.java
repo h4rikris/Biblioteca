@@ -1,5 +1,6 @@
 package com.tw.pathashala.models;
 
+import com.tw.pathashala.constants.Constants;
 import com.tw.pathashala.menu.*;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
@@ -9,6 +10,9 @@ import org.mockito.Mock;
 
 import java.util.ArrayList;
 
+import static com.tw.pathashala.constants.Constants.CHECKOUT_OPTION;
+import static com.tw.pathashala.constants.Constants.LIST_BOOKS_OPTION;
+import static com.tw.pathashala.constants.Constants.QUIT_OPTION;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
@@ -59,5 +63,27 @@ public class InputParserTest {
 
         assertEquals("com.tw.pathashala.menu.InvalidOption", actualClassName);
     }
+
+    @Test
+    public void testToReturnBooksListOnUserSelectslistBooks() {
+        String actualClassName = inputParser.chooseOption(LIST_BOOKS_OPTION.toString()).getClass().getName();
+
+        assertEquals("com.tw.pathashala.menu.BooksList", actualClassName);
+    }
+
+    @Test
+    public void testToReturnQuitOnUserSelectsQuit() {
+        String actualClassName = inputParser.chooseOption(QUIT_OPTION.toString()).getClass().getName();
+
+        assertEquals("com.tw.pathashala.menu.Quit", actualClassName);
+    }
+
+    @Test
+    public void testToReturnCheckOutOnUserSelectsCheckOut() {
+        String actualClassName = inputParser.chooseOption(CHECKOUT_OPTION.toString()).getClass().getName();
+
+        assertEquals("com.tw.pathashala.menu.CheckOut", actualClassName);
+    }
+
 
 }
