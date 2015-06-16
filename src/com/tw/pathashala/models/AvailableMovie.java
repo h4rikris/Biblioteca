@@ -20,7 +20,7 @@ public class AvailableMovie extends RentableItem{
 
     @Override
     public RentableItem checkOut() {
-        return null;
+        return new CheckedOutMovie(name, director, year, rating);
     }
 
     @Override

@@ -74,4 +74,22 @@ public class AvailableMovieTest {
 
         assertEquals(expectedResult, movieYearInFuture);
     }
+
+    @Test
+    public void shouldReturnCheckedOutBookOnCheckOut() {
+        RentableItem movie = new AvailableMovie("Inception", "Hari", 2016, 9);
+
+        RentableItem checkedOutMovie = movie.checkOut();
+
+        assertEquals("com.tw.pathashala.models.CheckedOutMovie", checkedOutMovie.getClass().getName());
+    }
+
+    @Test
+    public void shouldReturnNullOnReturn() {
+        RentableItem movie = new AvailableMovie("Inception", "Hari", 2016, 9);
+
+        RentableItem returnMovie = movie.returnItem();
+
+        assertNull(returnMovie);
+    }
 }
