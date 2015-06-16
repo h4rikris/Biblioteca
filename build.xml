@@ -1,6 +1,6 @@
 <project default="test">
 
-    <property name="lib.dir" value="/Users/harikris/.m2/repository"/>
+    <property name="lib.dir" value="lib/"/>
 
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
