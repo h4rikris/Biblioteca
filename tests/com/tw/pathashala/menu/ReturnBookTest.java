@@ -39,7 +39,7 @@ public class ReturnBookTest {
 
         returnBook.execute();
 
-        verify(library).checkedOutBooks();
+        verify(library).checkedOutItems();
     }
 
     @Test
@@ -66,13 +66,13 @@ public class ReturnBookTest {
 
         returnBook.execute();
 
-        verify(library).returnBook(anyString());
+        verify(library).returnItem(anyString());
     }
 
     @Test
     public void shouldDisplayErrorMessageOnInvalidBookEntry() {
         ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
-        when(library.returnBook(anyString())).thenReturn(false);
+        when(library.returnItem(anyString())).thenReturn(false);
 
         returnBook.execute();
 
@@ -82,7 +82,7 @@ public class ReturnBookTest {
     @Test
     public void shouldDisplaySuccessMessageValidBookEntry() {
         ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
-        when(library.returnBook(anyString())).thenReturn(true);
+        when(library.returnItem(anyString())).thenReturn(true);
 
         returnBook.execute();
 

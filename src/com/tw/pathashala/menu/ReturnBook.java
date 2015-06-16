@@ -20,7 +20,7 @@ public class ReturnBook implements MenuAction {
     @Override
     public String execute() {
         String bookName = askForBookName();
-        if (library.returnBook(bookName)) {
+        if (library.returnItem(bookName)) {
             outputTemplate.addToBody(RETURN_SUCCESS_MESSAGE);
         } else {
             outputTemplate.addToBody(RETURN_FAIL_MESSAGE);
@@ -31,7 +31,7 @@ public class ReturnBook implements MenuAction {
     }
 
     private String askForBookName() {
-        outputTemplate.addToBody(library.checkedOutBooks());
+        outputTemplate.addToBody(library.checkedOutItems());
         outputTemplate.addToFooter(RETURN_MESSAGE);
         outputTemplate.renderOutput();
         return consoleInput.getUserInput();

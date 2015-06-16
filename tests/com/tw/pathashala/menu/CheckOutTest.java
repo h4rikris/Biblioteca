@@ -40,7 +40,7 @@ public class CheckOutTest {
 
         checkOut.execute();
 
-        verify(library).availableBooks();
+        verify(library).availableItems();
     }
 
     @Test

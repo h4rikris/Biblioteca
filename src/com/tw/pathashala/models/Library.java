@@ -15,8 +15,8 @@ public class Library {
         this.searchAgent = searchAgent;
     }
 
-    public String availableBooks() {
-        return displayBooks(availableRentableItems);
+    public String availableItems() {
+        return displayItems(availableRentableItems);
     }
 
     public Boolean checkOut(String bookName) {
@@ -29,11 +29,11 @@ public class Library {
         return false;
     }
 
-    public String checkedOutBooks() {
-        return displayBooks(checkedOutRentableItems);
+    public String checkedOutItems() {
+        return displayItems(checkedOutRentableItems);
     }
 
-    private String displayBooks(ArrayList<RentableItem> listOfRentableItems) {
+    private String displayItems(ArrayList<RentableItem> listOfRentableItems) {
         String booksDetails = "";
         for (RentableItem book : listOfRentableItems) {
             if (!book.isYearInFuture())
@@ -45,7 +45,7 @@ public class Library {
         return booksDetails;
     }
 
-    public Boolean returnBook(String bookName) {
+    public Boolean returnItem(String bookName) {
         ArrayList<RentableItem> rentableItems = searchAgent.search(checkedOutRentableItems, bookName);
         for (RentableItem book : rentableItems) {
             RentableItem returnedRentableItem = book.returnItem();

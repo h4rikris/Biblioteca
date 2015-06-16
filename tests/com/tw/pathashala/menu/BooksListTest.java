@@ -26,7 +26,7 @@ public class BooksListTest {
 
         booklist.execute();
 
-        verify(library).availableBooks();
+        verify(library).availableItems();
 
     }
 

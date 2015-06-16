@@ -31,7 +31,7 @@ public class CheckOut implements MenuAction {
     }
 
     private String askForBookName() {
-        outputTemplate.addToBody(library.availableBooks());
+        outputTemplate.addToBody(library.availableItems());
         outputTemplate.addToFooter(CHECKOUT_MESSAGE);
         outputTemplate.renderOutput();
         return consoleInput.getUserInput();

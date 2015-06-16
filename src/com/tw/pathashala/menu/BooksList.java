@@ -18,7 +18,7 @@ public class BooksList implements MenuAction {
 
     @Override
     public String execute() {
-        outputTemplate.addToBody(library.availableBooks());
+        outputTemplate.addToBody(library.availableItems());
         outputTemplate.addToFooter(MAIN_MENU);
         outputTemplate.renderOutput();
         return CONTINUE;
