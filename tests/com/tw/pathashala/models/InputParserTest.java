@@ -43,7 +43,7 @@ public class InputParserTest {
 
     @Before
     public void setUp() throws Exception {
-        library = new Library(listOfBooks, new ArrayList<Book>());
+        library = new Library(listOfBooks, new ArrayList<Book>(), new Search());
     }
 
     @Test

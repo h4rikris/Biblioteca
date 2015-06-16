@@ -6,12 +6,14 @@ import static com.tw.pathashala.constants.Constants.FAILED;
 import static com.tw.pathashala.constants.Constants.NO_BOOK_DETAILS_ARE_FOUND;
 
 public class Library {
+    private Search searchAgent;
     private ArrayList<Book> availableBooks = new ArrayList<Book>();
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
 
-    public Library(ArrayList<Book> availableBooks, ArrayList<Book> checkedOutBooks) {
+    public Library(ArrayList<Book> availableBooks, ArrayList<Book> checkedOutBooks, Search searchAgent) {
         this.availableBooks = availableBooks;
         this.checkedOutBooks = checkedOutBooks;
+        this.searchAgent = searchAgent;
     }
 
     public String availableBooks() {
@@ -19,24 +21,13 @@ public class Library {
     }
 
     public Boolean checkOut(String bookName) {
-        Book book = getBookByName(bookName, availableBooks);
-        if (book.isNull()) {
-            return FAILED;
-        } else {
+        ArrayList<Book> books = searchAgent.search(availableBooks, bookName);
+        for(Book book: books) {
             Book checkedOutBook = book.checkOut();
             availableBooks.remove(book);
             return checkedOutBooks.add(checkedOutBook);
         }
-    }
-
-    private Book getBookByName(String bookName, ArrayList<Book> listOfBooks) {
-        bookName = eliminateNewLine(bookName);
-        for (Book book : listOfBooks) {
-            if (book.isYourName(bookName)) {
-                return book;
-            }
-        }
-        return new NullBook();
+        return false;
     }
 
     public String checkedOutBooks() {
@@ -56,17 +47,12 @@ public class Library {
     }
 
     public Boolean returnBook(String bookName) {
-        Book book = getBookByName(bookName, checkedOutBooks);
-        if (book.isNull()) {
-            return FAILED;
-        } else {
+        ArrayList<Book> books = searchAgent.search(checkedOutBooks, bookName);
+        for(Book book: books) {
             Book returnedBook = book.returnBook();
             checkedOutBooks.remove(book);
             return availableBooks.add(returnedBook);
         }
-    }
-
-    private String eliminateNewLine(String name) {
-        return name.split("\\n")[0];
+        return false;
     }
 }

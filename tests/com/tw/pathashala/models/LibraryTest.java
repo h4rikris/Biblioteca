@@ -14,7 +14,8 @@ public class LibraryTest {
 
     ArrayList<Book> availableBooks = new ArrayList<Book>();
     ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
-
+    Search search = new Search();
+    
     @Before
     public void setup() {
         availableBooks.add(new AvailableBook("Pathashala", "Saurav", 2016));
@@ -26,7 +27,7 @@ public class LibraryTest {
 
     @Test
     public void testForBooksReturningBookDetails() {
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         String booksDetails = library.availableBooks();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
@@ -38,7 +39,7 @@ public class LibraryTest {
 
     @Test
     public void testForEmptyListOfBooks() {
-        Library library = new Library(new ArrayList<Book>(), checkedOutBooks);
+        Library library = new Library(new ArrayList<Book>(), checkedOutBooks, search);
 
         String booksDetails = library.availableBooks();
         String expectedBooksDetails = "No Book details are Found";
@@ -48,7 +49,7 @@ public class LibraryTest {
 
     @Test
     public void testForNotToDisplayBookDetailsHavingFutureYearOfPublication() {
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         String booksDetails = library.availableBooks();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "University", "Rajat", "2015") + "\n" +
@@ -61,7 +62,7 @@ public class LibraryTest {
     @Test
     public void testForDisplayCheckedOutBookDetails() {
         checkedOutBooks.add(new CheckedOutBook("Java", "Hari", 2015));
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         String booksDetails = library.checkedOutBooks();
         String expectedBooksDetails = String.format("| %-41s | %-41s | %-8s |", "Java", "Hari", "2015") + "\n";
@@ -71,7 +72,7 @@ public class LibraryTest {
 
     @Test
     public void testForCheckOutBookFromListOfBooks() {
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         Boolean actualResult = library.checkOut("Refactoring");
 
@@ -80,7 +81,7 @@ public class LibraryTest {
 
     @Test
     public void testForCheckOutBookWhichIsNotAvailable() {
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         Boolean actualResult = library.checkOut("This Book does Not Exist");
 
@@ -89,7 +90,7 @@ public class LibraryTest {
 
     @Test
     public void shouldDisplayCheckedOutBooksIfPresent() {
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         library.checkOut("Refactoring");
         String checkedOutBooks = String.format("| %-41s | %-41s | %-8s |", "Refactoring", "Jashwanth", "2015") + "\n";
@@ -99,7 +100,7 @@ public class LibraryTest {
 
     @Test
     public void shouldDisplayMessageWhenCheckedOutBooksAreEmpty() {
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         String booksDetails = library.checkedOutBooks();
         String expectedBooksDetails = "No Book details are Found";
@@ -109,26 +110,26 @@ public class LibraryTest {
 
     @Test
     public void testToReturnBookFromAvailableBooks() {
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         Boolean actualResult = library.returnBook("Refactoring");
 
-        assertThat(false, is(actualResult));
+        assertThat(actualResult, is(false));
     }
 
     @Test
     public void testToReturnBookFromCheckedOutBooks() {
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         library.checkOut("Refactoring");
         Boolean actualResult = library.returnBook("Refactoring");
 
-        assertThat(true, is(actualResult));
+        assertThat(actualResult, is(true));
     }
 
     @Test
     public void testToCheckReturnBookThatBookNotExistInList() {
-        Library library = new Library(availableBooks, checkedOutBooks);
+        Library library = new Library(availableBooks, checkedOutBooks, search);
 
         Boolean actualResult = library.returnBook("Not exist");
 

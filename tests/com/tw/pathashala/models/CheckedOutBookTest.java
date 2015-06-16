@@ -18,15 +18,6 @@ public class CheckedOutBookTest {
     }
 
     @Test
-    public void testForReturnBookThatIsNotCheckedOut() {
-        Book book = new AvailableBook("Java", "Hari", 2016);
-
-        Book actualBook = book.returnBook();
-
-        assertEquals("com.tw.pathashala.models.NullBook", actualBook.getClass().getName());
-    }
-
-    @Test
     public void testForCheckingNameOfBookWithItself() {
         Book book = new AvailableBook("Java", "Hari", 2016);
 

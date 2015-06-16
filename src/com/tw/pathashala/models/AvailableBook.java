@@ -20,6 +20,6 @@ public class AvailableBook extends Book{
 
     @Override
     public Book returnBook() {
-        return new NullBook();
+        return null;
     }
 }

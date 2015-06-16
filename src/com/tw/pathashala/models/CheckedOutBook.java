@@ -15,7 +15,7 @@ public class CheckedOutBook extends Book{
 
     @Override
     public Book checkOut() {
-        return new NullBook();
+        return null;
     }
 
     @Override
