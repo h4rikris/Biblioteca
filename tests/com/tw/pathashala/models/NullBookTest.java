@@ -9,17 +9,17 @@ public class NullBookTest {
     public void shouldReturnFailForCheckOutByDefault() {
         NullBook nullBook = new NullBook();
 
-        boolean actual = nullBook.checkOut();
+        Book nullObject = nullBook.checkOut();
 
-        assertFalse(actual);
+        assertNull(nullObject);
     }
 
     @Test
     public void shouldReturnFailForReturnBookByDefault() {
         NullBook nullBook = new NullBook();
 
-        boolean actual = nullBook.returnBook();
+        Book nullObject = nullBook.returnBook();
 
-        assertFalse(actual);
+        assertNull(nullObject);
     }
 }

@@ -1,9 +1,5 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.constants.Constants;
-
-import static com.tw.pathashala.constants.Constants.FAILED;
-
 public class NullBook extends Book{
 
     public NullBook() {
@@ -11,12 +7,17 @@ public class NullBook extends Book{
     }
 
     @Override
-    public boolean checkOut() {
-        return FAILED;
+    public Book checkOut() {
+        return null;
     }
 
     @Override
-    public boolean returnBook() {
-        return FAILED;
+    public Book returnBook() {
+        return null;
+    }
+
+    @Override
+    public Boolean isNull() {
+        return true;
     }
 }

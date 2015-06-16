@@ -1,6 +1,5 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.constants.Constants;
 import com.tw.pathashala.menu.*;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
@@ -33,10 +32,10 @@ public class InputParserTest {
 
     @Before
     public void setup() {
-        listOfBooks.add(new Book("Pathashala", "Saurav", 2016));
-        listOfBooks.add(new Book("University", "Rajat", 2015));
-        listOfBooks.add(new Book("Refactoring", "Jashwanth", 2015));
-        listOfBooks.add(new Book("Object Oriented", "Venkatesh", 2014));
+        listOfBooks.add(new AvailableBook("Pathashala", "Saurav", 2016));
+        listOfBooks.add(new AvailableBook("University", "Rajat", 2015));
+        listOfBooks.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
+        listOfBooks.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
         ConsoleOutputTemplate outputTemplate = new ConsoleOutputTemplate();
         inputParser = new InputParser(library, new BooksList(library, outputTemplate), new Quit(), new InvalidOption(outputTemplate),
                 new CheckOut(outputTemplate, consoleInput, library), returnBook);
@@ -44,7 +43,7 @@ public class InputParserTest {
 
     @Before
     public void setUp() throws Exception {
-        library = new Library(listOfBooks);
+        library = new Library(listOfBooks, new ArrayList<Book>());
     }
 
     @Test

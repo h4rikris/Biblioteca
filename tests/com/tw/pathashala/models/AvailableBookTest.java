@@ -5,11 +5,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class BookTest {
+public class AvailableBookTest {
 
     @Test
     public void testForBookReturningBookDetails() {
-        Book book = new Book("Java", "Hari", 2015);
+        Book book = new AvailableBook("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         String expectedBookDetails = "| Java                                      | Hari                                      | 2015     |";
@@ -19,7 +19,7 @@ public class BookTest {
 
     @Test
     public void testForBookDetailsConsistsAuthor() {
-        Book book = new Book("Java", "Hari", 2015);
+        Book book = new AvailableBook("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         String author = "Hari";
@@ -29,7 +29,7 @@ public class BookTest {
 
     @Test
     public void testForBookDetailsConsistsBookName() {
-        Book book = new Book("Java", "Hari", 2015);
+        Book book = new AvailableBook("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         String bookName = "Java";
@@ -39,7 +39,7 @@ public class BookTest {
 
     @Test
     public void testForBookDetailsConsistsDateOfPublication() {
-        Book book = new Book("Java", "Hari", 2015);
+        Book book = new AvailableBook("Java", "Hari", 2015);
 
         String bookDetails = book.toString();
         Integer dateOfPublication = 2015;
@@ -49,7 +49,7 @@ public class BookTest {
 
     @Test
     public void testForBookDetailsNotHavingFutureDateOfPublication() {
-        Book book = new Book("Java", "Hari", 2015);
+        Book book = new AvailableBook("Java", "Hari", 2015);
 
         boolean bookYearInFuture = book.isPublicationYearInFuture();
         boolean expectedResult = false;
@@ -59,7 +59,7 @@ public class BookTest {
 
     @Test
     public void testForBookDetailsHavingFutureDateOfPublication() {
-        Book book = new Book("Java", "Hari", 2016);
+        Book book = new AvailableBook("Java", "Hari", 2016);
 
         boolean bookYearInFuture = book.isPublicationYearInFuture();
         boolean expectedResult = true;
@@ -68,50 +68,13 @@ public class BookTest {
     }
 
     @Test
-    public void testForBookCheckOutToBeTrueAfterCheckedOut() {
-        Book book = new Book("Java", "Hari", 2016);
+    public void testForBookCheckOutReturnCheckedOutBookAfterCheckedOut() {
+        Book book = new AvailableBook("Java", "Hari", 2016);
 
-        boolean checkout = book.checkOut();
+        Book checkoutBook = book.checkOut();
+        String expected = checkoutBook.getClass().getName();
 
-        assertEquals(true, checkout);
-    }
-
-    @Test
-    public void testForBookCheckOutOnAlreadyCheckedOutBook() {
-        Book book = new Book("Java", "Hari", 2016);
-
-        book.checkOut();
-        boolean checkout = book.checkOut();
-
-        assertEquals(false, checkout);
-    }
-
-    @Test
-    public void testForBookReturnToBeTrueAfterReturned() {
-        Book book = new Book("Java", "Hari", 2016);
-
-        book.checkOut();
-        boolean checkout = book.returnBook();
-
-        assertEquals(true, checkout);
-    }
-
-    @Test
-    public void testForReturnBookThatIsNotCheckedOut() {
-        Book book = new Book("Java", "Hari", 2016);
-
-        boolean checkout = book.returnBook();
-
-        assertEquals(false, checkout);
-    }
-
-    @Test
-    public void testForCheckingNameOfBookWithItself() {
-        Book book = new Book("Java", "Hari", 2016);
-
-        boolean result = book.isYourName("Java");
-
-        assertEquals(true, result);
+        assertEquals("com.tw.pathashala.models.CheckedOutBook", expected);
     }
 
 }
