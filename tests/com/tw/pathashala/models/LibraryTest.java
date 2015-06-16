@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 
 public class LibraryTest {
@@ -122,5 +123,14 @@ public class LibraryTest {
         Boolean actualResult = library.returnBook("Refactoring");
 
         assertThat(true, is(actualResult));
+    }
+
+    @Test
+    public void testToCheckReturnBookThatBookNotExistInList() {
+        Library library = new Library(listOfBooks);
+
+        Boolean actualResult = library.returnBook("Not exist");
+
+        assertFalse(actualResult);
     }
 }
