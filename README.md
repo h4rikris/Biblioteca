@@ -7,7 +7,7 @@
 1. Download package and extract it.
 
 2. Build the package using below ant command.
->    $ant
+>    ant
     
 3. Generate Java archive by using below ant command.
 

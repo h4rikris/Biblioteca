@@ -1,5 +1,6 @@
 package com.tw.pathashala.models;
 
+import com.tw.pathashala.controller.Dependencies;
 import com.tw.pathashala.menu.*;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
@@ -30,29 +31,13 @@ public class InputParserTest {
 
     @Before
     public void setup() {
-        listOfRentableItems.add(new AvailableBook("Pathashala", "Saurav", 2016));
-        listOfRentableItems.add(new AvailableBook("University", "Rajat", 2015));
-        listOfRentableItems.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
-        listOfRentableItems.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
-        ConsoleOutputTemplate outputTemplate = new ConsoleOutputTemplate();
-        BooksList bookList = new BooksList(library, outputTemplate);
-        inputParser = new InputParser(library, bookList, new Quit(), new InvalidOption(outputTemplate),
-                new CheckOutBook(outputTemplate, consoleInput, library), returnBook);
+        Dependencies dependencies = new Dependencies();
+        inputParser = dependencies.getInputParserInstance();
     }
 
     @Before
     public void setUp() throws Exception {
         library = new Library(listOfRentableItems, new ArrayList<RentableItem>(), new Search());
-    }
-
-    @Test
-    public void testForMenuAddItemEntry() {
-        Integer menuSizeBeforeEntry = inputParser.menuList().size();
-
-        inputParser.addOption(5, new BooksList(library, new ConsoleOutputTemplate()));
-        Integer menuSizeAfterEntry = inputParser.menuList().size();
-
-        assertThat(menuSizeAfterEntry, is(equalTo(menuSizeBeforeEntry + 1)));
     }
 
     @Test

@@ -6,7 +6,11 @@ import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+
+import static com.tw.pathashala.constants.Constants.*;
 
 public class Dependencies {
 
@@ -17,12 +21,11 @@ public class Dependencies {
     private InputParser inputParser;
 
     public Dependencies() {
-        bookLibrary = new Library(new ArrayList<RentableItem>(), new ArrayList<RentableItem>(), new Search());
-        movieLibrary = new Library(new ArrayList<RentableItem>(), new ArrayList<RentableItem>(), new Search());
+        bookLibrary = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search());
+        movieLibrary = new Library(availableMovieDetails(), new ArrayList<RentableItem>(), new Search());
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
-        inputParser = new InputParser(bookLibrary, new BooksList(bookLibrary, consoleOutputTemplate), new Quit(), new InvalidOption(consoleOutputTemplate),
-                new CheckOutBook(consoleOutputTemplate, consoleInput, bookLibrary), new ReturnBook(consoleOutputTemplate, consoleInput, bookLibrary));
+        inputParser = new InputParser(createMenu(),new InvalidOption(consoleOutputTemplate));
 
     }
 
@@ -58,5 +61,14 @@ public class Dependencies {
         rentableItems.add(new AvailableMovie("Titanic", "Jashwanth", 2015, 9));
         rentableItems.add(new AvailableMovie("AVP", "Venkatesh", 2014, 9));
         return rentableItems;
+    }
+
+    private Map<Integer, MenuAction> createMenu() {
+        Map<Integer, MenuAction> menuList = new HashMap<Integer, MenuAction>();
+        menuList.put(LIST_BOOKS_OPTION, new BooksList(bookLibrary, consoleOutputTemplate));
+        menuList.put(CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, bookLibrary));
+        menuList.put(RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, bookLibrary));
+        menuList.put(QUIT_OPTION, new Quit());
+        return menuList;
     }
 }

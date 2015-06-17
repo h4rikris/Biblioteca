@@ -1,29 +1,18 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.menu.*;
+import com.tw.pathashala.menu.InvalidOption;
+import com.tw.pathashala.menu.MenuAction;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import static com.tw.pathashala.constants.Constants.*;
-
 public class InputParser {
-    private Map<Integer, MenuAction> menuList = new HashMap<Integer, MenuAction>();
-    private Library library;
+    private Map<Integer, MenuAction> menuList;
     private MenuAction invalidOption;
 
-    public InputParser(Library bookLibrary, BooksList bookList, Quit quit, InvalidOption invalidOption, CheckOutBook checkOutBook, ReturnBook returnBook) {
-        this.library = bookLibrary;
+    public InputParser(Map<Integer, MenuAction> menuList, InvalidOption invalidOption) {
         this.invalidOption = invalidOption;
-        menuList.put(LIST_BOOKS_OPTION, bookList);
-        menuList.put(CHECKOUT_OPTION, checkOutBook);
-        menuList.put(RETURN_OPTION, returnBook);
-        menuList.put(QUIT_OPTION, quit);
+        this.menuList = menuList;
 
-    }
-
-    public void addOption(Integer menuOption, MenuAction action) {
-        menuList.put(menuOption, action);
     }
 
     public Map<Integer, MenuAction> menuList() {
