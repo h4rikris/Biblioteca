@@ -1,6 +1,7 @@
 package com.tw.pathashala.controller;
 
 import com.tw.pathashala.menu.MenuAction;
+import com.tw.pathashala.models.Authenticator;
 import com.tw.pathashala.models.InputParser;
 import com.tw.pathashala.models.Library;
 import com.tw.pathashala.view.ConsoleInput;
@@ -16,11 +17,12 @@ import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BibliotecaAppTest {
-    @Mock
-    Dependencies dependencies;
 
     @Mock
     ConsoleInput consoleInput;
+
+    @Mock
+    Authenticator authenticator;
 
     @Mock
     Library library;
@@ -37,6 +39,7 @@ public class BibliotecaAppTest {
     @Before
     public void setUp() throws Exception {
         when(consoleInput.getUserInput()).thenReturn("List Books", "Quit");
+        when(authenticator.getMenuMapper()).thenReturn(inputParser);
         when(inputParser.chooseOption("List Books")).thenReturn(action);
         when(inputParser.chooseOption("Quit")).thenReturn(action);
         when(action.execute()).thenReturn(CONTINUE, STOP);
@@ -44,7 +47,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldIncludeMainMenuAndWelcomeMessageOnStart() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, authenticator);
 
         app.start();
 
@@ -53,7 +56,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldTakeUserInput() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, authenticator);
 
         app.start();
 
@@ -62,7 +65,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldAbleToStopApplicationOnQuitInput() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, authenticator);
 
         app.start();
 

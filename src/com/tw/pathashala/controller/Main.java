@@ -1,5 +1,6 @@
 package com.tw.pathashala.controller;
 
+import com.tw.pathashala.models.Authenticator;
 import com.tw.pathashala.models.InputParser;
 import com.tw.pathashala.models.Library;
 import com.tw.pathashala.view.ConsoleInput;
@@ -11,7 +12,8 @@ public class Main {
         ConsoleOutputTemplate outputTemplate = dependencies.getConsoleOutputInstance();
         ConsoleInput consoleInput = dependencies.getConsoleInputInstance();
         InputParser inputParser = dependencies.getInputParserInstance();
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
+        Authenticator authenticator = dependencies.getAuthenticatorInstance();
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, authenticator);
         app.start();
     }
 }

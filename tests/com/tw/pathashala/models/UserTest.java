@@ -35,7 +35,7 @@ public class UserTest {
     }
 
     @Test
-    public void reflexiveTestFor() {
+    public void reflexiveTestForUser() {
         User first = new User("hari", "password");
         User second = new User("hari", "password");
 
@@ -45,7 +45,7 @@ public class UserTest {
     }
 
     @Test
-    public void symmetricTestFor() {
+    public void symmetricTestForUser() {
         User first = new User("hari", "password");
         User second = new User("hari", "password");
 
@@ -58,7 +58,7 @@ public class UserTest {
     }
 
     @Test
-    public void trasitiveTestFor() {
+    public void trasitiveTestForUser() {
         User first = new User("hari", "password");
         User second = new User("hari", "password");
         User third = new User("hari", "password");
@@ -72,7 +72,7 @@ public class UserTest {
     }
 
     @Test
-    public void nullComparisonTestFor() {
+    public void nullComparisonTestForUser() {
         User first = new User("hari", "password");
         User second = null;
 

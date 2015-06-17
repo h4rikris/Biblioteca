@@ -19,6 +19,9 @@ public class Dependencies {
     private Library bookLibrary;
     private Library movieLibrary;
     private InputParser inputParser;
+    private InputParser normalInputParser;
+
+    private Authenticator authenticator;
 
     public Dependencies() {
         bookLibrary = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search());
@@ -26,11 +29,16 @@ public class Dependencies {
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
         inputParser = new InputParser(createMenu(),new InvalidOption(consoleOutputTemplate));
-
+        normalInputParser = new InputParser(createMenuForNormal(),new InvalidOption(consoleOutputTemplate));
+        authenticator = new Authenticator(userList(), userMenuMapperDetails());
     }
 
     public InputParser getInputParserInstance() {
         return inputParser;
+    }
+
+    public Authenticator getAuthenticatorInstance() {
+        return authenticator;
     }
 
     public Library getLibraryInstance() {
@@ -73,5 +81,32 @@ public class Dependencies {
         menuList.put(MOVIE_RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, movieLibrary));
         menuList.put(QUIT_OPTION, new Quit());
         return menuList;
+    }
+
+    private Map<Integer, MenuAction> createMenuForNormal() {
+        Map<Integer, MenuAction> menuList = new HashMap<Integer, MenuAction>();
+        menuList.put(BOOKS_LIST_OPTION, new BooksList(bookLibrary, consoleOutputTemplate));
+        menuList.put(BOOKS_CHECKOUT_OPTION, new InvalidOption(consoleOutputTemplate));
+        menuList.put(BOOKS_RETURN_OPTION, new InvalidOption(consoleOutputTemplate));
+        menuList.put(MOVIE_LIST_OPTION, new BooksList(movieLibrary, consoleOutputTemplate));
+        menuList.put(MOVIE_CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, movieLibrary));
+        menuList.put(MOVIE_RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, movieLibrary));
+        menuList.put(QUIT_OPTION, new Quit());
+        return menuList;
+    }
+
+    private ArrayList<User> userList() {
+        ArrayList<User> users = new ArrayList<User>();
+        users.add(new User("normal", "krishna"));
+        users.add(new User("admin", "pass"));
+        return users;
+    }
+
+    private Map<User, InputParser> userMenuMapperDetails() {
+        Map<User, InputParser> userMap = new HashMap<>();
+        userMap.put(new User("normal", "krishna"), inputParser);
+        userMap.put(new User("admin", "pass"), normalInputParser);
+        userMap.put(null, normalInputParser);
+        return userMap;
     }
 }
