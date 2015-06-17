@@ -65,9 +65,12 @@ public class Dependencies {
 
     private Map<Integer, MenuAction> createMenu() {
         Map<Integer, MenuAction> menuList = new HashMap<Integer, MenuAction>();
-        menuList.put(LIST_BOOKS_OPTION, new BooksList(bookLibrary, consoleOutputTemplate));
-        menuList.put(CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, bookLibrary));
-        menuList.put(RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, bookLibrary));
+        menuList.put(BOOKS_LIST_OPTION, new BooksList(bookLibrary, consoleOutputTemplate));
+        menuList.put(BOOKS_CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, bookLibrary));
+        menuList.put(BOOKS_RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, bookLibrary));
+        menuList.put(MOVIE_LIST_OPTION, new BooksList(movieLibrary, consoleOutputTemplate));
+        menuList.put(MOVIE_CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, movieLibrary));
+        menuList.put(MOVIE_RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, movieLibrary));
         menuList.put(QUIT_OPTION, new Quit());
         return menuList;
     }

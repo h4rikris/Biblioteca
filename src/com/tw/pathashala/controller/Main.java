@@ -10,7 +10,6 @@ public class Main {
         Dependencies dependencies = new Dependencies();
         ConsoleOutputTemplate outputTemplate = dependencies.getConsoleOutputInstance();
         ConsoleInput consoleInput = dependencies.getConsoleInputInstance();
-        Library library = dependencies.getLibraryInstance();
         InputParser inputParser = dependencies.getInputParserInstance();
         BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
         app.start();

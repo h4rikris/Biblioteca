@@ -24,7 +24,6 @@ public class BibliotecaApp {
 
         template.renderOutput(WELCOME_MESSAGE, MAIN_MENU);
 
-
         String option;
         MenuAction action;
         String result;

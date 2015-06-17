@@ -3,7 +3,6 @@ package com.tw.pathashala.models;
 import com.tw.pathashala.controller.Dependencies;
 import com.tw.pathashala.menu.*;
 import com.tw.pathashala.view.ConsoleInput;
-import com.tw.pathashala.view.ConsoleOutputTemplate;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -11,7 +10,6 @@ import org.mockito.Mock;
 import java.util.ArrayList;
 
 import static com.tw.pathashala.constants.Constants.*;
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -49,7 +47,7 @@ public class InputParserTest {
 
     @Test
     public void testToReturnBooksListOnUserSelectslistBooks() {
-        String actualClassName = inputParser.chooseOption(LIST_BOOKS_OPTION.toString()).getClass().getName();
+        String actualClassName = inputParser.chooseOption(BOOKS_LIST_OPTION.toString()).getClass().getName();
 
         assertEquals("com.tw.pathashala.menu.BooksList", actualClassName);
     }
@@ -63,7 +61,7 @@ public class InputParserTest {
 
     @Test
     public void testToReturnCheckOutOnUserSelectsCheckOut() {
-        String actualClassName = inputParser.chooseOption(CHECKOUT_OPTION.toString()).getClass().getName();
+        String actualClassName = inputParser.chooseOption(BOOKS_CHECKOUT_OPTION.toString()).getClass().getName();
 
         assertEquals("com.tw.pathashala.menu.CheckOutBook", actualClassName);
     }
