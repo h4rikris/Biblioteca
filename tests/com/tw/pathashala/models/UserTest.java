@@ -15,4 +15,12 @@ public class UserTest {
         assertEquals(true, actual);
     }
 
+    @Test
+    public void shouldFalseOnInCorrectCredentials() {
+        User user = new User("hari", "pass");
+
+        boolean actual = user.checkCredentials("hari", "passaa");
+
+        assertEquals(false, actual);
+    }
 }
