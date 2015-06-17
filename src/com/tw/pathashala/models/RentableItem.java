@@ -1,5 +1,6 @@
 package com.tw.pathashala.models;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import static com.tw.pathashala.constants.Constants.BOOK_FORMAT;
@@ -29,8 +30,10 @@ public abstract class RentableItem {
 
     public abstract RentableItem returnItem();
 
-    public boolean isYourName(String name) {
-        return this.name.equals(name);
+    public void addToListIfTitleMatches(ArrayList<RentableItem> rentableItems, String searchName) {
+        if(searchName.equals(this.name)){
+            rentableItems.add(this);
+        }
     }
 
     @Override

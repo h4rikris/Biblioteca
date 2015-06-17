@@ -10,7 +10,7 @@ public class AvailableMovieTest {
         RentableItem movie = new AvailableMovie("Inception", "Hari", 2015, 9);
 
         String movieDetails = movie.toString();
-        String expectedMovieDetails = "| Inception                               | Hari                                    | 2015     | 9  |";
+        String expectedMovieDetails = "| Inception                               | Hari                                   | 2015     | 9  |";
 
         assertEquals(expectedMovieDetails, movieDetails);
     }

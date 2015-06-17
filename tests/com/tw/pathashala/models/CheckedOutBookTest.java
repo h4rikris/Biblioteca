@@ -2,6 +2,8 @@ package com.tw.pathashala.models;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class CheckedOutBookTest {
@@ -17,12 +19,13 @@ public class CheckedOutBookTest {
     }
 
     @Test
-    public void testForCheckingNameOfBookWithItself() {
+    public void testForCheckingNameAddToListIfTitleMatches() {
         RentableItem book = new AvailableBook("Java", "Hari", 2016);
 
-        boolean result = book.isYourName("Java");
+        ArrayList<RentableItem> itemList = new ArrayList<RentableItem>();
+        book.addToListIfTitleMatches(itemList, "Java");
 
-        assertEquals(true, result);
+        assertEquals(1, itemList.size());
     }
 
 }

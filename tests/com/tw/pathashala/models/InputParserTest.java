@@ -35,7 +35,8 @@ public class InputParserTest {
         listOfRentableItems.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
         listOfRentableItems.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
         ConsoleOutputTemplate outputTemplate = new ConsoleOutputTemplate();
-        inputParser = new InputParser(library, new BooksList(library, outputTemplate), new Quit(), new InvalidOption(outputTemplate),
+        BooksList bookList = new BooksList(library, outputTemplate);
+        inputParser = new InputParser(library, bookList, new Quit(), new InvalidOption(outputTemplate),
                 new CheckOut(outputTemplate, consoleInput, library), returnBook);
     }
 

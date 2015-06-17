@@ -19,6 +19,7 @@ public class InputParser {
         menuList.put(CHECKOUT_OPTION, checkOut);
         menuList.put(RETURN_OPTION, returnBook);
         menuList.put(QUIT_OPTION, quit);
+
     }
 
     public void addOption(Integer menuOption, MenuAction action) {

@@ -12,15 +12,17 @@ public class Dependencies {
 
     private ConsoleOutputTemplate consoleOutputTemplate;
     private ConsoleInput consoleInput;
-    private Library library;
+    private Library bookLibrary;
+    private Library movieLibrary;
     private InputParser inputParser;
 
     public Dependencies() {
-        library = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search());
+        bookLibrary = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search());
+        movieLibrary = new Library(availableMovieDetails(), new ArrayList<RentableItem>(), new Search());
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
-        inputParser = new InputParser(library, new BooksList(library, consoleOutputTemplate), new Quit(), new InvalidOption(consoleOutputTemplate),
-                new CheckOut(consoleOutputTemplate, consoleInput, library), new ReturnBook(consoleOutputTemplate, consoleInput, library));
+        inputParser = new InputParser(bookLibrary, new BooksList(bookLibrary, consoleOutputTemplate), new Quit(), new InvalidOption(consoleOutputTemplate),
+                new CheckOut(consoleOutputTemplate, consoleInput, bookLibrary), new ReturnBook(consoleOutputTemplate, consoleInput, bookLibrary));
 
     }
 
@@ -29,7 +31,7 @@ public class Dependencies {
     }
 
     public Library getLibraryInstance() {
-        return library;
+        return bookLibrary;
     }
 
     public ConsoleInput getConsoleInputInstance() {
@@ -46,6 +48,15 @@ public class Dependencies {
         rentableItems.add(new AvailableBook("University", "Rajat", 2015));
         rentableItems.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
         rentableItems.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
+        return rentableItems;
+    }
+
+    private ArrayList<RentableItem> availableMovieDetails() {
+        ArrayList<RentableItem> rentableItems = new ArrayList<RentableItem>();
+        rentableItems.add(new AvailableMovie("Inception", "Saurav", 2016, 10));
+        rentableItems.add(new AvailableMovie("Avatar", "Rajat", 2015, 9));
+        rentableItems.add(new AvailableMovie("Titanic", "Jashwanth", 2015, 9));
+        rentableItems.add(new AvailableMovie("AVP", "Venkatesh", 2014, 9));
         return rentableItems;
     }
 }
