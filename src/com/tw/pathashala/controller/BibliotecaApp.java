@@ -1,8 +1,7 @@
 package com.tw.pathashala.controller;
 
 import com.tw.pathashala.menu.MenuAction;
-import com.tw.pathashala.models.Authenticator;
-import com.tw.pathashala.models.InputParser;
+import com.tw.pathashala.models.Authentication;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
@@ -12,12 +11,12 @@ public class BibliotecaApp {
 
     private ConsoleOutputTemplate template;
     private ConsoleInput input;
-    private Authenticator authenticator;
+    private Authentication authentication;
 
-    public BibliotecaApp(ConsoleOutputTemplate template, ConsoleInput input, Authenticator authenticator) {
+    public BibliotecaApp(ConsoleOutputTemplate template, ConsoleInput input, Authentication authentication) {
         this.template = template;
         this.input = input;
-        this.authenticator = authenticator;
+        this.authentication = authentication;
     }
 
     public void start() {
@@ -29,7 +28,7 @@ public class BibliotecaApp {
         String result;
         do {
             option = input.getUserInput();
-            action = authenticator.getMenuMapper().chooseOption(option);
+            action = authentication.getMenuMapper().chooseOption(option);
             result = action.execute();
         }
         while (!(result.equals(STOP)));

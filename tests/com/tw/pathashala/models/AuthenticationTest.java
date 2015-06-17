@@ -9,7 +9,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class AuthenticatorTest {
+public class AuthenticationTest {
     ArrayList<User> users;
     User hari;
     Map<User, InputParser> userMenuMapper;
@@ -25,7 +25,7 @@ public class AuthenticatorTest {
 
     @Test
     public void shouldReturnUserIfCredentialsMatches() {
-        Authenticator auth = new Authenticator(users, userMenuMapper);
+        Authentication auth = new Authentication(users, userMenuMapper);
 
         User actualUser = auth.authenticate("hari", "krishna");
 

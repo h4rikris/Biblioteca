@@ -3,12 +3,12 @@ package com.tw.pathashala.models;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Authenticator {
+public class Authentication {
     private ArrayList<User> users;
     private Map<User, InputParser> userMenuMapper;
     private User currentLoggedInUser;
 
-    public Authenticator(ArrayList<User> users, Map<User, InputParser> userMenuMap) {
+    public Authentication(ArrayList<User> users, Map<User, InputParser> userMenuMap) {
         currentLoggedInUser = null;
         this.users = users;
         this.userMenuMapper = userMenuMap;

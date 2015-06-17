@@ -21,7 +21,7 @@ public class Dependencies {
     private InputParser inputParser;
     private InputParser normalInputParser;
 
-    private Authenticator authenticator;
+    private Authentication authentication;
 
     public Dependencies() {
         bookLibrary = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search());
@@ -30,15 +30,15 @@ public class Dependencies {
         consoleOutputTemplate = new ConsoleOutputTemplate();
         inputParser = new InputParser(createMenu(),new InvalidOption(consoleOutputTemplate));
         normalInputParser = new InputParser(createMenuForNormal(),new InvalidOption(consoleOutputTemplate));
-        authenticator = new Authenticator(userList(), userMenuMapperDetails());
+        authentication = new Authentication(userList(), userMenuMapperDetails());
     }
 
     public InputParser getInputParserInstance() {
         return inputParser;
     }
 
-    public Authenticator getAuthenticatorInstance() {
-        return authenticator;
+    public Authentication getAuthenticatorInstance() {
+        return authentication;
     }
 
     public Library getLibraryInstance() {
