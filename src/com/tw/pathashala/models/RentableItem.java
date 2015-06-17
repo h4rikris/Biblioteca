@@ -31,7 +31,7 @@ public abstract class RentableItem {
     public abstract RentableItem returnItem();
 
     public void addToListIfTitleMatches(ArrayList<RentableItem> rentableItems, String searchName) {
-        if(searchName.equals(this.name)){
+        if (searchName.equals(this.name)) {
             rentableItems.add(this);
         }
     }

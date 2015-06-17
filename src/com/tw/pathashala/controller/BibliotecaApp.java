@@ -24,9 +24,7 @@ public class BibliotecaApp {
 
     public void start() {
 
-        template.addToBody(WELCOME_MESSAGE);
-        template.addToFooter(MAIN_MENU);
-        template.renderOutput();
+        template.renderOutput(WELCOME_MESSAGE, MAIN_MENU);
 
 
         String option;

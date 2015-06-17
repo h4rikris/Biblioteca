@@ -2,7 +2,7 @@ package com.tw.pathashala.models;
 
 import static com.tw.pathashala.constants.Constants.MOVIE_FORMAT;
 
-public class CheckedOutMovie extends RentableItem{
+public class CheckedOutMovie extends RentableItem {
     private Integer rating;
     private String name;
     private String director;

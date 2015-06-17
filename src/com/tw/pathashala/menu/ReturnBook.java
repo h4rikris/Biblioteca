@@ -20,20 +20,16 @@ public class ReturnBook implements MenuAction {
     @Override
     public String execute() {
         String bookName = askForBookName();
-        if (library.returnItem(bookName)) {
-            outputTemplate.addToBody(RETURN_SUCCESS_MESSAGE);
+        if (this.library.returnItem(bookName)) {
+            outputTemplate.renderOutput(RETURN_SUCCESS_MESSAGE, MAIN_MENU);
         } else {
-            outputTemplate.addToBody(RETURN_FAIL_MESSAGE);
+            outputTemplate.renderOutput(RETURN_FAIL_MESSAGE, MAIN_MENU);
         }
-        outputTemplate.addToFooter(MAIN_MENU);
-        outputTemplate.renderOutput();
         return CONTINUE;
     }
 
     private String askForBookName() {
-        outputTemplate.addToBody(library.checkedOutItems());
-        outputTemplate.addToFooter(RETURN_MESSAGE);
-        outputTemplate.renderOutput();
+        outputTemplate.renderOutput(library.checkedOutItems(), RETURN_PROMPT_MESSAGE);
         return consoleInput.getUserInput();
     }
 }

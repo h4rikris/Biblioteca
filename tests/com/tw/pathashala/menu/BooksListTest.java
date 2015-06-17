@@ -8,9 +8,10 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static com.tw.pathashala.constants.Constants.CONTINUE;
+import static com.tw.pathashala.constants.Constants.MAIN_MENU;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BooksListTest {
@@ -31,30 +32,13 @@ public class BooksListTest {
     }
 
     @Test
-    public void shouldAddListOfBooksToTemplateBody() {
+    public void shouldHaveListOfBooksAndMainMenuInDisplay() {
         BooksList booksList = new BooksList(library, outputTemplate);
 
+        when(library.availableItems()).thenReturn("List Items");
         booksList.execute();
 
-        verify(outputTemplate).addToBody(anyString());
-    }
-
-    @Test
-    public void shouldAddMenuToTemplateFooter() {
-        BooksList booksList = new BooksList(library, outputTemplate);
-
-        booksList.execute();
-
-        verify(outputTemplate).addToFooter(anyString());
-    }
-
-    @Test
-    public void shouldCallRenderToPrintOnConsole() {
-        BooksList booksList = new BooksList(library, outputTemplate);
-
-        booksList.execute();
-
-        verify(outputTemplate).renderOutput();
+        verify(outputTemplate).renderOutput("List Items", MAIN_MENU);
     }
 
     @Test

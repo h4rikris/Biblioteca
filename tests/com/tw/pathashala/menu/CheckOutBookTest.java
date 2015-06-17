@@ -14,7 +14,7 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CheckOutTest {
+public class CheckOutBookTest {
 
     @Mock
     ConsoleOutputTemplate outputTemplate;
@@ -27,75 +27,76 @@ public class CheckOutTest {
 
     @Test
     public void shouldReturnContinueOnExecuteMethod() {
-        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+        CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
 
-        String actualResult = checkOut.execute();
+        String actualResult = checkOutBook.execute();
 
         assertEquals(CONTINUE, actualResult);
     }
 
     @Test
     public void shouldDisplayListOfBooks() {
-        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+        CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
 
-        checkOut.execute();
+        checkOutBook.execute();
 
         verify(library).availableItems();
     }
 
     @Test
     public void shouldAskForBookName() {
-        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+        CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
 
-        checkOut.execute();
+        checkOutBook.execute();
 
         verify(consoleInput).getUserInput();
     }
 
     @Test
     public void shouldAddCheckOutFooterMessageToPrompt() {
-        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+        CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
 
-        checkOut.execute();
+        when(library.availableItems()).thenReturn("Items");
+        checkOutBook.execute();
 
-        verify(outputTemplate).addToFooter(CHECKOUT_MESSAGE);
+        verify(outputTemplate).renderOutput("Items", CHECKOUT_MESSAGE);
     }
 
     @Test
     public void shouldAbleToCheckOutTheBook() {
-        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+        CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
 
-        checkOut.execute();
+        checkOutBook.execute();
 
         verify(library).checkOut(anyString());
     }
 
     @Test
     public void shouldDisplayErrorMessageOnInvalidBookEntry() {
-        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+        CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
         when(library.checkOut(anyString())).thenReturn(false);
 
-        checkOut.execute();
+        checkOutBook.execute();
 
-        verify(outputTemplate, times(1)).addToBody(CHECKOUT_INVALID_MESSAGE);
+        verify(outputTemplate, times(1)).renderOutput(CHECKOUT_INVALID_MESSAGE, MAIN_MENU);
     }
 
     @Test
     public void shouldDisplaySuccessMessageValidBookEntry() {
-        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+        CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
         when(library.checkOut(anyString())).thenReturn(true);
 
-        checkOut.execute();
+        checkOutBook.execute();
 
-        verify(outputTemplate, times(1)).addToBody(CHECKOUT_SUCCESS_MESSAGE);
+        verify(outputTemplate, times(1)).renderOutput(CHECKOUT_SUCCESS_MESSAGE, MAIN_MENU);
     }
 
     @Test
     public void shouldDisplayToConsoleForBookEntryAndResultMessage() {
-        CheckOut checkOut = new CheckOut(outputTemplate, consoleInput, library);
+        CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
 
-        checkOut.execute();
+        checkOutBook.execute();
 
-        verify(outputTemplate, times(2)).renderOutput();
+        verify(outputTemplate, times(2)).renderOutput(anyString(), anyString());
     }
 }

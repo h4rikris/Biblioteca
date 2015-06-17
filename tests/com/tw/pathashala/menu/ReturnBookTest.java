@@ -55,9 +55,10 @@ public class ReturnBookTest {
     public void shouldAddReturnFooterMessageToPrompt() {
         ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
 
+        when(library.checkedOutItems()).thenReturn("Items");
         returnBook.execute();
 
-        verify(outputTemplate).addToFooter(RETURN_MESSAGE);
+        verify(outputTemplate).renderOutput("Items", RETURN_PROMPT_MESSAGE);
     }
 
     @Test
@@ -76,7 +77,7 @@ public class ReturnBookTest {
 
         returnBook.execute();
 
-        verify(outputTemplate, times(1)).addToBody(RETURN_FAIL_MESSAGE);
+        verify(outputTemplate, times(1)).renderOutput(RETURN_FAIL_MESSAGE, MAIN_MENU);
     }
 
     @Test
@@ -86,15 +87,7 @@ public class ReturnBookTest {
 
         returnBook.execute();
 
-        verify(outputTemplate, times(1)).addToBody(RETURN_SUCCESS_MESSAGE);
+        verify(outputTemplate, times(1)).renderOutput(RETURN_SUCCESS_MESSAGE, MAIN_MENU);
     }
 
-    @Test
-    public void shouldDisplayToConsoleForBookEntryAndResultMessage() {
-        ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
-
-        returnBook.execute();
-
-        verify(outputTemplate, times(2)).renderOutput();
-    }
 }

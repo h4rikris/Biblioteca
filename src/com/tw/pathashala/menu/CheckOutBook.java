@@ -6,12 +6,12 @@ import com.tw.pathashala.view.ConsoleOutputTemplate;
 
 import static com.tw.pathashala.constants.Constants.*;
 
-public class CheckOut implements MenuAction {
+public class CheckOutBook implements MenuAction {
     ConsoleOutputTemplate outputTemplate;
     ConsoleInput consoleInput;
     Library library;
 
-    public CheckOut(ConsoleOutputTemplate outputTemplate, ConsoleInput consoleInput, Library library) {
+    public CheckOutBook(ConsoleOutputTemplate outputTemplate, ConsoleInput consoleInput, Library library) {
         this.outputTemplate = outputTemplate;
         this.consoleInput = consoleInput;
         this.library = library;
@@ -20,20 +20,16 @@ public class CheckOut implements MenuAction {
     @Override
     public String execute() {
         String bookName = askForBookName();
-        if (library.checkOut(bookName)) {
-            outputTemplate.addToBody(CHECKOUT_SUCCESS_MESSAGE);
+        if (this.library.checkOut(bookName)) {
+            outputTemplate.renderOutput(CHECKOUT_SUCCESS_MESSAGE, MAIN_MENU);
         } else {
-            outputTemplate.addToBody(CHECKOUT_INVALID_MESSAGE);
+            outputTemplate.renderOutput(CHECKOUT_INVALID_MESSAGE, MAIN_MENU);
         }
-        outputTemplate.addToFooter(MAIN_MENU);
-        outputTemplate.renderOutput();
         return CONTINUE;
     }
 
     private String askForBookName() {
-        outputTemplate.addToBody(library.availableItems());
-        outputTemplate.addToFooter(CHECKOUT_MESSAGE);
-        outputTemplate.renderOutput();
+        outputTemplate.renderOutput(library.availableItems(), CHECKOUT_MESSAGE);
         return consoleInput.getUserInput();
     }
 }

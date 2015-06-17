@@ -34,8 +34,7 @@ public class ConsoleOutputTemplateTest {
     public void testForTemplateToIncludeBodyMessageOrNot() {
         ConsoleOutputTemplate template = new ConsoleOutputTemplate();
 
-        template.addToBody("Welcome");
-        template.renderOutput();
+        template.renderOutput("Welcome", "some Footer");
         String actual = outputContent.toString();
 
         assertTrue(actual.contains("Welcome"));
@@ -46,8 +45,7 @@ public class ConsoleOutputTemplateTest {
     public void testForTemplateToIncludeFooterMessageOrNot() {
         ConsoleOutputTemplate template = new ConsoleOutputTemplate();
 
-        template.addToFooter("InputParser");
-        template.renderOutput();
+        template.renderOutput("Body", "InputParser");
         String actual = outputContent.toString();
 
         assertTrue(actual.contains("InputParser"));

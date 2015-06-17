@@ -12,11 +12,11 @@ public class InputParser {
     private Library library;
     private MenuAction invalidOption;
 
-    public InputParser(Library library, BooksList bookList, Quit quit, InvalidOption invalidOption, CheckOut checkOut, ReturnBook returnBook) {
+    public InputParser(Library library, BooksList bookList, Quit quit, InvalidOption invalidOption, CheckOutBook checkOutBook, ReturnBook returnBook) {
         this.library = library;
         this.invalidOption = invalidOption;
         menuList.put(LIST_BOOKS_OPTION, bookList);
-        menuList.put(CHECKOUT_OPTION, checkOut);
+        menuList.put(CHECKOUT_OPTION, checkOutBook);
         menuList.put(RETURN_OPTION, returnBook);
         menuList.put(QUIT_OPTION, quit);
 

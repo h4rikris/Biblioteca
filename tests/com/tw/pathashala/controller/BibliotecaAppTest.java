@@ -43,21 +43,12 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void testToAddWelcomeMessageOrNot() {
+    public void shouldIncludeMainMenuAndWelcomeMessageOnStart() {
         BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, library, inputParser);
 
         app.start();
 
-        verify(outputTemplate).addToBody(WELCOME_MESSAGE);
-    }
-
-    @Test
-    public void testToAddMenuOrNot() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, library, inputParser);
-
-        app.start();
-
-        verify(outputTemplate).addToFooter(MAIN_MENU);
+        verify(outputTemplate).renderOutput(WELCOME_MESSAGE, MAIN_MENU);
     }
 
     @Test

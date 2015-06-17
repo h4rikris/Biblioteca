@@ -17,30 +17,12 @@ public class InvalidOptionTest {
     ConsoleOutputTemplate outputTemplate;
 
     @Test
-    public void shouldAddInvalidMessageToTemplateBody() {
+    public void shouldCallRenderToPrintOnConsoleWithInvalidOptionAndMainMenu() {
         InvalidOption invalidOption = new InvalidOption(outputTemplate);
 
         invalidOption.execute();
 
-        verify(outputTemplate).addToBody(INVALID_OPTION_MESSAGE);
-    }
-
-    @Test
-    public void shouldAddMenuToTemplateFooter() {
-        InvalidOption invalidOption = new InvalidOption(outputTemplate);
-
-        invalidOption.execute();
-
-        verify(outputTemplate).addToFooter(MAIN_MENU);
-    }
-
-    @Test
-    public void shouldCallRenderToPrintOnConsole() {
-        InvalidOption invalidOption = new InvalidOption(outputTemplate);
-
-        invalidOption.execute();
-
-        verify(outputTemplate).renderOutput();
+        verify(outputTemplate).renderOutput(INVALID_OPTION_MESSAGE, MAIN_MENU);
     }
 
     @Test

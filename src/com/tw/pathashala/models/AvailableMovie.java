@@ -1,10 +1,8 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.constants.Constants;
-
 import static com.tw.pathashala.constants.Constants.MOVIE_FORMAT;
 
-public class AvailableMovie extends RentableItem{
+public class AvailableMovie extends RentableItem {
     private Integer rating;
     private String name;
     private String director;

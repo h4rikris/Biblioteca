@@ -22,7 +22,7 @@ public class Dependencies {
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
         inputParser = new InputParser(bookLibrary, new BooksList(bookLibrary, consoleOutputTemplate), new Quit(), new InvalidOption(consoleOutputTemplate),
-                new CheckOut(consoleOutputTemplate, consoleInput, bookLibrary), new ReturnBook(consoleOutputTemplate, consoleInput, bookLibrary));
+                new CheckOutBook(consoleOutputTemplate, consoleInput, bookLibrary), new ReturnBook(consoleOutputTemplate, consoleInput, bookLibrary));
 
     }
 

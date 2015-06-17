@@ -37,7 +37,7 @@ public class InputParserTest {
         ConsoleOutputTemplate outputTemplate = new ConsoleOutputTemplate();
         BooksList bookList = new BooksList(library, outputTemplate);
         inputParser = new InputParser(library, bookList, new Quit(), new InvalidOption(outputTemplate),
-                new CheckOut(outputTemplate, consoleInput, library), returnBook);
+                new CheckOutBook(outputTemplate, consoleInput, library), returnBook);
     }
 
     @Before
@@ -80,7 +80,7 @@ public class InputParserTest {
     public void testToReturnCheckOutOnUserSelectsCheckOut() {
         String actualClassName = inputParser.chooseOption(CHECKOUT_OPTION.toString()).getClass().getName();
 
-        assertEquals("com.tw.pathashala.menu.CheckOut", actualClassName);
+        assertEquals("com.tw.pathashala.menu.CheckOutBook", actualClassName);
     }
 
     @Test

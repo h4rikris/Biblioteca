@@ -15,15 +15,17 @@ public class ConsoleOutputTemplate {
         return output + "\n";
     }
 
-    public void addToBody(String bodyItem) {
+    private void addToBody(String bodyItem) {
         body = body.concat(bodyItem + "\n");
     }
 
-    public void addToFooter(String footerItem) {
+    private void addToFooter(String footerItem) {
         footer = footer.concat(footerItem);
     }
 
-    public void renderOutput() {
+    public void renderOutput(String bodyItem, String footerItem) {
+        addToBody(bodyItem);
+        addToFooter(footerItem);
         centrifyBody();
         System.out.print(String.format(template, header, body, divider(width), footer));
         body = "";
