@@ -6,10 +6,6 @@ public interface Constants {
 
     public static final String STOP = "STOP";
     public static final String CONTINUE = "CONTINUE";
-    public static final boolean CHECKEDOUT = true;
-    public static final boolean CHECKEDIN = false;
-    public static final boolean SUCCESS = true;
-    public static final boolean FAILED = false;
 
     public static final String BOOK_FORMAT = "| %-41s | %-41s | %-8s |";
     public static final String MOVIE_FORMAT = "| %-39s | %-38s | %-8s | %-2s |";
@@ -20,11 +16,16 @@ public interface Constants {
     public static final Integer RETURN_OPTION = 3;
     public static final Integer QUIT_OPTION = 4;
     public static final String CHECKOUT_MESSAGE = "Enter Book Name:";
-    public static final String CHECKOUT_INVALID_MESSAGE = "That Book is not available.";
-    public static final String CHECKOUT_SUCCESS_MESSAGE = "Thank you! Enjoy the Book.";
-    public static final String RETURN_PROMPT_MESSAGE = "Enter Book Name To Return:";
-    public static final String RETURN_SUCCESS_MESSAGE = "Thank you for returning the Book.";
-    public static final String RETURN_FAIL_MESSAGE = "That is not a valid Book return.";
+    public static final String BOOK_CHECKOUT_INVALID_MESSAGE = "That Book is not available.";
+    public static final String BOOK_CHECKOUT_SUCCESS_MESSAGE = "Thank you! Enjoy the Book.";
+    public static final String BOOK_RETURN_PROMPT_MESSAGE = "Enter Book Name To Return:";
+    public static final String BOOK_RETURN_SUCCESS_MESSAGE = "Thank you for returning the Book.";
+    public static final String BOOK_RETURN_FAIL_MESSAGE = "That is not a valid Book return.";
+    public static final String MOVIE_CHECKOUT_INVALID_MESSAGE = "That Movie is not available.";
+    public static final String MOVIE_CHECKOUT_SUCCESS_MESSAGE = "Thank you! Enjoy the Movie.";
+    public static final String MOVIE_RETURN_PROMPT_MESSAGE = "Enter Movie Name To Return:";
+    public static final String MOVIE_RETURN_SUCCESS_MESSAGE = "Thank you for returning the Movie.";
+    public static final String MOVIE_RETURN_FAIL_MESSAGE = "That is not a valid Movie return.";
     public static final String NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND = "No Checkedout Book details are Found";
-    public static final String NO_BOOK_DETAILS_ARE_FOUND = "No Book details are Found";
+    public static final String NO_ITEMS_DETAILS_ARE_FOUND = "No Item details are Found";
 }

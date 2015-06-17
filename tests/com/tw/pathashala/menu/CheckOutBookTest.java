@@ -74,21 +74,21 @@ public class CheckOutBookTest {
     @Test
     public void shouldDisplayErrorMessageOnInvalidBookEntry() {
         CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
-        when(library.checkOut(anyString())).thenReturn(false);
+        when(library.checkOut(anyString())).thenReturn(BOOK_CHECKOUT_INVALID_MESSAGE);
 
         checkOutBook.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(CHECKOUT_INVALID_MESSAGE, MAIN_MENU);
+        verify(outputTemplate, times(1)).renderOutput(BOOK_CHECKOUT_INVALID_MESSAGE, MAIN_MENU);
     }
 
     @Test
     public void shouldDisplaySuccessMessageValidBookEntry() {
         CheckOutBook checkOutBook = new CheckOutBook(outputTemplate, consoleInput, library);
-        when(library.checkOut(anyString())).thenReturn(true);
+        when(library.checkOut(anyString())).thenReturn(BOOK_CHECKOUT_SUCCESS_MESSAGE);
 
         checkOutBook.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(CHECKOUT_SUCCESS_MESSAGE, MAIN_MENU);
+        verify(outputTemplate, times(1)).renderOutput(BOOK_CHECKOUT_SUCCESS_MESSAGE, MAIN_MENU);
     }
 
     @Test

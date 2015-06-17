@@ -1,5 +1,8 @@
 package com.tw.pathashala.models;
 
+import static com.tw.pathashala.constants.Constants.BOOK_RETURN_FAIL_MESSAGE;
+import static com.tw.pathashala.constants.Constants.BOOK_RETURN_SUCCESS_MESSAGE;
+
 public class CheckedOutBook extends RentableItem {
 
     private final String name;
@@ -21,5 +24,15 @@ public class CheckedOutBook extends RentableItem {
     @Override
     public RentableItem returnItem() {
         return new AvailableBook(name, author, yearOfPublication);
+    }
+
+    @Override
+    public String getSuccessMessage() {
+        return BOOK_RETURN_SUCCESS_MESSAGE;
+    }
+
+    @Override
+    public String getFailMessage() {
+        return BOOK_RETURN_FAIL_MESSAGE;
     }
 }
