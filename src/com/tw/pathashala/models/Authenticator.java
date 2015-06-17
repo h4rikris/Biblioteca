@@ -9,7 +9,6 @@ public class Authenticator {
         this.users = users;
     }
 
-
     public User authenticate(String userName, String password) {
         for (User user : users) {
             if (user.checkCredentials(userName, password)) {
