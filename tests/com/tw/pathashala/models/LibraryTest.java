@@ -1,12 +1,15 @@
 package com.tw.pathashala.models;
 
+import com.tw.pathashala.constants.Constants;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static com.tw.pathashala.constants.Constants.*;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class LibraryTest {
 
@@ -20,7 +23,7 @@ public class LibraryTest {
         availableRentableItems.add(new AvailableBook("University", "Rajat", 2015));
         availableRentableItems.add(new AvailableBook("Refactoring", "Jashwanth", 2015));
         availableRentableItems.add(new AvailableBook("Object Oriented", "Venkatesh", 2014));
-        checkedOutRentableItems.clear();
+        checkedOutRentableItems.add(new CheckedOutBook("Oriented", "SSS", 2014));
     }
 
     @Test
@@ -40,7 +43,7 @@ public class LibraryTest {
         Library library = new Library(new ArrayList<RentableItem>(), checkedOutRentableItems, search);
 
         String booksDetails = library.availableItems();
-        String expectedBooksDetails = "No Book details are Found";
+        String expectedBooksDetails = "No Item details are Found";
 
         assertThat(booksDetails, is(expectedBooksDetails));
     }
@@ -59,6 +62,7 @@ public class LibraryTest {
 
     @Test
     public void testForDisplayCheckedOutBookDetails() {
+        checkedOutRentableItems.clear();
         checkedOutRentableItems.add(new CheckedOutBook("Java", "Hari", 2015));
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search);
 
@@ -72,22 +76,23 @@ public class LibraryTest {
     public void testForCheckOutBookFromListOfBooks() {
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search);
 
-        Boolean actualResult = library.checkOut("Refactoring");
+        String actualResult = library.checkOut("Refactoring");
 
-        assertEquals(true, actualResult);
+        assertEquals(BOOK_CHECKOUT_SUCCESS_MESSAGE, actualResult);
     }
 
     @Test
     public void testForCheckOutBookWhichIsNotAvailable() {
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search);
 
-        Boolean actualResult = library.checkOut("This Book does Not Exist");
+        String actualResult = library.checkOut("This Book does Not Exist");
 
-        assertEquals(false, actualResult);
+        assertEquals(BOOK_CHECKOUT_INVALID_MESSAGE, actualResult);
     }
 
     @Test
     public void shouldDisplayCheckedOutBooksIfPresent() {
+        checkedOutRentableItems.clear();
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search);
 
         library.checkOut("Refactoring");
@@ -98,10 +103,11 @@ public class LibraryTest {
 
     @Test
     public void shouldDisplayMessageWhenCheckedOutBooksAreEmpty() {
+        checkedOutRentableItems.clear();
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search);
 
         String booksDetails = library.checkedOutItems();
-        String expectedBooksDetails = "No Book details are Found";
+        String expectedBooksDetails = "No Item details are Found";
 
         assertThat(booksDetails, is(expectedBooksDetails));
     }
@@ -110,9 +116,9 @@ public class LibraryTest {
     public void testToReturnBookFromAvailableBooks() {
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search);
 
-        Boolean actualResult = library.returnItem("Refactoring");
+        String actualResult = library.returnItem("Refactoring");
 
-        assertThat(actualResult, is(false));
+        assertThat(actualResult, is(BOOK_RETURN_FAIL_MESSAGE));
     }
 
     @Test
@@ -120,17 +126,17 @@ public class LibraryTest {
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search);
 
         library.checkOut("Refactoring");
-        Boolean actualResult = library.returnItem("Refactoring");
+        String actualResult = library.returnItem("Refactoring");
 
-        assertThat(actualResult, is(true));
+        assertThat(actualResult, is(BOOK_RETURN_SUCCESS_MESSAGE));
     }
 
     @Test
     public void testToCheckReturnBookThatBookNotExistInList() {
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search);
 
-        Boolean actualResult = library.returnItem("Not exist");
+        String actualResult = library.returnItem("Not exist");
 
-        assertFalse(actualResult);
+        assertEquals(Constants.BOOK_RETURN_FAIL_MESSAGE, actualResult);
     }
 }

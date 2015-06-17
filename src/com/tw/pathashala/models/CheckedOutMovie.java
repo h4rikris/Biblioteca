@@ -1,6 +1,6 @@
 package com.tw.pathashala.models;
 
-import static com.tw.pathashala.constants.Constants.MOVIE_FORMAT;
+import static com.tw.pathashala.constants.Constants.*;
 
 public class CheckedOutMovie extends RentableItem {
     private Integer rating;
@@ -24,6 +24,16 @@ public class CheckedOutMovie extends RentableItem {
     @Override
     public RentableItem returnItem() {
         return new AvailableMovie(name, director, year, rating);
+    }
+
+    @Override
+    public String getSuccessMessage() {
+        return MOVIE_RETURN_SUCCESS_MESSAGE;
+    }
+
+    @Override
+    public String getFailMessage() {
+        return MOVIE_RETURN_FAIL_MESSAGE;
     }
 
     @Override

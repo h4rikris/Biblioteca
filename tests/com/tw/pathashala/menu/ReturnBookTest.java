@@ -58,7 +58,7 @@ public class ReturnBookTest {
         when(library.checkedOutItems()).thenReturn("Items");
         returnBook.execute();
 
-        verify(outputTemplate).renderOutput("Items", RETURN_PROMPT_MESSAGE);
+        verify(outputTemplate).renderOutput("Items", BOOK_RETURN_PROMPT_MESSAGE);
     }
 
     @Test
@@ -73,21 +73,21 @@ public class ReturnBookTest {
     @Test
     public void shouldDisplayErrorMessageOnInvalidBookEntry() {
         ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
-        when(library.returnItem(anyString())).thenReturn(false);
+        when(library.returnItem(anyString())).thenReturn(BOOK_RETURN_FAIL_MESSAGE);
 
         returnBook.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(RETURN_FAIL_MESSAGE, MAIN_MENU);
+        verify(outputTemplate, times(1)).renderOutput(BOOK_RETURN_FAIL_MESSAGE, MAIN_MENU);
     }
 
     @Test
     public void shouldDisplaySuccessMessageValidBookEntry() {
         ReturnBook returnBook = new ReturnBook(outputTemplate, consoleInput, library);
-        when(library.returnItem(anyString())).thenReturn(true);
+        when(library.returnItem(anyString())).thenReturn(BOOK_RETURN_SUCCESS_MESSAGE);
 
         returnBook.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(RETURN_SUCCESS_MESSAGE, MAIN_MENU);
+        verify(outputTemplate, times(1)).renderOutput(BOOK_RETURN_SUCCESS_MESSAGE, MAIN_MENU);
     }
 
 }

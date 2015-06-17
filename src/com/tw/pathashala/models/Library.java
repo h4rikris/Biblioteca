@@ -1,8 +1,10 @@
 package com.tw.pathashala.models;
 
+import com.tw.pathashala.constants.Constants;
+
 import java.util.ArrayList;
 
-import static com.tw.pathashala.constants.Constants.NO_BOOK_DETAILS_ARE_FOUND;
+import static com.tw.pathashala.constants.Constants.NO_ITEMS_DETAILS_ARE_FOUND;
 
 public class Library {
     private Search searchAgent;
@@ -19,14 +21,19 @@ public class Library {
         return displayItems(availableRentableItems);
     }
 
-    public Boolean checkOut(String bookName) {
+    public String checkOut(String bookName) {
         ArrayList<RentableItem> rentableItems = searchAgent.search(availableRentableItems, bookName);
         for (RentableItem book : rentableItems) {
             RentableItem checkedOutRentableItem = book.checkOut();
             availableRentableItems.remove(book);
-            return checkedOutRentableItems.add(checkedOutRentableItem);
+            checkedOutRentableItems.add(checkedOutRentableItem);
+            return book.getSuccessMessage();
         }
-        return false;
+        if (availableRentableItems.size() >= 1) {
+            return availableRentableItems.get(0).getFailMessage();
+        } else {
+            return Constants.NO_ITEMS_DETAILS_ARE_FOUND;
+        }
     }
 
     public String checkedOutItems() {
@@ -40,18 +47,24 @@ public class Library {
                 booksDetails = booksDetails.concat(book.toString() + "\n");
         }
         if (booksDetails.equals("")) {
-            return NO_BOOK_DETAILS_ARE_FOUND;
+            return NO_ITEMS_DETAILS_ARE_FOUND;
         }
         return booksDetails;
     }
 
-    public Boolean returnItem(String bookName) {
+    public String returnItem(String bookName) {
         ArrayList<RentableItem> rentableItems = searchAgent.search(checkedOutRentableItems, bookName);
         for (RentableItem book : rentableItems) {
             RentableItem returnedRentableItem = book.returnItem();
             checkedOutRentableItems.remove(book);
-            return availableRentableItems.add(returnedRentableItem);
+            availableRentableItems.add(returnedRentableItem);
+            return book.getSuccessMessage();
         }
-        return false;
+        if (checkedOutRentableItems.size() >= 1) {
+            return checkedOutRentableItems.get(0).getFailMessage();
+        } else {
+            return Constants.NO_ITEMS_DETAILS_ARE_FOUND;
+        }
     }
+
 }

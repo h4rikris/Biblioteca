@@ -1,5 +1,8 @@
 package com.tw.pathashala.models;
 
+import static com.tw.pathashala.constants.Constants.BOOK_CHECKOUT_INVALID_MESSAGE;
+import static com.tw.pathashala.constants.Constants.BOOK_CHECKOUT_SUCCESS_MESSAGE;
+
 public class AvailableBook extends RentableItem {
 
     private final Integer yearOfPublication;
@@ -21,5 +24,15 @@ public class AvailableBook extends RentableItem {
     @Override
     public RentableItem returnItem() {
         return null;
+    }
+
+    @Override
+    public String getSuccessMessage() {
+        return BOOK_CHECKOUT_SUCCESS_MESSAGE;
+    }
+
+    @Override
+    public String getFailMessage() {
+        return BOOK_CHECKOUT_INVALID_MESSAGE;
     }
 }

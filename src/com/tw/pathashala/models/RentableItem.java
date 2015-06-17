@@ -36,6 +36,10 @@ public abstract class RentableItem {
         }
     }
 
+    public abstract String getSuccessMessage();
+
+    public abstract String getFailMessage();
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
