@@ -21,8 +21,8 @@ public class Dependencies {
     private InputParser inputParser;
 
     public Dependencies() {
-        bookLibrary = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search());
-        movieLibrary = new Library(availableMovieDetails(), new ArrayList<RentableItem>(), new Search());
+        bookLibrary = new Library(new ArrayList<RentableItem>(), new ArrayList<RentableItem>(), new Search());
+        movieLibrary = new Library(new ArrayList<RentableItem>(), new ArrayList<RentableItem>(), new Search());
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
         inputParser = new InputParser(createMenu(),new InvalidOption(consoleOutputTemplate));
