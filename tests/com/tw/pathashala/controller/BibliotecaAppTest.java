@@ -44,7 +44,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldIncludeMainMenuAndWelcomeMessageOnStart() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, library, inputParser);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
 
         app.start();
 
@@ -53,7 +53,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldTakeUserInput() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, library, inputParser);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
 
         app.start();
 
@@ -62,7 +62,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldAbleToStopApplicationOnQuitInput() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, library, inputParser);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
 
         app.start();
 

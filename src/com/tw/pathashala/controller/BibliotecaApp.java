@@ -12,13 +12,11 @@ public class BibliotecaApp {
 
     private ConsoleOutputTemplate template;
     private ConsoleInput input;
-    private Library library;
     private InputParser inputParser;
 
-    public BibliotecaApp(ConsoleOutputTemplate template, ConsoleInput input, Library library, InputParser inputParser) {
+    public BibliotecaApp(ConsoleOutputTemplate template, ConsoleInput input, InputParser inputParser) {
         this.template = template;
         this.input = input;
-        this.library = library;
         this.inputParser = inputParser;
     }
 
