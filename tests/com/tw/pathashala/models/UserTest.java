@@ -81,4 +81,13 @@ public class UserTest {
 
         assertThat(actual, is(expected));
     }
+
+    @Test
+    public void shouldDisplayUsernameForUserToString() {
+        User first = new User("hari", "password");
+
+        String name = first.toString();
+
+        assertEquals("hari", name);
+    }
 }
