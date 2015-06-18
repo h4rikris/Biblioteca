@@ -32,6 +32,10 @@ public class ConsoleOutputTemplate {
         footer = "";
     }
 
+    public void prompt(String prompt) {
+        System.out.print(prompt);
+    }
+
     private void centrifyBody() {
         String spaces = "";
         for (int i = 0; i < 3; i++) {

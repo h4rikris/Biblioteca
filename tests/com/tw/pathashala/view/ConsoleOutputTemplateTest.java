@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -49,6 +50,16 @@ public class ConsoleOutputTemplateTest {
         String actual = outputContent.toString();
 
         assertTrue(actual.contains("InputParser"));
+    }
+
+    @Test
+    public void testForPromptToDisplayMessage() {
+        ConsoleOutputTemplate template = new ConsoleOutputTemplate();
+
+        template.prompt("Enter:");
+        String actual = outputContent.toString();
+
+        assertEquals("Enter:", actual);
     }
 
     @After

@@ -45,7 +45,7 @@ public class LoginTest {
         when(authentication.authenticate("admin", "pass")).thenReturn(true);
         login.execute();
 
-        verify(outputTemplate).renderOutput("", "Enter Password");
+        verify(outputTemplate).prompt("Enter Password:");
     }
 
     @Test

@@ -37,7 +37,7 @@ public class Login implements MenuAction{
     }
 
     private String askForPassword() {
-        outputTemplate.renderOutput("", "Enter Password");
+        outputTemplate.prompt("Enter Password:");
         return input.getUserInput();
     }
 
