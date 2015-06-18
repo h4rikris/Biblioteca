@@ -21,15 +21,16 @@ public class Dependencies {
     private InputParser inputParser;
     private InputParser normalInputParser;
     private UserMenuMapper userMenuMapper;
-
+    private UserHistory userHistory;
     private Authentication authentication;
 
     public Dependencies() {
-        bookLibrary = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search());
-        movieLibrary = new Library(availableMovieDetails(), new ArrayList<RentableItem>(), new Search());
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
         authentication = new Authentication(userList());
+        userHistory = new UserHistory(authentication, getUserHistoryDetails());
+        bookLibrary = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search(), userHistory);
+        movieLibrary = new Library(availableMovieDetails(), new ArrayList<RentableItem>(), new Search(), userHistory);
         inputParser = new InputParser(createMenu(), new InvalidOption(consoleOutputTemplate));
         normalInputParser = new InputParser(createMenuForNormal(), new InvalidOption(consoleOutputTemplate));
         userMenuMapper = new UserMenuMapper(authentication, userMenuMapperDetails());
@@ -96,11 +97,11 @@ public class Dependencies {
     private Map<Integer, MenuAction> createMenuForNormal() {
         Map<Integer, MenuAction> menuList = new HashMap<Integer, MenuAction>();
         menuList.put(BOOKS_LIST_OPTION, new ListOutItems(bookLibrary, consoleOutputTemplate));
-        menuList.put(BOOKS_CHECKOUT_OPTION, new Login(consoleInput,consoleOutputTemplate,authentication));
-        menuList.put(BOOKS_RETURN_OPTION, new Login(consoleInput,consoleOutputTemplate,authentication));
+        menuList.put(BOOKS_CHECKOUT_OPTION, new Login(consoleInput, consoleOutputTemplate, authentication));
+        menuList.put(BOOKS_RETURN_OPTION, new Login(consoleInput, consoleOutputTemplate, authentication));
         menuList.put(MOVIE_LIST_OPTION, new ListOutItems(movieLibrary, consoleOutputTemplate));
-        menuList.put(MOVIE_CHECKOUT_OPTION, new Login(consoleInput,consoleOutputTemplate,authentication));
-        menuList.put(MOVIE_RETURN_OPTION, new Login(consoleInput,consoleOutputTemplate,authentication));
+        menuList.put(MOVIE_CHECKOUT_OPTION, new Login(consoleInput, consoleOutputTemplate, authentication));
+        menuList.put(MOVIE_RETURN_OPTION, new Login(consoleInput, consoleOutputTemplate, authentication));
         menuList.put(QUIT_OPTION, new Quit());
         return menuList;
     }
@@ -118,5 +119,16 @@ public class Dependencies {
         userMap.put(new User("normal", "krishna"), normalInputParser);
         userMap.put(null, normalInputParser);
         return userMap;
+    }
+
+    public UserHistory getUserHistory() {
+        return userHistory;
+    }
+
+    private Map<User, ArrayList<RentableItem>> getUserHistoryDetails() {
+        Map<User, ArrayList<RentableItem>> userList = new HashMap<>();
+        userList.put(userList().get(0), new ArrayList<RentableItem>());
+        userList.put(userList().get(1), new ArrayList<RentableItem>());
+        return userList;
     }
 }

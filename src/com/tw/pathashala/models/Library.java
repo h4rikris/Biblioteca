@@ -10,11 +10,13 @@ public class Library {
     private Search searchAgent;
     private ArrayList<RentableItem> availableRentableItems = new ArrayList<RentableItem>();
     private ArrayList<RentableItem> checkedOutRentableItems = new ArrayList<RentableItem>();
+    private UserHistory userHistory;
 
-    public Library(ArrayList<RentableItem> availableRentableItems, ArrayList<RentableItem> checkedOutRentableItems, Search searchAgent) {
+    public Library(ArrayList<RentableItem> availableRentableItems, ArrayList<RentableItem> checkedOutRentableItems, Search searchAgent, UserHistory userHistory) {
         this.availableRentableItems = availableRentableItems;
         this.checkedOutRentableItems = checkedOutRentableItems;
         this.searchAgent = searchAgent;
+        this.userHistory = userHistory;
     }
 
     public String availableItems() {
@@ -27,6 +29,7 @@ public class Library {
             RentableItem checkedOutRentableItem = book.checkOut();
             availableRentableItems.remove(book);
             checkedOutRentableItems.add(checkedOutRentableItem);
+            userHistory.addItem(checkedOutRentableItem);
             return book.getSuccessMessage();
         }
         if (availableRentableItems.size() >= 1) {

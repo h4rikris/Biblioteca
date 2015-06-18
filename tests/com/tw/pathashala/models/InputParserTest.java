@@ -18,6 +18,7 @@ public class InputParserTest {
     ArrayList<RentableItem> listOfRentableItems = new ArrayList<RentableItem>();
 
     InputParser inputParser;
+    UserHistory userHistory;
 
     @Mock
     ConsoleInput consoleInput;
@@ -29,11 +30,12 @@ public class InputParserTest {
     public void setup() {
         Dependencies dependencies = new Dependencies();
         inputParser = dependencies.getInputParserInstance();
+        userHistory = dependencies.getUserHistory();
     }
 
     @Before
     public void setUp() throws Exception {
-        library = new Library(listOfRentableItems, new ArrayList<RentableItem>(), new Search());
+        library = new Library(listOfRentableItems, new ArrayList<RentableItem>(), new Search(), userHistory);
     }
 
     @Test
