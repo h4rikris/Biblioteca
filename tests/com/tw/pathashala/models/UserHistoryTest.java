@@ -58,7 +58,7 @@ public class UserHistoryTest {
         when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass"));
         history.addItem(availableBook);
         String actualResult = history.toString();
-        String expected = "| hari:                                                                                              |\n" +
+        String expected = "| hari:                                                                                            |\n" +
                 "| RISK                                      | Hari                                      | 2015     |";
 
         assertEquals(expected, actualResult);
