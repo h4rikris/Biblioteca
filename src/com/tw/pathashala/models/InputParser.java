@@ -15,10 +15,6 @@ public class InputParser {
 
     }
 
-    public Map<Integer, MenuAction> menuList() {
-        return menuList;
-    }
-
     public MenuAction chooseOption(String menuOption) {
         try {
             Integer option = convertToInteger(menuOption);

@@ -22,7 +22,7 @@ public class BibliotecaApp {
 
     public void start() {
 
-        template.renderOutput(WELCOME_MESSAGE, MAIN_MENU);
+        template.renderOutput(WELCOME_MESSAGE, LOGGEDIN_MAIN_MENU);
 
         String option;
         MenuAction action;

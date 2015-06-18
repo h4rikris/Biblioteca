@@ -78,7 +78,7 @@ public class CheckOutBookTest {
 
         checkOutBook.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(BOOK_CHECKOUT_INVALID_MESSAGE, MAIN_MENU);
+        verify(outputTemplate, times(1)).renderOutput(BOOK_CHECKOUT_INVALID_MESSAGE, LOGGEDIN_MAIN_MENU);
     }
 
     @Test
@@ -88,7 +88,7 @@ public class CheckOutBookTest {
 
         checkOutBook.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(BOOK_CHECKOUT_SUCCESS_MESSAGE, MAIN_MENU);
+        verify(outputTemplate, times(1)).renderOutput(BOOK_CHECKOUT_SUCCESS_MESSAGE, LOGGEDIN_MAIN_MENU);
     }
 
     @Test

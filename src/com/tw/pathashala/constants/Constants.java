@@ -10,15 +10,19 @@ public interface Constants {
     public static final String BOOK_FORMAT = "| %-41s | %-41s | %-8s |";
     public static final String MOVIE_FORMAT = "| %-39s | %-38s | %-8s | %-2s |";
 
-    public static final String MAIN_MENU = "1) List Books\n2) Checkout\n3) Return Book\n" +
-            "4) List Movies\n5) Checkout Movie\n6) Return Movie\n7) Quit\nEnter Your Option:";
+    public static final String LOGGEDIN_MAIN_MENU = "1) List Books\n2) Checkout\n3) Return Book\n" +
+            "4) List Movies\n5) Checkout Movie\n6) Return Movie\n7) Logout\n8) Quit\nEnter Your Option:";
+    public static final String LOGGEDOUT_MAIN_MENU = "1) List Books\n2) Checkout\n3) Return Book\n" +
+            "4) List Movies\n5) Checkout Movie\n6) Return Movie\n7) Login\n8) Quit\nEnter Your Option:";
     public static final Integer BOOKS_LIST_OPTION = 1;
     public static final Integer BOOKS_CHECKOUT_OPTION = 2;
     public static final Integer BOOKS_RETURN_OPTION = 3;
     public static final Integer MOVIE_LIST_OPTION = 4;
     public static final Integer MOVIE_CHECKOUT_OPTION = 5;
     public static final Integer MOVIE_RETURN_OPTION = 6;
-    public static final Integer QUIT_OPTION = 7;
+    public static final Integer LOGIN_OPTION = 7;
+    public static final Integer LOGOUT_OPTION = 7;
+    public static final Integer QUIT_OPTION = 8;
     public static final String CHECKOUT_MESSAGE = "Enter Book Name:";
     public static final String BOOK_CHECKOUT_INVALID_MESSAGE = "That Book is not available.";
     public static final String BOOK_CHECKOUT_SUCCESS_MESSAGE = "Thank you! Enjoy the Book.";

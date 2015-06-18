@@ -22,7 +22,7 @@ public class InvalidOptionTest {
 
         invalidOption.execute();
 
-        verify(outputTemplate).renderOutput(INVALID_OPTION_MESSAGE, MAIN_MENU);
+        verify(outputTemplate).renderOutput(INVALID_OPTION_MESSAGE, LOGGEDIN_MAIN_MENU);
     }
 
     @Test

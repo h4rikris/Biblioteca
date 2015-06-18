@@ -77,7 +77,7 @@ public class ReturnBookTest {
 
         returnBook.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(BOOK_RETURN_FAIL_MESSAGE, MAIN_MENU);
+        verify(outputTemplate, times(1)).renderOutput(BOOK_RETURN_FAIL_MESSAGE, LOGGEDIN_MAIN_MENU);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class ReturnBookTest {
 
         returnBook.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(BOOK_RETURN_SUCCESS_MESSAGE, MAIN_MENU);
+        verify(outputTemplate, times(1)).renderOutput(BOOK_RETURN_SUCCESS_MESSAGE, LOGGEDIN_MAIN_MENU);
     }
 
 }

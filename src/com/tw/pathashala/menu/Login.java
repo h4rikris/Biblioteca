@@ -21,7 +21,7 @@ public class Login implements MenuAction{
     public String execute() {
         boolean result = askForCredentials();
         if (result) {
-            outputTemplate.renderOutput("Successfully Logged in", MAIN_MENU);
+            outputTemplate.renderOutput("Successfully Logged in", LOGGEDIN_MAIN_MENU);
         }
         else {
             askToEnterAgain();
@@ -52,7 +52,7 @@ public class Login implements MenuAction{
             execute();
         }
         else {
-            outputTemplate.renderOutput(WELCOME_MESSAGE, MAIN_MENU);
+            outputTemplate.renderOutput(WELCOME_MESSAGE, LOGGEDIN_MAIN_MENU);
         }
     }
 }

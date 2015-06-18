@@ -13,7 +13,7 @@ public class InvalidOption implements MenuAction {
 
     @Override
     public String execute() {
-        outputTemplate.renderOutput(INVALID_OPTION_MESSAGE, MAIN_MENU);
+        outputTemplate.renderOutput(INVALID_OPTION_MESSAGE, LOGGEDIN_MAIN_MENU);
         return CONTINUE;
     }
 }
