@@ -14,7 +14,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BooksListTest {
+public class ListOutItemsTest {
     @Mock
     Library library;
 
@@ -23,7 +23,7 @@ public class BooksListTest {
 
     @Test
     public void shouldCallListOfAvailableBooksInLibrary() {
-        BooksList booklist = new BooksList(library, outputTemplate);
+        ListOutItems booklist = new ListOutItems(library, outputTemplate);
 
         booklist.execute();
 
@@ -33,19 +33,19 @@ public class BooksListTest {
 
     @Test
     public void shouldHaveListOfBooksAndMainMenuInDisplay() {
-        BooksList booksList = new BooksList(library, outputTemplate);
+        ListOutItems listOutItems = new ListOutItems(library, outputTemplate);
 
         when(library.availableItems()).thenReturn("List Items");
-        booksList.execute();
+        listOutItems.execute();
 
         verify(outputTemplate).renderOutput("List Items", LOGGEDIN_MAIN_MENU);
     }
 
     @Test
     public void shouldReturnContinueWhenExecuteInvoked() {
-        BooksList booksList = new BooksList(library, outputTemplate);
+        ListOutItems listOutItems = new ListOutItems(library, outputTemplate);
 
-        String actual = booksList.execute();
+        String actual = listOutItems.execute();
 
         assertEquals(CONTINUE, actual);
     }

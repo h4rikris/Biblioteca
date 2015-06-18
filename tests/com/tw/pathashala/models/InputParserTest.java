@@ -47,7 +47,7 @@ public class InputParserTest {
     public void testToReturnBooksListOnUserSelectslistBooks() {
         String actualClassName = inputParser.chooseOption(BOOKS_LIST_OPTION.toString()).getClass().getName();
 
-        assertEquals("com.tw.pathashala.menu.BooksList", actualClassName);
+        assertEquals("com.tw.pathashala.menu.ListOutItems", actualClassName);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class InputParserTest {
 
     @Test
     public void testToReturnInvalidOptionOnInvalidSelectionInMenuList() {
-        String actualClassName = inputParser.chooseOption("8").getClass().getName();
+        String actualClassName = inputParser.chooseOption("-8").getClass().getName();
 
         assertEquals("com.tw.pathashala.menu.InvalidOption", actualClassName);
     }
