@@ -25,4 +25,16 @@ public class UserHistory {
     private User getCurrentLoggedInUser() {
         return authentication.getCurrentLoggedInUser();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+        for (User user : userCheckOutHistory.keySet()) {
+            output.append(String.format("| %-97s|\n",user.toString().concat(":")));
+            for(RentableItem item : userCheckOutHistory.get(user)) {
+                output.append(item.toString());
+            }
+        }
+        return output.toString();
+    }
 }

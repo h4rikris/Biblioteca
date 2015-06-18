@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -47,5 +48,19 @@ public class UserHistoryTest {
         history.removeItem(availableBook);
 
         verify(authentication).getCurrentLoggedInUser();
+    }
+
+    @Test
+    public void shouldListOutAllCheckOutItemsAndCorrespondingUser() {
+        UserHistory history = new UserHistory(authentication, userHistory);
+        RentableItem availableBook = new AvailableBook("RISK", "Hari", 2015);
+
+        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass"));
+        history.addItem(availableBook);
+        String actualResult = history.toString();
+        String expected = "| hari:                                                                                              |\n" +
+                "| RISK                                      | Hari                                      | 2015     |";
+
+        assertEquals(expected, actualResult);
     }
 }
