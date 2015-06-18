@@ -9,9 +9,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LoginTest {
@@ -26,13 +24,14 @@ public class LoginTest {
 
     @Before
     public void setUp() throws Exception {
-        when(consoleInput.getUserInput()).thenReturn("admin","pass");
+        when(consoleInput.getUserInput()).thenReturn("admin", "pass", "y");
     }
 
     @Test
     public void shouldAskForUserNameInput() {
         Login login = new Login(consoleInput, outputTemplate, authentication);
 
+        when(authentication.authenticate("admin", "pass")).thenReturn(true);
         login.execute();
 
         verify(outputTemplate).renderOutput("Authentication Required", "Enter user name:");
@@ -42,9 +41,29 @@ public class LoginTest {
     public void shouldAskForPasswordInput() {
         Login login = new Login(consoleInput, outputTemplate, authentication);
 
+        when(authentication.authenticate("admin", "pass")).thenReturn(true);
         login.execute();
 
-        outputTemplate.renderOutput("", "Enter Password");
+        verify(outputTemplate).renderOutput("", "Enter Password");
     }
 
+    @Test
+    public void shouldAskForTryAgainPromptIfCredentialsAreWrong() {
+        Login login = new Login(consoleInput, outputTemplate, authentication);
+
+        when(authentication.authenticate("admin", "pass")).thenReturn(false);
+        login.execute();
+
+        verify(outputTemplate).renderOutput("Invalid credentials", "Do you want to Enter Again:y/n?");
+    }
+
+    @Test
+    public void shouldAskCredentialsAgainIfUserWantsToEnterAgain() {
+        Login login = new Login(consoleInput, outputTemplate, authentication);
+
+        when(authentication.authenticate(anyString(), anyString())).thenReturn(false, true, false);
+        login.execute();
+
+        verify(outputTemplate, times(2)).renderOutput("Authentication Required", "Enter user name:");
+    }
 }
