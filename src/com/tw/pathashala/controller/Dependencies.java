@@ -45,6 +45,9 @@ public class Dependencies {
         return bookLibrary;
     }
 
+    public Map<User, InputParser> getUserMenuMapperList() {
+        return userMenuMapperDetails();
+    }
     public ConsoleInput getConsoleInputInstance() {
         return consoleInput;
     }
