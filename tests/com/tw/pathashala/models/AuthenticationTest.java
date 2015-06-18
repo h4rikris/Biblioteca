@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class AuthenticationTest {
     ArrayList<User> users;
@@ -27,9 +28,9 @@ public class AuthenticationTest {
     public void shouldReturnUserIfCredentialsMatches() {
         Authentication auth = new Authentication(users, userMenuMapper);
 
-        User actualUser = auth.authenticate("hari", "krishna");
+        Boolean actualResult = auth.authenticate("hari", "krishna");
 
-        assertEquals(hari, actualUser);
+        assertTrue(actualResult);
     }
 
 }

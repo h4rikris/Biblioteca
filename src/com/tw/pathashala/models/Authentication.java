@@ -14,14 +14,14 @@ public class Authentication {
         this.userMenuMapper = userMenuMap;
     }
 
-    public User authenticate(String userName, String password) {
+    public Boolean authenticate(String userName, String password) {
         for (User user : users) {
             if (user.checkCredentials(userName, password)) {
                 currentLoggedInUser = user;
-                return user;
+                return true;
             }
         }
-        return null;
+        return false;
     }
 
     public InputParser getMenuMapper() {
