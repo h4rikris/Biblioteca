@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static com.tw.pathashala.constants.Constants.MAIN_MENU;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -51,7 +52,7 @@ public class LoginTest {
     public void shouldAskForTryAgainPromptIfCredentialsAreWrong() {
         Login login = new Login(consoleInput, outputTemplate, authentication);
 
-        when(authentication.authenticate("admin", "pass")).thenReturn(false);
+        when(authentication.authenticate(anyString(), anyString())).thenReturn(false, true);
         login.execute();
 
         verify(outputTemplate).renderOutput("Invalid credentials", "Do you want to Enter Again:y/n?");
@@ -65,5 +66,15 @@ public class LoginTest {
         login.execute();
 
         verify(outputTemplate, times(2)).renderOutput("Authentication Required", "Enter user name:");
+    }
+
+    @Test
+    public void shouldDisplaySuccessMessageIfCredentialsAreCorrect() {
+        Login login = new Login(consoleInput, outputTemplate, authentication);
+
+        when(authentication.authenticate(anyString(), anyString())).thenReturn(true);
+        login.execute();
+
+        verify(outputTemplate, times(1)).renderOutput("Successfully Logged in", MAIN_MENU);
     }
 }
