@@ -6,6 +6,7 @@ import com.tw.pathashala.view.ConsoleOutputTemplate;
 
 import static com.tw.pathashala.constants.Constants.CONTINUE;
 import static com.tw.pathashala.constants.Constants.MAIN_MENU;
+import static com.tw.pathashala.constants.Constants.WELCOME_MESSAGE;
 
 public class Login implements MenuAction{
     ConsoleInput input;
@@ -51,6 +52,9 @@ public class Login implements MenuAction{
         String choice = input.getUserInput();
         if (choice.equals("y")){
             execute();
+        }
+        else {
+            outputTemplate.renderOutput(WELCOME_MESSAGE, MAIN_MENU);
         }
     }
 }

@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static com.tw.pathashala.constants.Constants.MAIN_MENU;
+import static com.tw.pathashala.constants.Constants.WELCOME_MESSAGE;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -66,6 +67,17 @@ public class LoginTest {
         login.execute();
 
         verify(outputTemplate, times(2)).renderOutput("Authentication Required", "Enter user name:");
+    }
+
+    @Test
+    public void shouldDisplayMainMenuIfUserDontWantToEnterCredentialsAgain() {
+        Login login = new Login(consoleInput, outputTemplate, authentication);
+
+        when(consoleInput.getUserInput()).thenReturn("admin", "pass", "n");
+        when(authentication.authenticate(anyString(), anyString())).thenReturn(false);
+        login.execute();
+
+        verify(outputTemplate, times(1)).renderOutput(WELCOME_MESSAGE, MAIN_MENU);
     }
 
     @Test
