@@ -4,10 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,6 +34,17 @@ public class UserHistoryTest {
 
         when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass"));
         history.addItem(availableBook);
+
+        verify(authentication).getCurrentLoggedInUser();
+    }
+
+    @Test
+    public void shouldGetCurrentLoggedInUserFromAuthenticationInRemovingItemToUserHistory() {
+        UserHistory history = new UserHistory(authentication, userHistory);
+        RentableItem availableBook = new AvailableBook("RISK", "Hari", 2015);
+
+        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass"));
+        history.removeItem(availableBook);
 
         verify(authentication).getCurrentLoggedInUser();
     }
