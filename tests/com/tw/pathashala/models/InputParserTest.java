@@ -1,7 +1,7 @@
 package com.tw.pathashala.models;
 
 import com.tw.pathashala.controller.Dependencies;
-import com.tw.pathashala.menu.*;
+import com.tw.pathashala.menu.ReturnBook;
 import com.tw.pathashala.view.ConsoleInput;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,9 +10,7 @@ import org.mockito.Mock;
 import java.util.ArrayList;
 
 import static com.tw.pathashala.constants.Constants.*;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 public class InputParserTest {
     Library library;

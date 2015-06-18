@@ -24,4 +24,8 @@ public class Authentication {
     public User getCurrentLoggedInUser() {
         return currentLoggedInUser;
     }
+
+    public void setCurrentLoggedInUser(User currentLoggedInUser) {
+        this.currentLoggedInUser = currentLoggedInUser;
+    }
 }

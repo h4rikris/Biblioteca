@@ -1,7 +1,5 @@
 package com.tw.pathashala.controller;
 
-import com.tw.pathashala.models.Authentication;
-import com.tw.pathashala.models.InputParser;
 import com.tw.pathashala.models.UserMenuMapper;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;

@@ -4,9 +4,7 @@ import com.tw.pathashala.models.Authentication;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
-import static com.tw.pathashala.constants.Constants.CONTINUE;
-import static com.tw.pathashala.constants.Constants.MAIN_MENU;
-import static com.tw.pathashala.constants.Constants.WELCOME_MESSAGE;
+import static com.tw.pathashala.constants.Constants.*;
 
 public class Login implements MenuAction{
     ConsoleInput input;

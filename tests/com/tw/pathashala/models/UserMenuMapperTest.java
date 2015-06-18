@@ -10,8 +10,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Map;
 
-import static com.sun.javaws.JnlpxArgs.verify;
-
 @RunWith(MockitoJUnitRunner.class)
 public class UserMenuMapperTest {
     @Mock
