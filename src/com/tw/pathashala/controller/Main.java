@@ -12,7 +12,7 @@ public class Main {
         ConsoleInput consoleInput = dependencies.getConsoleInputInstance();
         InputParser inputParser = dependencies.getInputParserInstance();
         Authentication authentication = dependencies.getAuthenticatorInstance();
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, authentication);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
         app.start();
     }
 }

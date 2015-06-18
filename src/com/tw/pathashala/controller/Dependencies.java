@@ -30,7 +30,7 @@ public class Dependencies {
         consoleOutputTemplate = new ConsoleOutputTemplate();
         inputParser = new InputParser(createMenu(),new InvalidOption(consoleOutputTemplate));
         normalInputParser = new InputParser(createMenuForNormal(),new InvalidOption(consoleOutputTemplate));
-        authentication = new Authentication(userList(), userMenuMapperDetails());
+        authentication = new Authentication(userList());
     }
 
     public InputParser getInputParserInstance() {

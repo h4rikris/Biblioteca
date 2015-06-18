@@ -26,7 +26,7 @@ public class AuthenticationTest {
 
     @Test
     public void shouldReturnUserIfCredentialsMatches() {
-        Authentication auth = new Authentication(users, userMenuMapper);
+        Authentication auth = new Authentication(users);
 
         Boolean actualResult = auth.authenticate("hari", "krishna");
 

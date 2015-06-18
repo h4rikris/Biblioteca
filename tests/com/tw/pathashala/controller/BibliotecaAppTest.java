@@ -39,7 +39,6 @@ public class BibliotecaAppTest {
     @Before
     public void setUp() throws Exception {
         when(consoleInput.getUserInput()).thenReturn("List Books", "Quit");
-        when(authentication.getMenuMapper()).thenReturn(inputParser);
         when(inputParser.chooseOption("List Books")).thenReturn(action);
         when(inputParser.chooseOption("Quit")).thenReturn(action);
         when(action.execute()).thenReturn(CONTINUE, STOP);
@@ -47,7 +46,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldIncludeMainMenuAndWelcomeMessageOnStart() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, authentication);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
 
         app.start();
 
@@ -56,7 +55,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldTakeUserInput() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, authentication);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
 
         app.start();
 
@@ -65,7 +64,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldAbleToStopApplicationOnQuitInput() {
-        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, authentication);
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, inputParser);
 
         app.start();
 
