@@ -60,6 +60,7 @@ public class Library {
         for (RentableItem book : rentableItems) {
             RentableItem returnedRentableItem = book.returnItem();
             checkedOutRentableItems.remove(book);
+            userHistory.removeItem(book);
             availableRentableItems.add(returnedRentableItem);
             return book.getSuccessMessage();
         }

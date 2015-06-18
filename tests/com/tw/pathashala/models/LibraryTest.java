@@ -165,4 +165,15 @@ public class LibraryTest {
 
         verify(userHistory).addItem(item);
     }
+
+    @Test
+    public void shouldRemoveReturnedItemFromUserHistory() {
+        UserHistory userHistory = Mockito.mock(UserHistory.class);
+        Library library = new Library(availableRentableItems, checkedOutRentableItems, search, userHistory);
+
+        library.returnItem("Oriented");
+        RentableItem item = new CheckedOutBook("Oriented", "SSS", 2014);
+
+        verify(userHistory).removeItem(item);
+    }
 }
