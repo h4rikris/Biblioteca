@@ -1,6 +1,5 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.constants.Constants;
 import com.tw.pathashala.controller.Dependencies;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +14,7 @@ import static com.tw.pathashala.constants.Constants.LIBRARIAN;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class UserMenuMapperTest {
+public class MenuMapperTest {
     @Mock
     Authentication authentication;
 
@@ -35,7 +34,7 @@ public class UserMenuMapperTest {
 
     @Test
     public void shouldGetLoggedInUserFromAuthentication() {
-        UserMenuMapper menuMapper = new UserMenuMapper(authentication, mapper);
+        MenuMapper menuMapper = new MenuMapper(authentication, mapper);
 
         when(authentication.getCurrentLoggedInUser()).thenReturn(user);
         when(user.getRole()).thenReturn(LIBRARIAN);
@@ -46,7 +45,7 @@ public class UserMenuMapperTest {
 
     @Test
     public void shouldGetRoleFromUser() {
-        UserMenuMapper menuMapper = new UserMenuMapper(authentication, mapper);
+        MenuMapper menuMapper = new MenuMapper(authentication, mapper);
 
         when(authentication.getCurrentLoggedInUser()).thenReturn(user);
         menuMapper.getMenu();

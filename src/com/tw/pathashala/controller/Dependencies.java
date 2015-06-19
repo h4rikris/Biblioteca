@@ -20,7 +20,7 @@ public class Dependencies {
     private Library movieLibrary;
     private InputParser inputParser;
     private InputParser normalInputParser;
-    private UserMenuMapper userMenuMapper;
+    private MenuMapper menuMapper;
     private UserHistory userHistory;
     private Authentication authentication;
 
@@ -33,7 +33,7 @@ public class Dependencies {
         movieLibrary = new Library(availableMovieDetails(), new ArrayList<RentableItem>(), new Search(), userHistory);
         inputParser = new InputParser(createMenu(), new InvalidOption(consoleOutputTemplate));
         normalInputParser = new InputParser(createMenuForNormal(), new InvalidOption(consoleOutputTemplate));
-        userMenuMapper = new UserMenuMapper(authentication, userMenuMapperDetails());
+        menuMapper = new MenuMapper(authentication, userMenuMapperDetails());
     }
 
     public InputParser getInputParserInstance() {
@@ -48,8 +48,8 @@ public class Dependencies {
         return bookLibrary;
     }
 
-    public UserMenuMapper getUserMenuMapper() {
-        return userMenuMapper;
+    public MenuMapper getMenuMapper() {
+        return menuMapper;
     }
 
     public Map<Integer, InputParser> getUserMenuMapperList() {

@@ -2,11 +2,11 @@ package com.tw.pathashala.models;
 
 import java.util.Map;
 
-public class UserMenuMapper {
+public class MenuMapper {
     private Authentication authentication;
     private Map<Integer, InputParser> menuMap;
 
-    public UserMenuMapper(Authentication authentication, Map<Integer, InputParser> menuMap) {
+    public MenuMapper(Authentication authentication, Map<Integer, InputParser> menuMap) {
         this.authentication = authentication;
         this.menuMap = menuMap;
     }
