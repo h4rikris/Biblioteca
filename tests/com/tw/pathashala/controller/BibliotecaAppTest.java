@@ -51,7 +51,7 @@ public class BibliotecaAppTest {
 
         app.start();
 
-        verify(outputTemplate).renderOutput(WELCOME_MESSAGE, LOGGEDIN_MAIN_MENU);
+        verify(outputTemplate).renderOutput(WELCOME_MESSAGE, LOGGEDOUT_MAIN_MENU);
     }
 
     @Test

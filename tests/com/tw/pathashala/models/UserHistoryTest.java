@@ -59,7 +59,7 @@ public class UserHistoryTest {
         history.addItem(availableBook);
         String actualResult = history.toString();
         String expected = "| hari:                                                                                            |\n" +
-                "| RISK                                      | Hari                                      | 2015     |";
+                "| RISK                                      | Hari                                      | 2015     |\n";
 
         assertEquals(expected, actualResult);
     }

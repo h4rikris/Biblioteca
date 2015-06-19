@@ -5,6 +5,7 @@ import com.tw.pathashala.view.ConsoleOutputTemplate;
 
 import static com.tw.pathashala.constants.Constants.CONTINUE;
 import static com.tw.pathashala.constants.Constants.LOGGEDIN_MAIN_MENU;
+import static com.tw.pathashala.constants.Constants.LOGGEDOUT_MAIN_MENU;
 
 public class ListOutItems implements MenuAction {
 
@@ -18,7 +19,7 @@ public class ListOutItems implements MenuAction {
 
     @Override
     public String execute() {
-        outputTemplate.renderOutput(library.availableItems(), LOGGEDIN_MAIN_MENU);
+        outputTemplate.renderOutput(library.availableItems(), LOGGEDOUT_MAIN_MENU);
         return CONTINUE;
     }
 

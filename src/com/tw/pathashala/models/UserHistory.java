@@ -32,7 +32,7 @@ public class UserHistory {
         for (User user : userCheckOutHistory.keySet()) {
             output.append(String.format("| %-97s|\n",user.toString().concat(":")));
             for(RentableItem item : userCheckOutHistory.get(user)) {
-                output.append(item.toString());
+                output.append(item.toString().concat("\n"));
             }
         }
         return output.toString();

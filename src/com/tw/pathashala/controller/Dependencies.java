@@ -90,6 +90,8 @@ public class Dependencies {
         menuList.put(MOVIE_LIST_OPTION, new ListOutItems(movieLibrary, consoleOutputTemplate));
         menuList.put(MOVIE_CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, movieLibrary));
         menuList.put(MOVIE_RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, movieLibrary));
+        menuList.put(USER_HISTORY_OPTION, new CheckOutHistory(userHistory, consoleOutputTemplate));
+        menuList.put(LOGOUT_OPTION, new Logout(authentication, consoleOutputTemplate));
         menuList.put(QUIT_OPTION, new Quit());
         return menuList;
     }
@@ -102,6 +104,8 @@ public class Dependencies {
         menuList.put(MOVIE_LIST_OPTION, new ListOutItems(movieLibrary, consoleOutputTemplate));
         menuList.put(MOVIE_CHECKOUT_OPTION, new Login(consoleInput, consoleOutputTemplate, authentication));
         menuList.put(MOVIE_RETURN_OPTION, new Login(consoleInput, consoleOutputTemplate, authentication));
+        menuList.put(USER_HISTORY_OPTION, new Login(consoleInput, consoleOutputTemplate, authentication));
+        menuList.put(LOGIN_OPTION, new Login(consoleInput, consoleOutputTemplate, authentication));
         menuList.put(QUIT_OPTION, new Quit());
         return menuList;
     }
@@ -116,7 +120,7 @@ public class Dependencies {
     private Map<User, InputParser> userMenuMapperDetails() {
         Map<User, InputParser> userMap = new HashMap<>();
         userMap.put(new User("admin", "password"), inputParser);
-        userMap.put(new User("normal", "krishna"), normalInputParser);
+        userMap.put(new User("normal", "krishna"), inputParser);
         userMap.put(null, normalInputParser);
         return userMap;
     }

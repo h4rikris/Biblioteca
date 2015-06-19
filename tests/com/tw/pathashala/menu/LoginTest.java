@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static com.tw.pathashala.constants.Constants.LOGGEDIN_MAIN_MENU;
+import static com.tw.pathashala.constants.Constants.LOGGEDOUT_MAIN_MENU;
 import static com.tw.pathashala.constants.Constants.WELCOME_MESSAGE;
 import static org.mockito.Mockito.*;
 
@@ -77,7 +78,7 @@ public class LoginTest {
         when(authentication.authenticate(anyString(), anyString())).thenReturn(false);
         login.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(WELCOME_MESSAGE, LOGGEDIN_MAIN_MENU);
+        verify(outputTemplate, times(1)).renderOutput(WELCOME_MESSAGE, LOGGEDOUT_MAIN_MENU);
     }
 
     @Test

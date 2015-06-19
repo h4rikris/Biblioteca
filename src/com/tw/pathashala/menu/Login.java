@@ -52,7 +52,7 @@ public class Login implements MenuAction{
             execute();
         }
         else {
-            outputTemplate.renderOutput(WELCOME_MESSAGE, LOGGEDIN_MAIN_MENU);
+            outputTemplate.renderOutput(WELCOME_MESSAGE, LOGGEDOUT_MAIN_MENU);
         }
     }
 }
