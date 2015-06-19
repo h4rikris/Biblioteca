@@ -4,21 +4,15 @@ import com.tw.pathashala.constants.Constants;
 import com.tw.pathashala.controller.Dependencies;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 
 import static com.tw.pathashala.constants.Constants.*;
-import static org.hamcrest.CoreMatchers.any;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class LibraryTest {
 
@@ -32,7 +26,7 @@ public class LibraryTest {
     @Before
     public void setup() {
         authentication = dependencies.getAuthenticatorInstance();
-        authentication.setCurrentLoggedInUser(new User("admin","password"));
+        authentication.setCurrentLoggedInUser(new User("admin","password", LIBRARIAN));
         userHistory = dependencies.getUserHistory();
         availableRentableItems.add(new AvailableBook("Pathashala", "Saurav", 2016));
         availableRentableItems.add(new AvailableBook("University", "Rajat", 2015));

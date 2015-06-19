@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.tw.pathashala.constants.Constants.LIBRARIAN;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -24,7 +25,7 @@ public class UserHistoryTest {
 
     @Before
     public void setUp() throws Exception {
-        userHistory.put(new User("hari", "pass"), new ArrayList<RentableItem>());
+        userHistory.put(new User("hari", "pass", LIBRARIAN), new ArrayList<RentableItem>());
 
     }
 
@@ -33,7 +34,7 @@ public class UserHistoryTest {
         UserHistory history = new UserHistory(authentication, userHistory);
         RentableItem availableBook = new AvailableBook("RISK", "Hari", 2015);
 
-        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass"));
+        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass", LIBRARIAN));
         history.addItem(availableBook);
 
         verify(authentication).getCurrentLoggedInUser();
@@ -44,7 +45,7 @@ public class UserHistoryTest {
         UserHistory history = new UserHistory(authentication, userHistory);
         RentableItem availableBook = new AvailableBook("RISK", "Hari", 2015);
 
-        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass"));
+        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass", LIBRARIAN));
         history.removeItem(availableBook);
 
         verify(authentication).getCurrentLoggedInUser();
@@ -55,7 +56,7 @@ public class UserHistoryTest {
         UserHistory history = new UserHistory(authentication, userHistory);
         RentableItem availableBook = new AvailableBook("RISK", "Hari", 2015);
 
-        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass"));
+        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass", LIBRARIAN));
         history.addItem(availableBook);
         String actualResult = history.toString();
         String expected = "| hari:                                                                                            |\n" +

@@ -7,6 +7,11 @@ public interface Constants {
     public static final String STOP = "STOP";
     public static final String CONTINUE = "CONTINUE";
 
+    public static final Integer LIBRARIAN = 1;
+    public static final Integer NORMAL_USER = 2;
+    public static final Integer NULL_USER = 3;
+
+
     public static final String BOOK_FORMAT = "| %-41s | %-41s | %-8s |";
     public static final String MOVIE_FORMAT = "| %-39s | %-38s | %-8s | %-2s |";
 

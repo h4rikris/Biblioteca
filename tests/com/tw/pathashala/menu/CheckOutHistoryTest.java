@@ -1,13 +1,11 @@
 package com.tw.pathashala.menu;
 
-import com.tw.pathashala.constants.Constants;
 import com.tw.pathashala.controller.Dependencies;
 import com.tw.pathashala.models.UserHistory;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static com.tw.pathashala.constants.Constants.LOGGEDIN_MAIN_MENU;

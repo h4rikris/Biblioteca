@@ -112,15 +112,15 @@ public class Dependencies {
 
     private ArrayList<User> userList() {
         ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("normal", "krishna"));
-        users.add(new User("admin", "password"));
+        users.add(new User("normal", "krishna", NORMAL_USER));
+        users.add(new User("admin", "password", LIBRARIAN));
         return users;
     }
 
     private Map<User, InputParser> userMenuMapperDetails() {
         Map<User, InputParser> userMap = new HashMap<>();
-        userMap.put(new User("admin", "password"), inputParser);
-        userMap.put(new User("normal", "krishna"), inputParser);
+        userMap.put(new User("admin", "password", LIBRARIAN), inputParser);
+        userMap.put(new User("normal", "krishna", NORMAL_USER), inputParser);
         userMap.put(null, normalInputParser);
         return userMap;
     }

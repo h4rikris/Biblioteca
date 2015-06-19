@@ -1,11 +1,9 @@
 package com.tw.pathashala.menu;
 
-import com.tw.pathashala.constants.Constants;
 import com.tw.pathashala.models.Authentication;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
 import static com.tw.pathashala.constants.Constants.*;
-import static com.tw.pathashala.constants.Constants.CONTINUE;
 
 public class Logout implements MenuAction{
     Authentication authentication;

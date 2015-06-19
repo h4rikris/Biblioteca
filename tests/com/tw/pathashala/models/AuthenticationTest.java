@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.tw.pathashala.constants.Constants.LIBRARIAN;
 import static org.junit.Assert.assertTrue;
 
 public class AuthenticationTest {
@@ -16,10 +17,10 @@ public class AuthenticationTest {
 
     @Before
     public void setUp() throws Exception {
-        hari = new User("hari", "krishna");
+        hari = new User("hari", "krishna", LIBRARIAN);
         users = new ArrayList<User>();
         users.add(hari);
-        users.add(new User("sourav", "cr"));
+        users.add(new User("sourav", "cr", LIBRARIAN));
         userMenuMapper = new HashMap<>();
     }
 

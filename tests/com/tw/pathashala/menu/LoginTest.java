@@ -9,9 +9,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static com.tw.pathashala.constants.Constants.LOGGEDIN_MAIN_MENU;
-import static com.tw.pathashala.constants.Constants.LOGGEDOUT_MAIN_MENU;
-import static com.tw.pathashala.constants.Constants.WELCOME_MESSAGE;
+import static com.tw.pathashala.constants.Constants.*;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)

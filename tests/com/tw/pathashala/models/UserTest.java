@@ -2,6 +2,7 @@ package com.tw.pathashala.models;
 
 import org.junit.Test;
 
+import static com.tw.pathashala.constants.Constants.LIBRARIAN;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
@@ -9,7 +10,7 @@ public class UserTest {
 
     @Test
     public void shouldTrueOnCorrectCredentials() {
-        User user = new User("hari", "pass");
+        User user = new User("hari", "pass", 1);
 
         boolean actual = user.checkCredentials("hari", "pass");
 
@@ -18,7 +19,7 @@ public class UserTest {
 
     @Test
     public void shouldFalseOnInCorrectCredentials() {
-        User user = new User("hari", "pass");
+        User user = new User("hari", "pass", 1);
 
         boolean actual = user.checkCredentials("hari", "passaa");
 
@@ -27,8 +28,8 @@ public class UserTest {
 
     @Test
     public void testToCheckTwosAreEqual() {
-        User first = new User("hari", "password");
-        User second = new User("hari", "password");
+        User first = new User("hari", "password", 1);
+        User second = new User("hari", "password", 1);
 
         boolean expected = first.equals(second);
         assertTrue(expected);
@@ -36,8 +37,8 @@ public class UserTest {
 
     @Test
     public void reflexiveTestForUser() {
-        User first = new User("hari", "password");
-        User second = new User("hari", "password");
+        User first = new User("hari", "password", 1);
+        User second = new User("hari", "password", 1);
 
         boolean expected = first.equals(second);
 
@@ -46,8 +47,8 @@ public class UserTest {
 
     @Test
     public void symmetricTestForUser() {
-        User first = new User("hari", "password");
-        User second = new User("hari", "password");
+        User first = new User("hari", "password", 1);
+        User second = new User("hari", "password", 1);
 
         boolean actual = first.equals(second);
         actual = actual && second.equals(first);
@@ -59,9 +60,9 @@ public class UserTest {
 
     @Test
     public void trasitiveTestForUser() {
-        User first = new User("hari", "password");
-        User second = new User("hari", "password");
-        User third = new User("hari", "password");
+        User first = new User("hari", "password", 1);
+        User second = new User("hari", "password", 1);
+        User third = new User("hari", "password", 1);
 
         boolean actual = first.equals(second);
         actual = actual && second.equals(third);
@@ -73,7 +74,7 @@ public class UserTest {
 
     @Test
     public void nullComparisonTestForUser() {
-        User first = new User("hari", "password");
+        User first = new User("hari", "password", 1);
         User second = null;
 
         boolean actual = first.equals(second);
@@ -84,10 +85,19 @@ public class UserTest {
 
     @Test
     public void shouldDisplayUsernameForUserToString() {
-        User first = new User("hari", "password");
+        User first = new User("hari", "password", 1);
 
         String name = first.toString();
 
         assertEquals("hari", name);
+    }
+
+    @Test
+    public void shouldReturnRoleOfUser() {
+        User user = new User("hari", "password", LIBRARIAN);
+
+        Integer role = user.getRole();
+
+        assertEquals(LIBRARIAN, role);
     }
 }

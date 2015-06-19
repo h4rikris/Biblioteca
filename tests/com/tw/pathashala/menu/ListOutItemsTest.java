@@ -8,7 +8,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static com.tw.pathashala.constants.Constants.CONTINUE;
-import static com.tw.pathashala.constants.Constants.LOGGEDIN_MAIN_MENU;
 import static com.tw.pathashala.constants.Constants.LOGGEDOUT_MAIN_MENU;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
