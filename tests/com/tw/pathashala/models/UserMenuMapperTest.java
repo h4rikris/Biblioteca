@@ -1,5 +1,6 @@
 package com.tw.pathashala.models;
 
+import com.tw.pathashala.constants.Constants;
 import com.tw.pathashala.controller.Dependencies;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,15 +11,21 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Map;
 
+import static com.tw.pathashala.constants.Constants.LIBRARIAN;
+import static org.mockito.Mockito.when;
+
 @RunWith(MockitoJUnitRunner.class)
 public class UserMenuMapperTest {
     @Mock
     Authentication authentication;
 
-    Map<User, InputParser> mapper;
+    Map<Integer, InputParser> mapper;
 
     @Mock
     InputParser inputParser;
+
+    @Mock
+    User user;
 
     @Before
     public void setUp() throws Exception {
@@ -30,8 +37,20 @@ public class UserMenuMapperTest {
     public void shouldGetLoggedInUserFromAuthentication() {
         UserMenuMapper menuMapper = new UserMenuMapper(authentication, mapper);
 
+        when(authentication.getCurrentLoggedInUser()).thenReturn(user);
+        when(user.getRole()).thenReturn(LIBRARIAN);
         menuMapper.getMenu();
 
         Mockito.verify(authentication).getCurrentLoggedInUser();
+    }
+
+    @Test
+    public void shouldGetRoleFromUser() {
+        UserMenuMapper menuMapper = new UserMenuMapper(authentication, mapper);
+
+        when(authentication.getCurrentLoggedInUser()).thenReturn(user);
+        menuMapper.getMenu();
+
+        Mockito.verify(user).getRole();
     }
 }

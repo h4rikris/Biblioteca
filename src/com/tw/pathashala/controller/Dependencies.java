@@ -52,7 +52,7 @@ public class Dependencies {
         return userMenuMapper;
     }
 
-    public Map<User, InputParser> getUserMenuMapperList() {
+    public Map<Integer, InputParser> getUserMenuMapperList() {
         return userMenuMapperDetails();
     }
 
@@ -117,11 +117,11 @@ public class Dependencies {
         return users;
     }
 
-    private Map<User, InputParser> userMenuMapperDetails() {
-        Map<User, InputParser> userMap = new HashMap<>();
-        userMap.put(new User("admin", "password", LIBRARIAN), inputParser);
-        userMap.put(new User("normal", "krishna", NORMAL_USER), inputParser);
-        userMap.put(null, normalInputParser);
+    private Map<Integer, InputParser> userMenuMapperDetails() {
+        Map<Integer, InputParser> userMap = new HashMap<>();
+        userMap.put(LIBRARIAN, inputParser);
+        userMap.put(NORMAL_USER, inputParser);
+        userMap.put(NULL_USER, normalInputParser);
         return userMap;
     }
 
