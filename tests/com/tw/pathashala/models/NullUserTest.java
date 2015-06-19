@@ -10,7 +10,7 @@ public class NullUserTest {
 
     @Test
     public void shouldHaveNullUserRole() {
-        NullUser nullUser = new NullUser(" ", "", NULL_USER);
+        NullUser nullUser = new NullUser();
 
         Integer role = nullUser.getRole();
 

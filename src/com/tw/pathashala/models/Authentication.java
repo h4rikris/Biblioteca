@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Authentication {
     private ArrayList<User> users;
     private User currentLoggedInUser;
+    private User nullUser;
 
-    public Authentication(ArrayList<User> users) {
-        currentLoggedInUser = null;
+    public Authentication(ArrayList<User> users, User nullUser) {
+        this.nullUser = nullUser;
+        currentLoggedInUser = nullUser;
         this.users = users;
     }
 
@@ -25,7 +27,7 @@ public class Authentication {
         return currentLoggedInUser;
     }
 
-    public void setCurrentLoggedInUser(User currentLoggedInUser) {
-        this.currentLoggedInUser = currentLoggedInUser;
+    public void logout() {
+        this.currentLoggedInUser = nullUser;
     }
 }

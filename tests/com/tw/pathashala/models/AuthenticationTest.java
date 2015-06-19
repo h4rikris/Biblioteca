@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.tw.pathashala.constants.Constants.LIBRARIAN;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class AuthenticationTest {
@@ -26,11 +27,22 @@ public class AuthenticationTest {
 
     @Test
     public void shouldReturnUserIfCredentialsMatches() {
-        Authentication auth = new Authentication(users);
+        Authentication auth = new Authentication(users, new NullUser());
 
         Boolean actualResult = auth.authenticate("hari", "krishna");
 
         assertTrue(actualResult);
     }
 
+    @Test
+    public void shouldSetNullUserOnLogout() {
+        NullUser nullUser = new NullUser();
+        Authentication auth = new Authentication(users, nullUser);
+
+        auth.authenticate("hari", "krishna");
+        auth.logout();
+        User actualUser = auth.getCurrentLoggedInUser();
+
+        assertEquals(nullUser, actualUser);
+    }
 }

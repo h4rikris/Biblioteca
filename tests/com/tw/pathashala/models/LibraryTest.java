@@ -26,7 +26,7 @@ public class LibraryTest {
     @Before
     public void setup() {
         authentication = dependencies.getAuthenticatorInstance();
-        authentication.setCurrentLoggedInUser(new User("admin","password", LIBRARIAN));
+        authentication.logout();
         userHistory = dependencies.getUserHistory();
         availableRentableItems.add(new AvailableBook("Pathashala", "Saurav", 2016));
         availableRentableItems.add(new AvailableBook("University", "Rajat", 2015));

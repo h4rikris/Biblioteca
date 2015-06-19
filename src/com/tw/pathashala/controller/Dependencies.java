@@ -27,13 +27,13 @@ public class Dependencies {
     public Dependencies() {
         consoleInput = new ConsoleInput(new Scanner(System.in));
         consoleOutputTemplate = new ConsoleOutputTemplate();
-        authentication = new Authentication(userList());
+        authentication = new Authentication(userList(), new NullUser());
         userHistory = new UserHistory(authentication, getUserHistoryDetails());
         bookLibrary = new Library(availableBookDetails(), new ArrayList<RentableItem>(), new Search(), userHistory);
         movieLibrary = new Library(availableMovieDetails(), new ArrayList<RentableItem>(), new Search(), userHistory);
         inputParser = new InputParser(createMenu(), new InvalidOption(consoleOutputTemplate));
         normalInputParser = new InputParser(createMenuForNormal(), new InvalidOption(consoleOutputTemplate));
-        menuMapper = new MenuMapper(authentication, userMenuMapperDetails());
+        menuMapper = new MenuMapper(authentication, roleMenuMapperDetails());
     }
 
     public InputParser getInputParserInstance() {
@@ -53,7 +53,7 @@ public class Dependencies {
     }
 
     public Map<Integer, InputParser> getUserMenuMapperList() {
-        return userMenuMapperDetails();
+        return roleMenuMapperDetails();
     }
 
     public ConsoleInput getConsoleInputInstance() {
@@ -114,15 +114,16 @@ public class Dependencies {
         ArrayList<User> users = new ArrayList<User>();
         users.add(new User("normal", "krishna", NORMAL_USER));
         users.add(new User("admin", "password", LIBRARIAN));
+        users.add(new NullUser());
         return users;
     }
 
-    private Map<Integer, InputParser> userMenuMapperDetails() {
-        Map<Integer, InputParser> userMap = new HashMap<>();
-        userMap.put(LIBRARIAN, inputParser);
-        userMap.put(NORMAL_USER, inputParser);
-        userMap.put(NULL_USER, normalInputParser);
-        return userMap;
+    private Map<Integer, InputParser> roleMenuMapperDetails() {
+        Map<Integer, InputParser> roleMap = new HashMap<>();
+        roleMap.put(NULL_USER, normalInputParser);
+        roleMap.put(LIBRARIAN, inputParser);
+        roleMap.put(NORMAL_USER, inputParser);
+        return roleMap;
     }
 
     public UserHistory getUserHistory() {
@@ -133,6 +134,7 @@ public class Dependencies {
         Map<User, ArrayList<RentableItem>> userList = new HashMap<>();
         userList.put(userList().get(0), new ArrayList<RentableItem>());
         userList.put(userList().get(1), new ArrayList<RentableItem>());
+        userList.put(userList().get(2), new ArrayList<RentableItem>());
         return userList;
     }
 }

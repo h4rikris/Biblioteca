@@ -22,6 +22,6 @@ public class LogoutTest {
     public void shouldSetCurrentLoggedInUserToNull () {
         Logout logout = new Logout(authentication, consoleOutputTemplate);
         logout.execute();
-        verify(authentication).setCurrentLoggedInUser(null);
+        verify(authentication).logout();
     }
 }
