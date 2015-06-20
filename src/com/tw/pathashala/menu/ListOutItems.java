@@ -18,7 +18,7 @@ public class ListOutItems implements MenuAction {
 
     @Override
     public String execute() {
-        outputTemplate.renderOutput(library.availableItems(), LOGGEDOUT_MAIN_MENU);
+        outputTemplate.addToBody(library.availableItems());
         return CONTINUE;
     }
 

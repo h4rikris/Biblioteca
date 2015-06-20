@@ -76,7 +76,7 @@ public class LoginTest {
         when(authentication.authenticate(anyString(), anyString())).thenReturn(false);
         login.execute();
 
-        verify(outputTemplate, times(1)).renderOutput(WELCOME_MESSAGE, LOGGEDOUT_MAIN_MENU);
+        verify(outputTemplate, times(1)).addToBody(WELCOME_MESSAGE);
     }
 
     @Test
@@ -86,6 +86,6 @@ public class LoginTest {
         when(authentication.authenticate(anyString(), anyString())).thenReturn(true);
         login.execute();
 
-        verify(outputTemplate, times(1)).renderOutput("Successfully Logged in", LOGGEDIN_MAIN_MENU);
+        verify(outputTemplate, times(1)).addToBody("Successfully Logged in");
     }
 }

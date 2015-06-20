@@ -38,7 +38,7 @@ public class ListOutItemsTest {
         when(library.availableItems()).thenReturn("List Items");
         listOutItems.execute();
 
-        verify(outputTemplate).renderOutput("List Items", LOGGEDOUT_MAIN_MENU);
+        verify(outputTemplate).addToBody("List Items");
     }
 
     @Test

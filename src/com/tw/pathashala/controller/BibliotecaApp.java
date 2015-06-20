@@ -22,19 +22,19 @@ public class BibliotecaApp {
 
     public void start() {
 
-        template.renderOutput(WELCOME_MESSAGE, LOGGEDOUT_MAIN_MENU);
-
         String option;
         MenuAction action;
-        String result;
+        String result = "";
         InputParser inputParser;
-        do {
+        template.addToBody(WELCOME_MESSAGE);
+        while (!(result.equals(STOP))) {
             inputParser = menuMapper.getMenu();
+            template.addToFooter(inputParser.toString());
+            template.render();
             option = input.getUserInput();
             action = inputParser.chooseOption(option);
             result = action.execute();
         }
-        while (!(result.equals(STOP)));
     }
 
 }

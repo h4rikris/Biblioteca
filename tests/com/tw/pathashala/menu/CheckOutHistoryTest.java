@@ -25,7 +25,7 @@ public class CheckOutHistoryTest {
 
         historyAction.execute();
 
-        verify(outputTemplate).renderOutput(userHistory.toString(), LOGGEDIN_MAIN_MENU);
+        verify(outputTemplate).addToBody(userHistory.toString());
     }
 
 }

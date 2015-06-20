@@ -105,9 +105,7 @@ public class Dependencies {
         menuList.put(MOVIE_LIST_OPTION, new ListOutItems(movieLibrary, consoleOutputTemplate));
         menuList.put(MOVIE_CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, movieLibrary));
         menuList.put(MOVIE_RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, movieLibrary));
-        menuList.put(USER_HISTORY_OPTION, new InvalidOption(consoleOutputTemplate));
         menuList.put(LOGOUT_OPTION, new Logout(authentication, consoleOutputTemplate));
-        menuList.put(QUIT_OPTION, new Quit());
         return menuList;
     }
 
@@ -119,9 +117,7 @@ public class Dependencies {
         menuList.put(MOVIE_LIST_OPTION, new ListOutItems(movieLibrary, consoleOutputTemplate));
         menuList.put(MOVIE_CHECKOUT_OPTION, login);
         menuList.put(MOVIE_RETURN_OPTION, login);
-        menuList.put(USER_HISTORY_OPTION, login);
         menuList.put(LOGIN_OPTION, login);
-        menuList.put(QUIT_OPTION, login);
         return menuList;
     }
 
@@ -137,7 +133,7 @@ public class Dependencies {
         Map<Integer, InputParser> roleMap = new HashMap<>();
         roleMap.put(NULL_USER, guestInputParser);
         roleMap.put(LIBRARIAN, inputParser);
-        roleMap.put(NORMAL_USER, inputParser);
+        roleMap.put(NORMAL_USER, normalInputParser);
         return roleMap;
     }
 

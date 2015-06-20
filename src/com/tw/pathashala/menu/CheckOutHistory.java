@@ -17,7 +17,7 @@ public class CheckOutHistory implements MenuAction{
 
     @Override
     public String execute() {
-        consoleOutputTemplate.renderOutput(userHistory.toString(), LOGGEDIN_MAIN_MENU);
+        consoleOutputTemplate.addToBody(userHistory.toString());
         return CONTINUE;
     }
 }

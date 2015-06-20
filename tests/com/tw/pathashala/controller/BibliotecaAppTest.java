@@ -51,7 +51,8 @@ public class BibliotecaAppTest {
 
         app.start();
 
-        verify(outputTemplate).renderOutput(WELCOME_MESSAGE, LOGGEDOUT_MAIN_MENU);
+        verify(outputTemplate).addToBody(WELCOME_MESSAGE);
+        verify(outputTemplate, times(2)).render();
     }
 
     @Test
@@ -71,5 +72,23 @@ public class BibliotecaAppTest {
 
         verify(action, times(2)).execute();
 
+    }
+
+    @Test
+    public void shouldGetInputParserFromMenuMapper() {
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, menuMapper);
+
+        app.start();
+
+        verify(menuMapper, times(2)).getMenu();
+    }
+
+    @Test
+    public void shouldAddMenuToFooterInOutput() {
+        BibliotecaApp app = new BibliotecaApp(outputTemplate, consoleInput, menuMapper);
+
+        app.start();
+
+        verify(outputTemplate, times(2)).addToFooter(anyString());
     }
 }

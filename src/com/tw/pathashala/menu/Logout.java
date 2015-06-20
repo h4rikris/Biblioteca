@@ -17,7 +17,7 @@ public class Logout implements MenuAction{
     @Override
     public String execute() {
         authentication.logout();
-        outputTemplate.renderOutput(LOGOUT_SUCCESS_MESSAGE, LOGGEDOUT_MAIN_MENU);
+        outputTemplate.addToBody(LOGOUT_SUCCESS_MESSAGE);
         return CONTINUE;
     }
 }

@@ -20,7 +20,7 @@ public class ReturnBook implements MenuAction {
     @Override
     public String execute() {
         String bookName = askForBookName();
-        outputTemplate.renderOutput(this.library.returnItem(bookName), LOGGEDIN_MAIN_MENU);
+        outputTemplate.addToBody(this.library.returnItem(bookName));
         return CONTINUE;
     }
 
