@@ -46,6 +46,6 @@ public class User {
 
     @Override
     public String toString() {
-        return userName + "-" + phoneNumber + "-" + email;
+        return userName + "-" + name + "-" + phoneNumber + "-" + email;
     }
 }

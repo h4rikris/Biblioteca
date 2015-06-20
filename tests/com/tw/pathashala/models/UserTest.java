@@ -83,11 +83,11 @@ public class UserTest {
 
     @Test
     public void shouldDisplayUsernameAndContactDetailsForUserToString() {
-        User first = new User("hari", "password", 1, null, "9618228649", "harikris@thoughtworks.com");
+        User first = new User("hari", "password", 1, "Hari krishna", "9618228649", "harikris@thoughtworks.com");
 
         String name = first.toString();
 
-        assertEquals("hari-9618228649-harikris@thoughtworks.com", name);
+        assertEquals("hari-Hari krishna-9618228649-harikris@thoughtworks.com", name);
     }
 
     @Test
