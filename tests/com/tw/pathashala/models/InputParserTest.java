@@ -47,21 +47,27 @@ public class InputParserTest {
 
     @Test
     public void testToReturnBooksListOnUserSelectslistBooks() {
-        String actualClassName = inputParser.chooseOption(BOOKS_LIST_OPTION.toString()).getClass().getName();
+        Integer option = 1;
+
+        String actualClassName = inputParser.chooseOption(option.toString()).getClass().getName();
 
         assertEquals("com.tw.pathashala.menu.ListOutItems", actualClassName);
     }
 
     @Test
     public void testToReturnQuitOnUserSelectsQuit() {
-        String actualClassName = inputParser.chooseOption(QUIT_OPTION.toString()).getClass().getName();
+        Integer option = 9;
+
+        String actualClassName = inputParser.chooseOption(option.toString()).getClass().getName();
 
         assertEquals("com.tw.pathashala.menu.Quit", actualClassName);
     }
 
     @Test
     public void testToReturnCheckOutOnUserSelectsCheckOut() {
-        String actualClassName = inputParser.chooseOption(BOOKS_CHECKOUT_OPTION.toString()).getClass().getName();
+        Integer option = 2;
+
+        String actualClassName = inputParser.chooseOption(option.toString()).getClass().getName();
 
         assertEquals("com.tw.pathashala.menu.CheckOutBook", actualClassName);
     }

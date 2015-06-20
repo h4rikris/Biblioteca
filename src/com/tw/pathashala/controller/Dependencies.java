@@ -5,10 +5,7 @@ import com.tw.pathashala.models.*;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static com.tw.pathashala.constants.Constants.*;
 
@@ -86,8 +83,8 @@ public class Dependencies {
         return rentableItems;
     }
 
-    private Map<Integer, MenuAction> createMenuForLibrarian() {
-        Map<Integer, MenuAction> menuList = new HashMap<Integer, MenuAction>();
+    private Map<String, MenuAction> createMenuForLibrarian() {
+        Map<String, MenuAction> menuList = new LinkedHashMap<>();
         menuList.put(BOOKS_LIST_OPTION, new ListOutItems(bookLibrary, consoleOutputTemplate));
         menuList.put(BOOKS_CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, bookLibrary));
         menuList.put(BOOKS_RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, bookLibrary));
@@ -100,8 +97,8 @@ public class Dependencies {
         return menuList;
     }
 
-    private Map<Integer, MenuAction> createMenuForNormalUser() {
-        Map<Integer, MenuAction> menuList = new HashMap<Integer, MenuAction>();
+    private Map<String, MenuAction> createMenuForNormalUser() {
+        Map<String, MenuAction> menuList = new LinkedHashMap<>();
         menuList.put(BOOKS_LIST_OPTION, new ListOutItems(bookLibrary, consoleOutputTemplate));
         menuList.put(BOOKS_CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, bookLibrary));
         menuList.put(BOOKS_RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, bookLibrary));
@@ -114,8 +111,8 @@ public class Dependencies {
         return menuList;
     }
 
-    private Map<Integer, MenuAction> createMenuForGuestUser() {
-        Map<Integer, MenuAction> menuList = new HashMap<Integer, MenuAction>();
+    private Map<String, MenuAction> createMenuForGuestUser() {
+        Map<String, MenuAction> menuList = new LinkedHashMap<>();
         menuList.put(BOOKS_LIST_OPTION, new ListOutItems(bookLibrary, consoleOutputTemplate));
         menuList.put(BOOKS_CHECKOUT_OPTION, login);
         menuList.put(BOOKS_RETURN_OPTION, login);

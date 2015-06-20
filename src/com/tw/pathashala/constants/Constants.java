@@ -19,16 +19,16 @@ public interface Constants {
             "4) List Movies\n5) Checkout Movie\n6) Return Movie\n7) CheckOut History\n8) Logout\n9) Quit\nEnter Your Option:";
     public static final String LOGGEDOUT_MAIN_MENU = "1) List Books\n2) Checkout\n3) Return Book\n" +
             "4) List Movies\n5) Checkout Movie\n6) Return Movie\n7) Checkout History\n8) Login\n9) Quit\nEnter Your Option:";
-    public static final Integer BOOKS_LIST_OPTION = 1;
-    public static final Integer BOOKS_CHECKOUT_OPTION = 2;
-    public static final Integer BOOKS_RETURN_OPTION = 3;
-    public static final Integer MOVIE_LIST_OPTION = 4;
-    public static final Integer MOVIE_CHECKOUT_OPTION = 5;
-    public static final Integer MOVIE_RETURN_OPTION = 6;
-    public static final Integer USER_HISTORY_OPTION = 7;
-    public static final Integer LOGIN_OPTION = 8;
-    public static final Integer LOGOUT_OPTION = 8;
-    public static final Integer QUIT_OPTION = 9;
+    public static final String BOOKS_LIST_OPTION = "List Books";
+    public static final String BOOKS_CHECKOUT_OPTION = "Checkout";
+    public static final String BOOKS_RETURN_OPTION = "Return Book";
+    public static final String MOVIE_LIST_OPTION = "List Movies";
+    public static final String MOVIE_CHECKOUT_OPTION = "Checkout Movie";
+    public static final String MOVIE_RETURN_OPTION = "Return Movie";
+    public static final String USER_HISTORY_OPTION = "Checkout History";
+    public static final String LOGIN_OPTION = "Login";
+    public static final String LOGOUT_OPTION = "Logout";
+    public static final String QUIT_OPTION = "Quit";
     public static final String CHECKOUT_MESSAGE = "Enter Book Name:";
     public static final String BOOK_CHECKOUT_INVALID_MESSAGE = "That Book is not available.";
     public static final String BOOK_CHECKOUT_SUCCESS_MESSAGE = "Thank you! Enjoy the Book.";
