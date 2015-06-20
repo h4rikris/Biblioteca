@@ -105,6 +105,7 @@ public class Dependencies {
         menuList.put(MOVIE_LIST_OPTION, new ListOutItems(movieLibrary, consoleOutputTemplate));
         menuList.put(MOVIE_CHECKOUT_OPTION, new CheckOutBook(consoleOutputTemplate, consoleInput, movieLibrary));
         menuList.put(MOVIE_RETURN_OPTION, new ReturnBook(consoleOutputTemplate, consoleInput, movieLibrary));
+        menuList.put(USER_INFO_OPTION, new UserInformation(authentication, consoleOutputTemplate));
         menuList.put(LOGOUT_OPTION, new Logout(authentication, consoleOutputTemplate));
         return menuList;
     }

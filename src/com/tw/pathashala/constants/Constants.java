@@ -28,6 +28,7 @@ public interface Constants {
     public static final String USER_HISTORY_OPTION = "Checkout History";
     public static final String LOGIN_OPTION = "Login";
     public static final String LOGOUT_OPTION = "Logout";
+    public static final String USER_INFO_OPTION = "User Profile";
     public static final String QUIT_OPTION = "Quit";
     public static final String CHECKOUT_MESSAGE = "Enter Book Name:";
     public static final String BOOK_CHECKOUT_INVALID_MESSAGE = "That Book is not available.";
