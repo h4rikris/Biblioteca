@@ -1,6 +1,5 @@
 package com.tw.pathashala.menu;
 
-import com.tw.pathashala.constants.Constants;
 import com.tw.pathashala.models.Authentication;
 import com.tw.pathashala.models.User;
 import com.tw.pathashala.view.ConsoleOutputTemplate;

@@ -6,7 +6,8 @@ import com.tw.pathashala.models.MenuMapper;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
-import static com.tw.pathashala.constants.Constants.*;
+import static com.tw.pathashala.constants.Constants.STOP;
+import static com.tw.pathashala.constants.Constants.WELCOME_MESSAGE;
 
 public class BibliotecaApp {
 

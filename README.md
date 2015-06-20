@@ -1,6 +1,9 @@
 # Biblioteca
 
 **Biblioteca is Console based Library Management System to automate various library activities.**
+Biblioteca includes to list movies, books and can expandable to list future items. 
+User can Checkout item as well as can checkin item. Biblioteca keep track of these actions.
+It manages users and based on the user it displays menu. It has login authentication system inorder to avoid unauthorized activities.
 
 ##Installation
 

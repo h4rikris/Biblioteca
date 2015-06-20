@@ -124,8 +124,8 @@ public class Dependencies {
 
     private ArrayList<User> userList() {
         ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("normal", "krishna", NORMAL_USER, null, null, null));
-        users.add(new User("admin", "password", LIBRARIAN, null, null, null));
+        users.add(new User("hariuser", "krishna", NORMAL_USER, "Hari", "912344", "asd@tw.com"));
+        users.add(new User("admin", "password", LIBRARIAN, "Siddu", "9985585", "h@tw.com"));
         users.add(new NullUser());
         return users;
     }

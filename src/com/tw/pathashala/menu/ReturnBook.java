@@ -4,7 +4,8 @@ import com.tw.pathashala.models.Library;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
-import static com.tw.pathashala.constants.Constants.*;
+import static com.tw.pathashala.constants.Constants.BOOK_RETURN_PROMPT_MESSAGE;
+import static com.tw.pathashala.constants.Constants.CONTINUE;
 
 public class ReturnBook implements MenuAction {
     ConsoleOutputTemplate outputTemplate;

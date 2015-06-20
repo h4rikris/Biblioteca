@@ -15,10 +15,6 @@ public interface Constants {
     public static final String BOOK_FORMAT = "| %-41s | %-41s | %-8s |";
     public static final String MOVIE_FORMAT = "| %-39s | %-38s | %-8s | %-2s |";
 
-    public static final String LOGGEDIN_MAIN_MENU = "1) List Books\n2) Checkout\n3) Return Book\n" +
-            "4) List Movies\n5) Checkout Movie\n6) Return Movie\n7) CheckOut History\n8) Logout\n9) Quit\nEnter Your Option:";
-    public static final String LOGGEDOUT_MAIN_MENU = "1) List Books\n2) Checkout\n3) Return Book\n" +
-            "4) List Movies\n5) Checkout Movie\n6) Return Movie\n7) Checkout History\n8) Login\n9) Quit\nEnter Your Option:";
     public static final String BOOKS_LIST_OPTION = "List Books";
     public static final String BOOKS_CHECKOUT_OPTION = "Checkout";
     public static final String BOOKS_RETURN_OPTION = "Return Book";
@@ -30,18 +26,16 @@ public interface Constants {
     public static final String LOGOUT_OPTION = "Logout";
     public static final String USER_INFO_OPTION = "User Profile";
     public static final String QUIT_OPTION = "Quit";
-    public static final String CHECKOUT_MESSAGE = "Enter Book Name:";
+    public static final String CHECKOUT_MESSAGE = "Enter Name:";
     public static final String BOOK_CHECKOUT_INVALID_MESSAGE = "That Book is not available.";
     public static final String BOOK_CHECKOUT_SUCCESS_MESSAGE = "Thank you! Enjoy the Book.";
-    public static final String BOOK_RETURN_PROMPT_MESSAGE = "Enter Book Name To Return:";
+    public static final String BOOK_RETURN_PROMPT_MESSAGE = "Enter Name To Return:";
     public static final String BOOK_RETURN_SUCCESS_MESSAGE = "Thank you for returning the Book.";
     public static final String BOOK_RETURN_FAIL_MESSAGE = "That is not a valid Book return.";
     public static final String MOVIE_CHECKOUT_INVALID_MESSAGE = "That Movie is not available.";
     public static final String MOVIE_CHECKOUT_SUCCESS_MESSAGE = "Thank you! Enjoy the Movie.";
-    public static final String MOVIE_RETURN_PROMPT_MESSAGE = "Enter Movie Name To Return:";
     public static final String MOVIE_RETURN_SUCCESS_MESSAGE = "Thank you for returning the Movie.";
     public static final String MOVIE_RETURN_FAIL_MESSAGE = "That is not a valid Movie return.";
-    public static final String NO_CHECKEDOUT_BOOK_DETAILS_ARE_FOUND = "No Checkedout Book details are Found";
     public static final String NO_ITEMS_DETAILS_ARE_FOUND = "No Item details are Found";
     public static final String LOGOUT_SUCCESS_MESSAGE = "Successfully logged out.";
 }

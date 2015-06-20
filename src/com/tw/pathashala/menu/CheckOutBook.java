@@ -4,7 +4,8 @@ import com.tw.pathashala.models.Library;
 import com.tw.pathashala.view.ConsoleInput;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
-import static com.tw.pathashala.constants.Constants.*;
+import static com.tw.pathashala.constants.Constants.CHECKOUT_MESSAGE;
+import static com.tw.pathashala.constants.Constants.CONTINUE;
 
 public class CheckOutBook implements MenuAction {
     ConsoleOutputTemplate outputTemplate;

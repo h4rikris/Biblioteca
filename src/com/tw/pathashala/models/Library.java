@@ -66,9 +66,8 @@ public class Library {
         }
         if (checkedOutRentableItems.size() >= 1) {
             return checkedOutRentableItems.get(0).getFailMessage();
-        } else {
-            return Constants.NO_ITEMS_DETAILS_ARE_FOUND;
         }
+        return Constants.NO_ITEMS_DETAILS_ARE_FOUND;
     }
 
 }

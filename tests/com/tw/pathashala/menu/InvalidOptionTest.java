@@ -6,7 +6,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static com.tw.pathashala.constants.Constants.*;
+import static com.tw.pathashala.constants.Constants.CONTINUE;
+import static com.tw.pathashala.constants.Constants.INVALID_OPTION_MESSAGE;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 

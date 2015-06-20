@@ -35,6 +35,7 @@ public class ConsoleOutputTemplate {
     public void render() {
         centrifyBody();
         System.out.print(String.format(template, header, body, divider(width), footer));
+        System.out.print("Enter your Option:");
         body = "";
         footer = "";
     }

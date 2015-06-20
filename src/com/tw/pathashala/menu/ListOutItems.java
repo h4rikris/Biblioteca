@@ -4,7 +4,6 @@ import com.tw.pathashala.models.Library;
 import com.tw.pathashala.view.ConsoleOutputTemplate;
 
 import static com.tw.pathashala.constants.Constants.CONTINUE;
-import static com.tw.pathashala.constants.Constants.LOGGEDOUT_MAIN_MENU;
 
 public class ListOutItems implements MenuAction {
 

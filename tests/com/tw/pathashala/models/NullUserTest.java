@@ -1,6 +1,5 @@
 package com.tw.pathashala.models;
 
-import com.tw.pathashala.constants.Constants;
 import org.junit.Test;
 
 import static com.tw.pathashala.constants.Constants.NULL_USER;

@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static com.tw.pathashala.constants.Constants.LOGGEDIN_MAIN_MENU;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
