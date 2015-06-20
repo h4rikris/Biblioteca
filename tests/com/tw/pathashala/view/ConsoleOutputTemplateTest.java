@@ -33,7 +33,8 @@ public class ConsoleOutputTemplateTest {
     public void testForTemplateToIncludeBodyMessageOrNot() {
         ConsoleOutputTemplate template = new ConsoleOutputTemplate();
 
-        template.renderOutput("Welcome", "some Footer");
+        template.addToBody("Welcome");
+        template.render();
         String actual = outputContent.toString();
 
         assertTrue(actual.contains("Welcome"));
@@ -44,7 +45,8 @@ public class ConsoleOutputTemplateTest {
     public void testForTemplateToIncludeFooterMessageOrNot() {
         ConsoleOutputTemplate template = new ConsoleOutputTemplate();
 
-        template.renderOutput("Body", "InputParser");
+        template.addToFooter("InputParser");
+        template.render();
         String actual = outputContent.toString();
 
         assertTrue(actual.contains("InputParser"));
@@ -60,6 +62,15 @@ public class ConsoleOutputTemplateTest {
         assertEquals("Enter:", actual);
     }
 
+    @Test
+    public void testForrenderToIncludeBodyAndFooterAtAtime() {
+        ConsoleOutputTemplate template = new ConsoleOutputTemplate();
+
+        template.renderOutput("Welcome", "Guest");
+        String actual = outputContent.toString();
+
+        assertTrue(actual.contains("Welcome") && actual.contains("Guest"));
+    }
     @After
     public void cleanUp() {
         System.setOut(null);
