@@ -18,10 +18,10 @@ public class AuthenticationTest {
 
     @Before
     public void setUp() throws Exception {
-        hari = new User("hari", "krishna", LIBRARIAN);
+        hari = new User("hari", "krishna", LIBRARIAN, null, null, null);
         users = new ArrayList<User>();
         users.add(hari);
-        users.add(new User("sourav", "cr", LIBRARIAN));
+        users.add(new User("sourav", "cr", LIBRARIAN, null, null, null));
         userMenuMapper = new HashMap<>();
     }
 

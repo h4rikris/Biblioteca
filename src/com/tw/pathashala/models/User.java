@@ -3,12 +3,18 @@ package com.tw.pathashala.models;
 public class User {
     private String userName;
     private String password;
+    private String name;
+    private String phoneNumber;
+    private String email;
     private Integer role;
 
-    public User(String userName, String password, Integer role) {
+    public User(String userName, String password, Integer role, String name, String phoneNumber, String email) {
         this.userName = userName;
         this.password = password;
         this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.name = name;
     }
 
     public Boolean checkCredentials(String userName, String password) {
@@ -40,6 +46,6 @@ public class User {
 
     @Override
     public String toString() {
-        return userName;
+        return userName + "-" + phoneNumber + "-" + email;
     }
 }

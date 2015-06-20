@@ -123,8 +123,8 @@ public class Dependencies {
 
     private ArrayList<User> userList() {
         ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("normal", "krishna", NORMAL_USER));
-        users.add(new User("admin", "password", LIBRARIAN));
+        users.add(new User("normal", "krishna", NORMAL_USER, null, null, null));
+        users.add(new User("admin", "password", LIBRARIAN, null, null, null));
         users.add(new NullUser());
         return users;
     }

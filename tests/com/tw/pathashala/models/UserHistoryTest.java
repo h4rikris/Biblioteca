@@ -25,7 +25,7 @@ public class UserHistoryTest {
 
     @Before
     public void setUp() throws Exception {
-        userHistory.put(new User("hari", "pass", LIBRARIAN), new ArrayList<RentableItem>());
+        userHistory.put(new User("hari", "pass", LIBRARIAN, null, null, null), new ArrayList<RentableItem>());
 
     }
 
@@ -34,7 +34,7 @@ public class UserHistoryTest {
         UserHistory history = new UserHistory(authentication, userHistory);
         RentableItem availableBook = new AvailableBook("RISK", "Hari", 2015);
 
-        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass", LIBRARIAN));
+        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass", LIBRARIAN, null, null, null));
         history.addItem(availableBook);
 
         verify(authentication).getCurrentLoggedInUser();
@@ -45,7 +45,7 @@ public class UserHistoryTest {
         UserHistory history = new UserHistory(authentication, userHistory);
         RentableItem availableBook = new AvailableBook("RISK", "Hari", 2015);
 
-        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass", LIBRARIAN));
+        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass", LIBRARIAN, null, null, null));
         history.removeItem(availableBook);
 
         verify(authentication).getCurrentLoggedInUser();
@@ -56,10 +56,10 @@ public class UserHistoryTest {
         UserHistory history = new UserHistory(authentication, userHistory);
         RentableItem availableBook = new AvailableBook("RISK", "Hari", 2015);
 
-        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass", LIBRARIAN));
+        when(authentication.getCurrentLoggedInUser()).thenReturn(new User("hari", "pass", LIBRARIAN, null, null, null));
         history.addItem(availableBook);
         String actualResult = history.toString();
-        String expected = "| hari:                                                                                            |\n" +
+        String expected = "| hari-null-null:                                                                                  |\n" +
                 "| RISK                                      | Hari                                      | 2015     |\n";
 
         assertEquals(expected, actualResult);
