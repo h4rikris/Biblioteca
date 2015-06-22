@@ -26,6 +26,11 @@ public class UserHistory {
         return authentication.getCurrentLoggedInUser();
     }
 
+    public ArrayList<RentableItem> getItemList() {
+        User currentLoggedInUser = getCurrentLoggedInUser();
+        return userCheckOutHistory.get(currentLoggedInUser);
+    }
+
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder();

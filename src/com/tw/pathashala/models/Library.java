@@ -40,7 +40,7 @@ public class Library {
     }
 
     public String checkedOutItems() {
-        return displayItems(checkedOutRentableItems);
+        return displayItems(userHistory.getItemList());
     }
 
     private String displayItems(ArrayList<RentableItem> listOfRentableItems) {
@@ -56,7 +56,7 @@ public class Library {
     }
 
     public String returnItem(String bookName) {
-        ArrayList<RentableItem> rentableItems = searchAgent.search(checkedOutRentableItems, bookName);
+        ArrayList<RentableItem> rentableItems = searchAgent.search(userHistory.getItemList(), bookName);
         for (RentableItem book : rentableItems) {
             RentableItem returnedRentableItem = book.returnItem();
             checkedOutRentableItems.remove(book);

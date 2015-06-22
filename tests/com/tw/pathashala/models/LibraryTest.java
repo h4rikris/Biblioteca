@@ -13,6 +13,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class LibraryTest {
 
@@ -71,8 +72,7 @@ public class LibraryTest {
 
     @Test
     public void testForDisplayCheckedOutBookDetails() {
-        checkedOutRentableItems.clear();
-        checkedOutRentableItems.add(new CheckedOutBook("Java", "Hari", 2015));
+        userHistory.addItem(new CheckedOutBook("Java", "Hari", 2015));
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search, userHistory);
 
         String booksDetails = library.checkedOutItems();
@@ -163,11 +163,34 @@ public class LibraryTest {
     @Test
     public void shouldRemoveReturnedItemFromUserHistory() {
         UserHistory userHistory = Mockito.mock(UserHistory.class);
+        when(userHistory.getItemList()).thenReturn(checkedOutRentableItems);
         Library library = new Library(availableRentableItems, checkedOutRentableItems, search, userHistory);
 
         library.returnItem("Oriented");
         RentableItem item = new CheckedOutBook("Oriented", "SSS", 2014);
 
         verify(userHistory).removeItem(item);
+    }
+
+    @Test
+    public void shouldGetReturnItemsFromUserHistory() {
+        UserHistory userHistory = Mockito.mock(UserHistory.class);
+        Library library = new Library(availableRentableItems, checkedOutRentableItems, search, userHistory);
+
+        library.checkedOutItems();
+
+        verify(userHistory).getItemList();
+    }
+
+    @Test
+    public void shouldGetCheckedItemsFromHistoryWhileReturningItem() {
+        UserHistory userHistory = Mockito.mock(UserHistory.class);
+        when(userHistory.getItemList()).thenReturn(checkedOutRentableItems);
+        Library library = new Library(availableRentableItems, checkedOutRentableItems, search, userHistory);
+
+        library.returnItem("Oriented");
+        RentableItem item = new CheckedOutBook("Oriented", "SSS", 2014);
+
+        verify(userHistory).getItemList();
     }
 }
